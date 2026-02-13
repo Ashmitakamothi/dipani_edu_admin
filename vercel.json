@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "buildCommand": "vite build --mode production",
+  "outputDirectory": "dist",
+  "env": {
+    "CI": "false",
+    "GENERATE_SOURCEMAP": "false",
+    "VITE_IGNORE_TS_ERRORS": "true"
+  },
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
