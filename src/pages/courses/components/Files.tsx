@@ -68,7 +68,7 @@ const EnhancedPopup = ({ isVisible, message, type, onClose, autoClose = true }) 
       case "warning":
         return <AlertCircle className="w-5 h-5 text-amber-600" />;
       case "info":
-        return <Info className="w-5 h-5 text-blue-600" />;
+        return <Info className="w-5 h-5 text-brand-500" />;
       default:
         return <Info className="w-5 h-5 text-gray-600" />;
     }
@@ -158,7 +158,7 @@ const FilePreview = ({ file, onDownload }) => {
       case "PDF":
         return <FileText className="w-8 h-8 text-red-600" />;
       case "DOCX":
-        return <FileText className="w-8 h-8 text-blue-600" />;
+        return <FileText className="w-8 h-8 text-brand-500" />;
       case "IMAGE":
         return <Image className="w-8 h-8 text-green-600" />;
       case "VIDEO":
@@ -190,7 +190,7 @@ const FilePreview = ({ file, onDownload }) => {
     <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-200 rounded-xl p-6">
       <div className="flex items-start justify-between mb-4">
         <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-          <Eye className="w-5 h-5 text-blue-600" />
+          <Eye className="w-5 h-5 text-brand-500" />
           Current File Preview
         </h3>
         <div className="flex items-center gap-2">
@@ -261,13 +261,13 @@ const FilePreview = ({ file, onDownload }) => {
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <Info className="w-5 h-5 text-blue-600" />
+              <Info className="w-5 h-5 text-brand-500" />
               <span className="text-sm font-medium text-blue-800">
                 File Information
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-xs text-blue-600">
+              <span className="text-xs text-brand-500">
                 ID: {file._id}
               </span>
             </div>
@@ -371,7 +371,7 @@ export default function FileUploadForm({
       value: "DOCX", 
       label: "Word Document", 
       icon: FileText, 
-      color: "text-blue-600",
+      color: "text-brand-500",
       accept: ".doc,.docx",
       extensions: ["doc", "docx"]
     },
@@ -794,7 +794,7 @@ export default function FileUploadForm({
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="w-full px-4 py-3 text-left bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 flex sm:flex-row items-center sm:items-center justify-between gap-4 hover:border-gray-300 transition-all"
+                className="w-full px-4 py-3 text-left bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 flex sm:flex-row items-center sm:items-center justify-between gap-4 hover:border-gray-300 transition-all"
               >
                 <span className="font-medium">{selectedLanguage}</span>
                 <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isLanguageOpen ? 'rotate-180' : ''}`} />
@@ -845,7 +845,7 @@ export default function FileUploadForm({
                   >
                     <div className="flex items-center gap-3">
                       <Icon className={`w-6 h-6 ${
-                        isSelected ? "text-blue-600" : type.color
+                        isSelected ? "text-brand-500" : type.color
                       }`} />
                       <div>
                         <span className={`font-medium ${
@@ -859,7 +859,7 @@ export default function FileUploadForm({
                       </div>
                     </div>
                     {isSelected && (
-                      <div className="absolute top-2 right-2 bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center">
+                      <div className="absolute top-2 right-2 bg-brand-500 text-white rounded-full w-6 h-6 flex items-center justify-center">
                         <CheckCircle2 className="w-4 h-4" />
                       </div>
                     )}
@@ -890,7 +890,7 @@ export default function FileUploadForm({
                   Drag and drop files here or{" "}
                   <button
                     onClick={() => fileInputRef.current.click()}
-                    className="text-blue-600 hover:underline"
+                    className="text-brand-500 hover:underline"
                   >
                     select files
                   </button>
@@ -947,7 +947,7 @@ export default function FileUploadForm({
                   onClick={() => setDownloadable(!downloadable)}
                   disabled={uploading}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    downloadable ? "bg-blue-600" : "bg-gray-300"
+                    downloadable ? "bg-brand-500" : "bg-gray-300"
                   } ${uploading ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   <span
@@ -972,7 +972,7 @@ export default function FileUploadForm({
                   onClick={() => setActive(!active)}
                   disabled={uploading}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    active ? "bg-blue-600" : "bg-gray-300"
+                    active ? "bg-brand-500" : "bg-gray-300"
                   } ${uploading ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   <span
@@ -997,7 +997,7 @@ export default function FileUploadForm({
                   onClick={() => setPublicContent(!publicContent)}
                   disabled={uploading}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    publicContent ? "bg-blue-600" : "bg-gray-300"
+                    publicContent ? "bg-brand-500" : "bg-gray-300"
                   } ${uploading ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   <span

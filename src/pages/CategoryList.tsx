@@ -107,7 +107,7 @@ const DeleteModal: React.FC<{
             <button
               onClick={onClose}
               disabled={isDeleting}
-              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50"
             >
               Cancel
             </button>
@@ -349,23 +349,23 @@ const CategoryList: React.FC = () => {
       />
       <PageBreadcrumb pageTitle="Category List" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
-       <div className="flex justify-between items-center mb-6">
-  <h1 className="text-2xl font-bold text-gray-800 dark:text-white/90">
-    Course Categories
-  </h1>
-  <div className="flex items-center gap-4">
-    <button
-      className="inline-flex items-center bg-blue-600 text-white gap-2 px-4 py-2 border rounded-md hover:bg-blue-700 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
-      onClick={() => navigate("/add-category")}
-    >
-      <Plus className="h-4 w-4" />
-      Add Category
-    </button>
-    <span className="text-gray-500 text-sm dark:text-gray-400">
-      Total: {pagination.total}
-    </span>
-  </div>
-</div>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white/90">
+            Course Categories
+          </h1>
+          <div className="flex items-center gap-4">
+            <button
+              className="inline-flex items-center bg-brand-500 text-white gap-2 px-4 py-2 border rounded-md hover:bg-brand-600 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800"
+              onClick={() => navigate("/add-category")}
+            >
+              <Plus className="h-4 w-4" />
+              Add Category
+            </button>
+            <span className="text-gray-500 text-sm dark:text-gray-400">
+              Total: {pagination.total}
+            </span>
+          </div>
+        </div>
 
 
         {/* Search & Filter */}
@@ -378,7 +378,7 @@ const CategoryList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by name..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
 
@@ -389,7 +389,7 @@ const CategoryList: React.FC = () => {
               <select
                 value={localFilters.status || ""}
                 onChange={(e) => handleFilterChange("status", e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Status</option>
                 <option value="active">Active</option>
@@ -431,7 +431,7 @@ const CategoryList: React.FC = () => {
         {/* Loading State */}
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -474,15 +474,15 @@ const CategoryList: React.FC = () => {
                   </td>
                   <td className="px-6 py-4">
                     <img
-  src={`${import.meta.env.VITE_IMAGE_URL}/${cat.image}`}
-  onError={(e) => {
-    e.currentTarget.onerror = null;
-    e.currentTarget.src =
-      "https://tse1.mm.bing.net/th/id/OIP.FR4m6MpuRDxDsAZlyvKadQHaFL?pid=Api&P=0&h=180";
-  }}
-  alt={cat?.name || "No image"}
-  className="w-10 h-10 rounded-full object-cover"
-/>
+                      src={`${import.meta.env.VITE_IMAGE_URL}/${cat.image}`}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src =
+                          "https://tse1.mm.bing.net/th/id/OIP.FR4m6MpuRDxDsAZlyvKadQHaFL?pid=Api&P=0&h=180";
+                      }}
+                      alt={cat?.name || "No image"}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
 
 
                   </td>
@@ -505,7 +505,7 @@ const CategoryList: React.FC = () => {
                   <td className="px-6 py-4 text-right space-x-2">
                     <button
                       onClick={() => openEditModal(cat)}
-                      className="text-blue-500 hover:text-blue-700 transition-colors"
+                      className="text-brand-500 hover:text-brand-600 transition-colors"
                     >
                       <Pencil className="h-5 w-5" />
                     </button>
@@ -536,11 +536,10 @@ const CategoryList: React.FC = () => {
               <button
                 key={idx}
                 onClick={() => handlePageChange(page)}
-                className={`px-3 py-1 rounded ${
-                  pagination.page === page
-                    ? "bg-indigo-500 text-white"
+                className={`px-3 py-1 rounded ${pagination.page === page
+                    ? "bg-brand-500 text-white"
                     : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                }`}
+                  }`}
               >
                 {page}
               </button>

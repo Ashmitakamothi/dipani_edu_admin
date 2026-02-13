@@ -126,7 +126,7 @@ const CourseNotificationSender: React.FC = () => {
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <div className="p-3 bg-blue-100 rounded-xl">
-            <Bell className="w-8 h-8 text-blue-600" />
+            <Bell className="w-8 h-8 text-brand-500" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Course Notifications</h1>
@@ -164,7 +164,7 @@ const CourseNotificationSender: React.FC = () => {
                 onChange={handleChange}
                 required
                 disabled={coursesLoading}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               >
                 <option value="">
                   {coursesLoading ? "Loading courses..." : "Choose a course to notify"}
@@ -191,7 +191,7 @@ const CourseNotificationSender: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="e.g., Assignment Deadline Reminder"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 />
               </div>
 
@@ -205,7 +205,7 @@ const CourseNotificationSender: React.FC = () => {
                   value={form.type}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 >
                   <option value="">Select notification type</option>
                   {notificationTypes.map((type) => (
@@ -229,7 +229,7 @@ const CourseNotificationSender: React.FC = () => {
                 required
                 rows={4}
                 placeholder="Enter your notification message here..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               />
             </div>
 
@@ -244,7 +244,7 @@ const CourseNotificationSender: React.FC = () => {
                 value={form.webPushLink}
                 onChange={handleChange}
                 placeholder="https://yourlms.com/course/assignments"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               />
               <p className="text-sm text-gray-500 mt-1">URL to redirect users when they click the notification</p>
             </div>
@@ -270,7 +270,7 @@ const CourseNotificationSender: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => document.querySelector<HTMLInputElement>('input[type="file"]')?.click()}
-                    className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                    className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-brand-500 transition-colors"
                   >
                     Choose Image
                   </button>
@@ -298,7 +298,7 @@ const CourseNotificationSender: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading || !form.courseId || !form.title || !form.description || !form.type}
-                className="flex items-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold"
+                className="flex items-center gap-2 px-8 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold"
               >
                 {loading ? (
                   <>

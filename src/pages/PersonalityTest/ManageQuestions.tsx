@@ -177,17 +177,17 @@ const ManageQuestions: React.FC = () => {
                 <div className="flex border-b border-gray-200 dark:border-gray-700 mb-8">
                     <button
                         onClick={() => setActiveTab('questions')}
-                        className={`px-6 py-3 text-sm font-medium transition-colors relative ${activeTab === 'questions' ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'}`}
+                        className={`px-6 py-3 text-sm font-medium transition-colors relative ${activeTab === 'questions' ? 'text-brand-500 dark:text-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'}`}
                     >
                         Questions
-                        {activeTab === 'questions' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400" />}
+                        {activeTab === 'questions' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-500 dark:bg-blue-400" />}
                     </button>
                     <button
                         onClick={() => setActiveTab('mapping')}
-                        className={`px-6 py-3 text-sm font-medium transition-colors relative ${activeTab === 'mapping' ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'}`}
+                        className={`px-6 py-3 text-sm font-medium transition-colors relative ${activeTab === 'mapping' ? 'text-brand-500 dark:text-blue-400' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'}`}
                     >
                         Course Mapping
-                        {activeTab === 'mapping' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400" />}
+                        {activeTab === 'mapping' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-500 dark:bg-blue-400" />}
                     </button>
                 </div>
 
@@ -197,7 +197,7 @@ const ManageQuestions: React.FC = () => {
                         <div className={`p-6 rounded-xl shadow mb-8 transition-colors duration-300 ${editingId ? 'bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800' : 'bg-white dark:bg-gray-800'}`}>
                             <div className="flex justify-between items-center mb-6">
                                 <h2 className="text-xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                                    {editingId ? <Pencil className="w-5 h-5 text-blue-500" /> : <Plus className="w-5 h-5" />}
+                                    {editingId ? <Pencil className="w-5 h-5 text-brand-500" /> : <Plus className="w-5 h-5" />}
                                     {editingId ? 'Edit Question' : 'Add New Question'}
                                 </h2>
                                 {editingId && (
@@ -220,7 +220,7 @@ const ManageQuestions: React.FC = () => {
                                         type="text"
                                         value={newQuestion.question}
                                         onChange={(e) => setNewQuestion({ ...newQuestion, question: e.target.value })}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none"
                                         placeholder="e.g., You enjoy vibrant social events..."
                                         required
                                     />
@@ -269,7 +269,7 @@ const ManageQuestions: React.FC = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors flex items-center gap-2 shadow-sm"
+                                    className="bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors flex items-center gap-2 shadow-sm"
                                 >
                                     {editingId ? <Pencil className="w-4 h-4" /> : <Save className="w-4 h-4" />}
                                     {editingId ? 'Update Question' : 'Save Question'}
@@ -310,14 +310,14 @@ const ManageQuestions: React.FC = () => {
                                             questions.map((q) => (
                                                 <tr key={q._id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                                                     <td className="px-6 py-4 text-sm text-gray-800 dark:text-gray-200">{q.question}</td>
-                                                    <td className="px-6 py-4 text-sm font-mono text-blue-600 dark:text-blue-400">{q.dimension}</td>
+                                                    <td className="px-6 py-4 text-sm font-mono text-brand-500 dark:text-blue-400">{q.dimension}</td>
                                                     <td className="px-6 py-4 text-sm font-mono">{q.agreeType}</td>
                                                     <td className="px-6 py-4 text-sm font-mono">{q.disagreeType}</td>
                                                     <td className="px-6 py-4 text-sm">{q.weight}</td>
                                                     <td className="px-6 py-4 text-right flex justify-end gap-2">
                                                         <button
                                                             onClick={() => handleEdit(q)}
-                                                            className="text-blue-500 hover:text-blue-700 p-1 transition-colors"
+                                                            className="text-brand-500 hover:text-blue-700 p-1 transition-colors"
                                                             title="Edit Question"
                                                         >
                                                             <Pencil className="w-4 h-4" />
@@ -349,7 +349,7 @@ const ManageQuestions: React.FC = () => {
                                             <h3 className="text-2xl font-black text-gray-900 dark:text-white">{type}</h3>
                                             <button
                                                 onClick={() => openMappingModal(type)}
-                                                className="p-2 rounded-lg bg-gray-50 group-hover:bg-blue-50 dark:bg-gray-700 dark:group-hover:bg-blue-900/30 text-gray-500 group-hover:text-blue-600 transition-colors"
+                                                className="p-2 rounded-lg bg-gray-50 group-hover:bg-blue-50 dark:bg-gray-700 dark:group-hover:bg-blue-900/30 text-gray-500 group-hover:text-brand-500 transition-colors"
                                             >
                                                 <Pencil className="w-4 h-4" />
                                             </button>
@@ -397,7 +397,7 @@ const ManageQuestions: React.FC = () => {
                                         placeholder="Search courses..."
                                         value={courseSearch}
                                         onChange={(e) => setCourseSearch(e.target.value)}
-                                        className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all outline-none"
+                                        className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border-none rounded-xl focus:ring-2 focus:ring-brand-500 transition-all outline-none"
                                     />
                                 </div>
 
@@ -439,7 +439,7 @@ const ManageQuestions: React.FC = () => {
                                 <button
                                     onClick={handleUpdateMapping}
                                     disabled={mappingLoading}
-                                    className="px-8 py-2 rounded-xl font-semibold bg-blue-600 hover:bg-blue-700 text-white shadow-lg disabled:opacity-50 transition-all flex items-center gap-2"
+                                    className="px-8 py-2 rounded-xl font-semibold bg-brand-500 hover:bg-brand-600 text-white shadow-lg disabled:opacity-50 transition-all flex items-center gap-2"
                                 >
                                     {mappingLoading ? <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /> : <Save className="w-4 h-4" />}
                                     Save Mapping

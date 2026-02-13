@@ -30,7 +30,7 @@ const ModulesTabContent = ({
                 <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-blue-100 rounded-lg">
-                            <BookOpen className="w-5 h-5 text-blue-600" />
+                            <BookOpen className="w-5 h-5 text-brand-500" />
                         </div>
                         <div>
                             <p className="text-sm font-medium text-gray-600">Total Modules</p>
@@ -82,7 +82,7 @@ const ModulesTabContent = ({
                             title="Edit Module"
                             onClick={() => setEditModule(module)}
                         >
-                            <Pencil className="w-5 h-5 text-blue-600" />
+                            <Pencil className="w-5 h-5 text-brand-500" />
                         </button>
                         <SavedModuleDisplay
                             module={module}
@@ -98,7 +98,7 @@ const ModulesTabContent = ({
 
                 {moduleLoading && (
                     <div className="text-center py-8">
-                        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                        <Loader2 className="w-8 h-8 animate-spin text-brand-500" />
                         <p className="mt-4 text-gray-600">Loading modules...</p>
                     </div>
                 )}
@@ -117,7 +117,7 @@ const ModulesTabContent = ({
                         <button
                             type="button"
                             onClick={() => setShowCreateForm(true)}
-                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 mx-auto"
+                            className="flex items-center gap-2 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-all duration-200 mx-auto"
                         >
                             <Plus className="w-4 h-4" />
                             Create First Module

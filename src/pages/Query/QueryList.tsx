@@ -203,7 +203,7 @@ const QueryList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by name, email, or message..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
 
@@ -213,7 +213,7 @@ const QueryList: React.FC = () => {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Status</option>
                 {allowedStatuses.map(status => (
@@ -227,7 +227,7 @@ const QueryList: React.FC = () => {
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Categories</option>
                 {categories.map(category => (
@@ -242,7 +242,7 @@ const QueryList: React.FC = () => {
               <select
                 value={itemsPerPage}
                 onChange={(e) => setItemsPerPage(Number(e.target.value))}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value={5}>5</option>
                 <option value={10}>10</option>
@@ -271,7 +271,7 @@ const QueryList: React.FC = () => {
         {/* Loading State */}
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -371,7 +371,7 @@ const QueryList: React.FC = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <div className="flex justify-end space-x-2">
                         <button
-                          className="text-blue-500 hover:text-blue-700 transition-colors p-1"
+                          className="text-brand-500 hover:text-blue-700 transition-colors p-1"
                           onClick={() => handleEditStatus(query)}
                         >
                           <Pencil className="h-5 w-5" />
@@ -408,7 +408,7 @@ const QueryList: React.FC = () => {
                     onClick={() => handlePageChange(page)}
                     className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
                       currentPage === page
-                        ? "bg-indigo-500 text-white"
+                        ? "bg-brand-500 text-white"
                         : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                     }`}
                   >
@@ -458,7 +458,7 @@ const QueryList: React.FC = () => {
         <select
           value={modalStatus}
           onChange={(e) => setModalStatus(e.target.value)}
-          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500"
         >
           {allowedStatuses.map((status) => (
             <option key={status.value} value={status.value}>
@@ -482,7 +482,7 @@ const QueryList: React.FC = () => {
         </button>
         <button
           onClick={handleUpdateStatus}
-          className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50"
+          className="px-4 py-2 rounded-md bg-brand-500 text-white hover:bg-brand-600 disabled:opacity-50"
           disabled={modalLoading}
         >
           {modalLoading ? "Updating..." : "Update"}

@@ -136,7 +136,7 @@ const ForumDetails: React.FC = () => {
                   setEditingReplyId(reply._id);
                   setEditReplyContent(reply.content);
                 }}
-                className="p-1 text-blue-600 hover:bg-blue-50 rounded transition"
+                className="p-1 text-brand-500 hover:bg-blue-50 rounded transition"
               >
                 <Pencil className="w-3.5 h-3.5" />
               </button>
@@ -167,7 +167,7 @@ const ForumDetails: React.FC = () => {
                 <button
                   onClick={() => handleUpdateReply(reply._id)}
                   disabled={isUpdatingReply}
-                  className="px-3 py-1 text-xs bg-blue-600 text-white rounded disabled:opacity-50"
+                  className="px-3 py-1 text-xs bg-brand-500 text-white rounded disabled:opacity-50"
                 >
                   {isUpdatingReply ? "Saving..." : "Save"}
                 </button>
@@ -209,7 +209,7 @@ const ForumDetails: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+        <Loader2 className="h-8 w-8 animate-spin text-brand-500" />
       </div>
     );
   }
@@ -221,7 +221,7 @@ const ForumDetails: React.FC = () => {
           <XCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
           <h3 className="text-lg font-bold text-gray-900 mb-2">Error</h3>
           <p className="text-gray-600 mb-4">{error || "Thread not found"}</p>
-          <button onClick={() => navigate("/forum")} className="text-blue-600 font-medium">Back to Forum</button>
+          <button onClick={() => navigate("/forum")} className="text-brand-500 font-medium">Back to Forum</button>
         </div>
       </div>
     );
@@ -234,7 +234,7 @@ const ForumDetails: React.FC = () => {
           <div className="p-8">
             <div className="flex justify-between items-start mb-6">
               <div className="flex gap-4 items-center">
-                <div className="h-14 w-14 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                <div className="h-14 w-14 bg-brand-500 rounded-xl flex items-center justify-center text-white shadow-lg">
                   <MessageCircle className="w-7 h-7" />
                 </div>
                 <div>
@@ -246,7 +246,7 @@ const ForumDetails: React.FC = () => {
                 </div>
               </div>
               <div className="flex gap-2">
-                <button onClick={() => navigate(`/forum/edit/${thread._id}`)} className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
+                <button onClick={() => navigate(`/forum/edit/${thread._id}`)} className="p-2 text-brand-500 hover:bg-blue-50 rounded-lg">
                   <Pencil className="w-5 h-5" />
                 </button>
                 <button onClick={handleDeleteThread} disabled={isDeleting} className="p-2 text-red-600 hover:bg-red-50 rounded-lg">
@@ -260,7 +260,7 @@ const ForumDetails: React.FC = () => {
               {thread.attachments?.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-gray-200 grid gap-2">
                   {thread.attachments.map((att: any, i: number) => (
-                    <a key={i} href={`${BASE_URL}/${att.type || 'uploads/' + att.originalName}`} target="_blank" rel="noreferrer" className="flex items-center p-2 text-sm text-blue-600 hover:underline">
+                    <a key={i} href={`${BASE_URL}/${att.type || 'uploads/' + att.originalName}`} target="_blank" rel="noreferrer" className="flex items-center p-2 text-sm text-brand-500 hover:underline">
                       <Paperclip className="w-4 h-4 mr-2" /> {att.originalName}
                     </a>
                   ))}
@@ -270,12 +270,12 @@ const ForumDetails: React.FC = () => {
 
             <div className="border-t border-gray-100 pt-8">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <MessageCircle className="w-6 h-6 text-blue-600" />
+                <MessageCircle className="w-6 h-6 text-brand-500" />
                 Replies ({threadReplies?.length || 0})
               </h2>
 
               {repliesLoading ? (
-                <div className="flex justify-center py-12"><Loader2 className="w-8 h-8 animate-spin text-blue-600" /></div>
+                <div className="flex justify-center py-12"><Loader2 className="w-8 h-8 animate-spin text-brand-500" /></div>
               ) : threadReplies?.length > 0 ? (
                 <div className="space-y-6">
                   {threadReplies.map(reply => <ReplyItem key={reply._id} reply={reply} />)}

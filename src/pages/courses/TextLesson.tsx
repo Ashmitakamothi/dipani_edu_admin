@@ -143,7 +143,7 @@ const TextLessonPage: React.FC = () => {
           </div>
           <button
             onClick={() => setShowForm((v) => !v)}
-            className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
           >
             <Plus className="w-5 h-5" />
             Add Lesson
@@ -169,7 +169,7 @@ const TextLessonPage: React.FC = () => {
                   value={form.title}
                   onChange={handleChange}
                   required
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 />
               </div>
               <div>
@@ -180,7 +180,7 @@ const TextLessonPage: React.FC = () => {
                   name="subTitle"
                   value={form.subTitle}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 />
               </div>
             </div>
@@ -194,7 +194,7 @@ const TextLessonPage: React.FC = () => {
                   name="language"
                   value={form.language}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 >
                   <option value="English">English</option>
                   <option value="Spanish">Spanish</option>
@@ -210,7 +210,7 @@ const TextLessonPage: React.FC = () => {
                   name="accessibility"
                   value={form.accessibility}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 >
                   <option value="free">Free</option>
                   <option value="premium">Premium</option>
@@ -227,7 +227,7 @@ const TextLessonPage: React.FC = () => {
                 value={form.summary}
                 onChange={handleChange}
                 rows={2}
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               />
             </div>
 
@@ -241,7 +241,7 @@ const TextLessonPage: React.FC = () => {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               />
             </div>
 
@@ -249,7 +249,7 @@ const TextLessonPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={formLoading}
-                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {formLoading && <Loader2 className="animate-spin w-4 h-4" />}
                 Create Lesson
@@ -471,7 +471,7 @@ const TextLessonPage: React.FC = () => {
 
                     <td className="px-6 py-4 text-right space-x-2">
                       <button
-                        className="text-blue-500 hover:text-blue-700 transition-colors"
+                        className="text-brand-500 hover:text-blue-700 transition-colors"
                         onClick={() =>
                           navigate(`/courses/text-courses/${lesson._id}`)
                         }

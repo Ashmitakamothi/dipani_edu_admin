@@ -452,7 +452,7 @@ const DripPopup = ({
           </p>
           {/* Show target information */}
           <div className="mt-4 p-3 bg-blue-50 dark:bg-white/[0.03] rounded-lg">
-            <p className="text-sm text-blue-800 dark:text-blue-500">
+            <p className="text-sm text-blue-800 dark:text-brand-500">
               <span className="font-medium">Target:</span> {targetType} (ID:{" "}
               {targetId})
             </p>

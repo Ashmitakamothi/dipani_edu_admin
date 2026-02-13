@@ -318,7 +318,7 @@ const AddEvent: React.FC = () => {
                 name="title"
                 value={formData.title}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                 required
               />
             </div>
@@ -347,7 +347,7 @@ const AddEvent: React.FC = () => {
                   name="type"
                   value={formData.type}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   required
                 >
                   <option value="">Select Type</option>
@@ -365,7 +365,7 @@ const AddEvent: React.FC = () => {
                   name="category"
                   value={formData.category}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   required
                 >
                   <option value="">Select Category</option>
@@ -387,7 +387,7 @@ const AddEvent: React.FC = () => {
                   name="startDate"
                   value={formData.startDate}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   required
                 />
               </div>
@@ -401,7 +401,7 @@ const AddEvent: React.FC = () => {
                   name="endDate"
                   value={formData.endDate}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   required
                 />
               </div>
@@ -423,7 +423,7 @@ const AddEvent: React.FC = () => {
                       name="venue.name"
                       value={formData.venue.name}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     />
                   </div>
@@ -436,7 +436,7 @@ const AddEvent: React.FC = () => {
                       name="venue.address"
                       value={formData.venue.address}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     />
                   </div>
@@ -449,7 +449,7 @@ const AddEvent: React.FC = () => {
                       name="venue.city"
                       value={formData.venue.city}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     />
                   </div>
@@ -462,7 +462,7 @@ const AddEvent: React.FC = () => {
                       name="venue.country"
                       value={formData.venue.country}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     />
                   </div>
@@ -476,7 +476,7 @@ const AddEvent: React.FC = () => {
                       value={formData.venue.coordinates.latitude}
                       onChange={handleInputChange}
                       step="any"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     />
                   </div>
@@ -490,7 +490,7 @@ const AddEvent: React.FC = () => {
                       value={formData.venue.coordinates.longitude}
                       onChange={handleInputChange}
                       step="any"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     />
                   </div>
@@ -513,7 +513,7 @@ const AddEvent: React.FC = () => {
                       name="onlineLink.platform"
                       value={formData.onlineLink.platform}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     >
                       <option value="">Select Platform</option>
@@ -532,7 +532,7 @@ const AddEvent: React.FC = () => {
                       name="onlineLink.url"
                       value={formData.onlineLink.url}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                       required
                     />
                   </div>
@@ -545,7 +545,7 @@ const AddEvent: React.FC = () => {
                       name="onlineLink.meetingId"
                       value={formData.onlineLink.meetingId}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                     />
                   </div>
                   <div>
@@ -557,7 +557,7 @@ const AddEvent: React.FC = () => {
                       name="onlineLink.password"
                       value={formData.onlineLink.password}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                     />
                   </div>
                 </div>
@@ -575,7 +575,7 @@ const AddEvent: React.FC = () => {
                   value={formData.capacity}
                   onChange={handleInputChange}
                   min="0"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   required
                 />
               </div>
@@ -591,7 +591,7 @@ const AddEvent: React.FC = () => {
                   onChange={handleInputChange}
                   min="0"
                   step="0.01"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   required
                 />
               </div>
@@ -609,7 +609,7 @@ const AddEvent: React.FC = () => {
                     name="isPublic"
                     checked={formData.isPublic}
                     onChange={handleCheckboxChange}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-brand-500 focus:ring-brand-500 border-gray-300 rounded"
                   />
                   <label className="ml-2 block text-sm text-gray-700">
                     Make this event public
@@ -626,7 +626,7 @@ const AddEvent: React.FC = () => {
                     name="status"
                     value={formData.status}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   >
                     <option value="draft">Draft</option>
                     <option value="published">Published</option>
@@ -643,7 +643,7 @@ const AddEvent: React.FC = () => {
                     name="currency"
                     value={formData.currency}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                   >
                     <option value="INR">INR</option>
                     <option value="USD">USD</option>
@@ -663,12 +663,12 @@ const AddEvent: React.FC = () => {
                       value={newTag}
                       onChange={(e) => setNewTag(e.target.value)}
                       placeholder="Enter a tag"
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                     />
                     <button
                       type="button"
                       onClick={handleAddTag}
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
                     >
                       Add Tag
                     </button>
@@ -774,7 +774,7 @@ const AddEvent: React.FC = () => {
                           </svg>
                         </div>
                         <div className="text-sm text-gray-500">
-                          <span className="text-blue-600 hover:text-blue-700">
+                          <span className="text-brand-500 hover:text-blue-700">
                             Upload a file
                           </span>{" "}
                           or drag and drop
@@ -793,7 +793,7 @@ const AddEvent: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                className={`w-full bg-brand-500 text-white py-3 px-4 rounded-md hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >

@@ -116,7 +116,7 @@ const AssignmentPage = () => {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-white/[0.03] flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" />
+          <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-brand-500" />
           <p className="text-gray-600 dark:text-gray-300">Loading assignment...</p>
         </div>
       </div>
@@ -150,7 +150,7 @@ const AssignmentPage = () => {
           <p className="text-gray-500 dark:text-gray-400 mb-4">The assignment you're looking for doesn't exist.</p>
           <button
             onClick={() => navigate("/assignments/all")}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
           >
             Back to Assignments
           </button>
@@ -276,7 +276,7 @@ const AssignmentPage = () => {
                         Duration
                       </label>
                       <p className="text-gray-900 dark:text-white/70 flex items-center gap-1">
-                        <Timer className="w-4 h-4 text-blue-500" />
+                        <Timer className="w-4 h-4 text-brand-500" />
                         {assignment.duration} minutes
                       </p>
                     </div>
@@ -296,7 +296,7 @@ const AssignmentPage = () => {
               {/* Course & Lesson Details */}
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white/90 flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-blue-600" />
+                  <Calendar className="w-5 h-5 text-brand-500" />
                   Course & Lesson
                 </h3>
                 <div className="space-y-3">
@@ -311,7 +311,7 @@ const AssignmentPage = () => {
                         </p>
                         <button
                           onClick={handleViewCourse}
-                          className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+                          className="text-brand-500 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
                         >
                           <ExternalLink className="w-3 h-3" />
                           View
@@ -377,19 +377,19 @@ const AssignmentPage = () => {
                   <div className="bg-blue-50 dark:bg-white/[0.03] border border-blue-200 dark:border-blue-600 rounded-lg p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <FileText className="w-6 h-6 text-blue-600" />
+                        <FileText className="w-6 h-6 text-brand-500" />
                         <div>
                           <p className="font-medium text-blue-900 dark:text-blue-300">
                             Assignment Document
                           </p>
-                          <p className="text-sm text-blue-600 dark:text-blue-400">
+                          <p className="text-sm text-brand-500 dark:text-blue-400">
                             {assignment.documentFile.split("/").pop()} • Download assignment materials
                           </p>
                         </div>
                       </div>
                       <button
                         onClick={() => handleFileDownload(assignment.documentFile)}
-                        className="flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        className="flex items-center gap-2 px-3 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                       >
                         <Download className="w-4 h-4" />
                         Download
@@ -461,7 +461,7 @@ const AssignmentPage = () => {
               <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
-                    <Timer className="w-5 h-5 text-blue-600 dark:text-blue-300" />
+                    <Timer className="w-5 h-5 text-brand-500 dark:text-blue-300" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-blue-900 dark:text-blue-300">Duration</p>
@@ -477,7 +477,7 @@ const AssignmentPage = () => {
               {assignment?.courseId?._id && (
                 <button
                   onClick={handleViewCourse}
-                  className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
                   View Course
@@ -485,7 +485,7 @@ const AssignmentPage = () => {
               )}
               <button
                 onClick={() => navigate("/assignments/submissions")}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
               >
                 <Eye className="w-4 h-4" />
                 View All Submissions

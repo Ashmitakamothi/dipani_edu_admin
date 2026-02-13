@@ -147,7 +147,7 @@ const ForumThreadList: React.FC = () => {
             <h1 className="text-2xl font-bold text-gray-800 dark:text-white/90">Forum Threads</h1>
             <button
               onClick={() => navigate("/forum/create")}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="flex items-center gap-2 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition"
             >
               <Plus className="w-4 h-4" />
               <span>Create Thread</span>
@@ -164,7 +164,7 @@ const ForumThreadList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by title or content..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
             <div className="flex items-center gap-2">
@@ -172,7 +172,7 @@ const ForumThreadList: React.FC = () => {
               <select
                 value={statusFilter || ""}
                 onChange={(e) => handleStatusFilterChange(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Status</option>
 
@@ -209,7 +209,7 @@ const ForumThreadList: React.FC = () => {
         )}
         {loading ? (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         ) : (
           <div className="bg-white shadow rounded-lg overflow-x-auto dark:bg-gray-900">
@@ -242,7 +242,7 @@ const ForumThreadList: React.FC = () => {
                       <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{(pagination.page - 1) * pagination.limit + idx + 1}</td>
                       <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">{thread.title}</td>
                       <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{thread.createdBy?.fullName}</td>
-                      <td className="px-6 py-4 text-sm text-blue-600">{thread.replies?.length || 0}</td>
+                      <td className="px-6 py-4 text-sm text-brand-500">{thread.replies?.length || 0}</td>
                       <td className="px-6 py-4 text-sm">{getStatusBadge(thread.isApproved)}</td>
                       <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">{new Date(thread.createdAt).toLocaleString()}</td>
                       <td
@@ -337,7 +337,7 @@ const ForumThreadList: React.FC = () => {
                 key={idx}
                 onClick={() => handlePageChange(pageNum)}
                 className={`px-3 py-1 rounded ${pagination.page === pageNum
-                  ? "bg-indigo-500 text-white"
+                  ? "bg-brand-500 text-white"
                   : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                   }`}
               >

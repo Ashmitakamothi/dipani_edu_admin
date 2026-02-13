@@ -64,7 +64,7 @@ const EnhancedPopup = ({ isVisible, message, type, onClose, autoClose = true }) 
       case "warning":
         return <AlertCircle className="w-5 h-5 text-amber-600" />;
       case "info":
-        return <AlertCircle className="w-5 h-5 text-blue-600" />;
+        return <AlertCircle className="w-5 h-5 text-brand-500" />;
       default:
         return <AlertCircle className="w-5 h-5 text-gray-600" />;
     }
@@ -357,7 +357,7 @@ const TextLessonEditor = ({
                   <select
                     value={formData.language}
                     onChange={(e) => handleInputChange("language", e.target.value)}
-                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white text-sm sm:text-base"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 bg-white text-sm sm:text-base"
                     disabled={loading}
                   >
                     <option value="English">English</option>
@@ -379,7 +379,7 @@ const TextLessonEditor = ({
                       placeholder="Enter an engaging lesson title"
                       maxLength={255}
                       disabled={loading}
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-12 sm:pr-16 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 disabled:bg-gray-50 text-sm sm:text-base"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 pr-12 sm:pr-16 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 disabled:bg-gray-50 text-sm sm:text-base"
                     />
                     <div className="absolute right-3 top-2 sm:top-3 text-xs text-gray-400">
                       {titleCharCount}/255
@@ -399,7 +399,7 @@ const TextLessonEditor = ({
                     onChange={(e) => handleInputChange("bookTitle", e.target.value)}
                     placeholder="Optional subtitle or description"
                     disabled={loading}
-                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 disabled:bg-gray-50 text-sm sm:text-base"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 disabled:bg-gray-50 text-sm sm:text-base"
                   />
                 </div>
 
@@ -485,7 +485,7 @@ const TextLessonEditor = ({
                         loading ? "opacity-50 cursor-not-allowed" : ""
                       }`}
                     >
-                      <Upload className="w-6 h-6 sm:w-8 sm:h-8 mb-2 sm:mb-3 text-blue-500" />
+                      <Upload className="w-6 h-6 sm:w-8 sm:h-8 mb-2 sm:mb-3 text-brand-500" />
                       <span className="text-sm font-medium">Choose Files</span>
                       <span className="text-xs text-gray-400 mt-1 text-center">
                         Upload related documents or resources
@@ -534,7 +534,7 @@ const TextLessonEditor = ({
                 onChange={(e) => handleInputChange("summary", e.target.value)}
                 rows={4}
                 disabled={loading}
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none disabled:bg-gray-50 transition-all duration-200 text-sm sm:text-base"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none disabled:bg-gray-50 transition-all duration-200 text-sm sm:text-base"
                 placeholder="Write a brief summary that will help students understand what they'll learn..."
               />
             </div>
@@ -575,7 +575,7 @@ const TextLessonEditor = ({
                 <button
                   onClick={handleSave}
                   disabled={loading}
-                  className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 border border-transparent rounded-lg sm:rounded-xl hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-200"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 border border-transparent rounded-lg sm:rounded-xl hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-200"
                 >
                   {loading ? (
                     <>

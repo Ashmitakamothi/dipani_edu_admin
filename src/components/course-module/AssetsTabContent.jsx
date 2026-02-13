@@ -105,7 +105,7 @@ const AssetsTabContent = ({ courseID }) => {
 
   const getActionButton = (type) => {
     const actions = {
-      quizzes: { text: "View Quiz", color: "bg-blue-600 hover:bg-blue-700" },
+      quizzes: { text: "View Quiz", color: "bg-brand-500 hover:bg-brand-600" },
       files: { text: "View File", color: "bg-green-600 hover:bg-green-700" },
       assignments: {
         text: "View Assignment",
@@ -123,7 +123,7 @@ const AssetsTabContent = ({ courseID }) => {
     return (
       actions[type] || {
         text: "Access Asset",
-        color: "bg-indigo-600 hover:bg-indigo-700",
+        color: "bg-brand-500 hover:bg-brand-600",
       }
     );
   };
@@ -263,7 +263,7 @@ const AssetsTabContent = ({ courseID }) => {
               placeholder="Search quizzes, files, videos, and more..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full dark:bg-white/[0.03]  dark:text-white/90 pl-12 pr-6 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-300 bg-white shadow-sm text-gray-700 text-base"
+              className="w-full dark:bg-white/[0.03]  dark:text-white/90 pl-12 pr-6 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-brand-500 transition-all duration-300 bg-white shadow-sm text-gray-700 text-base"
             />
           </div>
         </div>
@@ -283,7 +283,7 @@ const AssetsTabContent = ({ courseID }) => {
                     flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-base transition-all duration-300 ease-in-out
                     ${
                       isActive
-                        ? "bg-blue-600 text-white shadow-lg shadow-blue-200 dark:shadow-white/[0.03]  transform scale-105"
+                        ? "bg-brand-500 text-white shadow-lg shadow-blue-200 dark:shadow-white/[0.03]  transform scale-105"
                         : "bg-white dark:bg-white/[0.06] dark:text-white/90  text-gray-700 hover:bg-blue-50 hover:text-blue-700 shadow-sm border border-transparent hover:border-blue-200"
                     }
                   `}
@@ -474,7 +474,7 @@ const AssetsTabContent = ({ courseID }) => {
             <button
               type="button"
               onClick={() => setSearchTerm("")}
-              className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 font-medium shadow-lg"
+              className="px-8 py-3 bg-brand-500 text-white rounded-full hover:bg-brand-600 transition-all duration-300 transform hover:scale-105 font-medium shadow-lg"
             >
               Clear Search
             </button>

@@ -2,7 +2,7 @@ import PageBreadcrumb from "../components/common/PageBreadCrumb";
 import PageMeta from "../components/common/PageMeta";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createCourseCategory ,createSubCategory} from "../store/slices/courseCategorySlice";
+import { createCourseCategory, createSubCategory } from "../store/slices/courseCategorySlice";
 import type { AppDispatch, RootState } from "../store";
 import toast, { Toaster } from "react-hot-toast";
 import PopupAlert from "../components/popUpAlert";
@@ -19,9 +19,9 @@ export default function AddCategory() {
   });
   const [addSubcategory, setAddSubcategory] = useState(false);
   const [subcategories, setSubcategories] = useState<SubCategoryInput[]>([]);
-    const [popup, setPopup] = useState({ isVisible: false, message: '', type: '' });
-  
- 
+  const [popup, setPopup] = useState({ isVisible: false, message: '', type: '' });
+
+
 
   const dispatch = useDispatch<AppDispatch>();
   const loading = useSelector((state: RootState) => state.courseCategory.loading);
@@ -30,13 +30,13 @@ export default function AddCategory() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setCategory({ ...category, [e.target.name]: e.target.value });
- 
+
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setCategory({ ...category, image: e.target.files[0] });
-   
+
     }
   };
 
@@ -68,61 +68,61 @@ export default function AddCategory() {
     setSubcategories(newSubcategories);
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!category.name) {
-    toast.error("Category name is required.", {
-      duration: 8000,
-      position: 'top-right',
-    });
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("name", category.name);
-  formData.append("status", category.status);
-  if (category.image) {
-    formData.append("image", category.image);
-  }
-
-  try {
-    // Create the main category and get the result (should include the new category's ID)
-    const createdCategory = await dispatch(createCourseCategory(formData) as any).unwrap();
-
-    console.log("Created Category:", addSubcategory,subcategories, createdCategory);
-
-    // If subcategories are to be added, dispatch createSubCategory for each
-    if (addSubcategory && subcategories.length > 0 && createdCategory?._id) {
-      await Promise.all(
-        subcategories.map((sub) =>
-          dispatch(
-            createSubCategory({
-              name: sub.name,
-              categoryId: createdCategory._id,
-              slug: "",
-              status: "active"
-            }) as any
-          ).unwrap()
-        )
-      );
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!category.name) {
+      toast.error("Category name is required.", {
+        duration: 8000,
+        position: 'top-right',
+      });
+      return;
     }
 
-     setPopup({
-    isVisible: true,
-    message: 'Category created successfully!',
-    type: 'success'
-  });
-    setCategory({ name: "", status: "active", image: null });
-    setSubcategories([]);
-    setAddSubcategory(false);
-  } catch (err: any) {
-    setPopup({
-    isVisible: true,
-    message: 'Failed to create Category. Please try again.',
-    type: 'error'
-  });
-  }
-};
+    const formData = new FormData();
+    formData.append("name", category.name);
+    formData.append("status", category.status);
+    if (category.image) {
+      formData.append("image", category.image);
+    }
+
+    try {
+      // Create the main category and get the result (should include the new category's ID)
+      const createdCategory = await dispatch(createCourseCategory(formData) as any).unwrap();
+
+      console.log("Created Category:", addSubcategory, subcategories, createdCategory);
+
+      // If subcategories are to be added, dispatch createSubCategory for each
+      if (addSubcategory && subcategories.length > 0 && createdCategory?._id) {
+        await Promise.all(
+          subcategories.map((sub) =>
+            dispatch(
+              createSubCategory({
+                name: sub.name,
+                categoryId: createdCategory._id,
+                slug: "",
+                status: "active"
+              }) as any
+            ).unwrap()
+          )
+        );
+      }
+
+      setPopup({
+        isVisible: true,
+        message: 'Category created successfully!',
+        type: 'success'
+      });
+      setCategory({ name: "", status: "active", image: null });
+      setSubcategories([]);
+      setAddSubcategory(false);
+    } catch (err: any) {
+      setPopup({
+        isVisible: true,
+        message: 'Failed to create Category. Please try again.',
+        type: 'error'
+      });
+    }
+  };
 
 
 
@@ -150,12 +150,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="name"
                 value={category.name}
                 onChange={handleChange}
-                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                 placeholder="Enter category name"
                 required
               />
             </div>
-            
+
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                 Status
@@ -164,7 +164,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 name="status"
                 value={category.status}
                 onChange={handleChange}
-                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
@@ -178,7 +178,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 type="file"
                 name="image"
                 onChange={handleImageChange}
-                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
               {category.image && typeof category.image !== 'string' && (
                 <div className="mt-2">
@@ -196,7 +196,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               <input
                 type="checkbox"
                 id="addSubcategory"
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2"
+                className="w-4 h-4 text-brand-500 border-gray-300 rounded focus:ring-brand-500 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-brand-500 dark:ring-offset-gray-800 focus:ring-2"
                 checked={addSubcategory}
                 onChange={handleAddSubcategoryChange}
               />
@@ -239,12 +239,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                         name="name"
                         value={subcategory.name}
                         onChange={(e) => handleSubcategoryChange(index, e)}
-                        className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                        className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                         placeholder="Enter subcategory name"
                         required
                       />
                     </div>
-                 
+
                   </div>
                 ))}
                 {addSubcategory && (
@@ -259,12 +259,12 @@ const handleSubmit = async (e: React.FormEvent) => {
               </div>
             )}
 
-       
+
             {/* Submit Button */}
             <button
               type="submit"
-            
-              className="rounded bg-blue-600 px-6 py-2 text-white font-semibold hover:bg-blue-700 transition"
+
+              className="rounded bg-brand-500 px-6 py-2 text-white font-semibold hover:bg-brand-600 transition"
               disabled={loading}
             >
               {loading ? "Adding..." : "Add Category"}
@@ -272,12 +272,12 @@ const handleSubmit = async (e: React.FormEvent) => {
           </form>
         </div>
       </div>
-       <PopupAlert 
-  message={popup.message}
-  type={popup.type}
-  isVisible={popup.isVisible}
-  onClose={() => setPopup({ ...popup, isVisible: false })}
-/>
+      <PopupAlert
+        message={popup.message}
+        type={popup.type}
+        isVisible={popup.isVisible}
+        onClose={() => setPopup({ ...popup, isVisible: false })}
+      />
     </div>
   );
 }

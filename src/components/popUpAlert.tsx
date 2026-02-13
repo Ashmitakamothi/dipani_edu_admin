@@ -47,7 +47,7 @@ const PopupAlert = ({ message, type, isVisible, onClose }) => {
         <p className="text-gray-600 mb-6">{message}</p>
         <button
           onClick={onClose}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+          className="w-full bg-brand-500 text-white py-2 px-4 rounded-md hover:bg-brand-600 transition-colors"
         >
           OK
         </button>

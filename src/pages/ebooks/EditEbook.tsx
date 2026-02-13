@@ -281,7 +281,7 @@ const EditEbook = () => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all font-bold disabled:opacity-50"
+                        className="flex items-center gap-2 px-8 py-4 bg-brand-500 text-white rounded-xl hover:bg-brand-600 transition-all font-bold disabled:opacity-50"
                     >
                         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
                         Update Ebook

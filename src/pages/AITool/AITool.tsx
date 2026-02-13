@@ -492,7 +492,7 @@ const AITool: React.FC = () => {
         <button
           onClick={() => setActiveTab('chat')}
           className={`px-4 py-2 font-medium transition-colors ${activeTab === 'chat'
-            ? 'border-b-2 border-blue-600 text-blue-600'
+            ? 'border-b-2 border-blue-600 text-brand-500'
             : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
             }`}
         >
@@ -502,7 +502,7 @@ const AITool: React.FC = () => {
         <button
           onClick={() => setActiveTab('settings')}
           className={`px-4 py-2 font-medium transition-colors ${activeTab === 'settings'
-            ? 'border-b-2 border-blue-600 text-blue-600'
+            ? 'border-b-2 border-blue-600 text-brand-500'
             : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
             }`}
         >
@@ -512,7 +512,7 @@ const AITool: React.FC = () => {
         <button
           onClick={() => setActiveTab('knowledge')}
           className={`px-4 py-2 font-medium transition-colors ${activeTab === 'knowledge'
-            ? 'border-b-2 border-blue-600 text-blue-600'
+            ? 'border-b-2 border-blue-600 text-brand-500'
             : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
             }`}
         >
@@ -528,7 +528,7 @@ const AITool: React.FC = () => {
           <div className="w-64 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
             <button
               onClick={startNewChat}
-              className="w-full mb-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+              className="w-full mb-4 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors flex items-center justify-center gap-2"
             >
               <Plus className="w-4 h-4" />
               New Chat
@@ -573,12 +573,12 @@ const AITool: React.FC = () => {
                   >
                     <div
                       className={`max-w-[80%] rounded-lg p-4 ${msg.role === 'user'
-                        ? 'bg-blue-600 text-white'
+                        ? 'bg-brand-500 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100'
                         }`}
                     >
                       {msg.role === 'assistant' ? (
-                        <div className="prose prose-sm max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-code:text-blue-600 dark:prose-code:text-blue-400 prose-pre:bg-gray-800 dark:prose-pre:bg-gray-900 prose-pre:text-gray-100">
+                        <div className="prose prose-sm max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-code:text-brand-500 dark:prose-code:text-blue-400 prose-pre:bg-gray-800 dark:prose-pre:bg-gray-900 prose-pre:text-gray-100">
                           <ReactMarkdown
                             components={{
                               code: ({ node, inline, className, children, ...props }: any) => {
@@ -608,7 +608,7 @@ const AITool: React.FC = () => {
                                 </blockquote>
                               ),
                               a: ({ children, href }: any) => (
-                                <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                                <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-500 dark:text-blue-400 hover:underline">
                                   {children}
                                 </a>
                               ),
@@ -645,12 +645,12 @@ const AITool: React.FC = () => {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
                   placeholder="Type your message..."
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 />
                 <button
                   onClick={sendMessage}
                   disabled={isLoading || !inputMessage.trim()}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="px-6 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   <Send className="w-5 h-5" />
                 </button>
@@ -797,7 +797,7 @@ const AITool: React.FC = () => {
           </div>
           <button
             onClick={updateSettings}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-6 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
           >
             Save Settings
           </button>
@@ -811,7 +811,7 @@ const AITool: React.FC = () => {
             <h2 className="text-xl font-semibold">Knowledge Base Items</h2>
             <button
               onClick={() => setShowAddKnowledge(true)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors flex items-center gap-2"
             >
               <Plus className="w-4 h-4" />
               Add Items
@@ -895,7 +895,7 @@ const AITool: React.FC = () => {
                 <div className="flex gap-2">
                   <button
                     onClick={addKnowledgeItem}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                   >
                     Add
                   </button>
@@ -918,10 +918,10 @@ const AITool: React.FC = () => {
               >
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex items-center gap-2 flex-1">
-                    {item.type === 'text' && <FileText className="w-5 h-5 text-blue-600" />}
+                    {item.type === 'text' && <FileText className="w-5 h-5 text-brand-500" />}
                     {item.type === 'url' && <LinkIcon className="w-5 h-5 text-green-600" />}
                     {item.type === 'pdf' && <Upload className="w-5 h-5 text-red-600" />}
-                    {item.type === 'docx' && <FileText className="w-5 h-5 text-blue-500" />}
+                    {item.type === 'docx' && <FileText className="w-5 h-5 text-brand-500" />}
                     {item.type === 'xlsx' && <FileText className="w-5 h-5 text-green-500" />}
                     <h3 className="font-semibold truncate">{item.title}</h3>
                   </div>

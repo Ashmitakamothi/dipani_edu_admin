@@ -139,7 +139,7 @@ const SuccessPopup = ({ isVisible, onClose, onAddContent, courseId }: { isVisibl
   return (
     <div className="fixed inset-0 bg-transparent backdrop-blur-sm flex items-center justify-center z-[100] p-4">
       <div className="bg-white dark:bg-gray-800 rounded-3xl max-h-[90vh] max-w-lg w-full mx-4 overflow-hidden transform transition-all duration-300 scale-100">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-8 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-r from-brand-500 to-brand-600 p-8 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-white opacity-10 transform rotate-12 scale-150"></div>
           <div className="relative z-10">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-white bg-opacity-20 rounded-full mb-4">
@@ -165,9 +165,9 @@ const SuccessPopup = ({ isVisible, onClose, onAddContent, courseId }: { isVisibl
             </p>
           </div>
           <div className="space-y-4 mb-8 max-h-[200px] overflow-scroll">
-            <div className="flex items-center gap-4 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
-                <Layers className="w-5 h-5 text-blue-600 dark:text-blue-300" />
+            <div className="flex items-center gap-4 p-4 bg-brand-50 dark:bg-brand-900/30 rounded-xl">
+              <div className="flex-shrink-0 w-10 h-10 bg-brand-50 dark:bg-brand-700 rounded-full flex items-center justify-center">
+                <Layers className="w-5 h-5 text-brand-500 dark:text-brand-300" />
               </div>
               <div>
                 <h4 className="font-semibold dark:text-gray-100">
@@ -215,7 +215,7 @@ const SuccessPopup = ({ isVisible, onClose, onAddContent, courseId }: { isVisibl
           </button>
           <button
             onClick={handleAddContent}
-            className="flex-1 py-3 px-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-200 font-medium flex items-center justify-center gap-2"
+            className="flex-1 py-3 px-4 bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-xl hover:from-brand-600 hover:to-brand-700 transition-all duration-200 font-medium flex items-center justify-center gap-2"
           >
             Add Content
             <ArrowRight className="w-4 h-4" />
@@ -283,12 +283,12 @@ const FileUpload = ({
   return (
     <div className="space-y-3">
       <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200 flex items-center gap-2">
-        <Icon className="w-5 h-5 text-blue-600" />
+        <Icon className="w-5 h-5 text-brand-500" />
         {label}
       </label>
       <div
         className={`border-2 border-dashed rounded-xl p-6 text-center transition-colors duration-200 ${dragOver
-          ? "border-blue-400 bg-blue-50 dark:bg-blue-900/30"
+          ? "border-brand-400 bg-brand-50 dark:bg-brand-900/30"
           : "border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800"
           } ${error ? "border-red-400" : ""}`}
         onDrop={handleDrop}
@@ -309,7 +309,7 @@ const FileUpload = ({
           <Upload className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-500" />
           <p className="text-sm text-gray-600 dark:text-gray-300">
             Drop file here or{" "}
-            <span className="text-blue-600 hover:underline">browse</span>
+            <span className="text-brand-500 hover:underline">browse</span>
           </p>
         </label>
         {currentFile && (
@@ -328,14 +328,14 @@ const YouTubeUrlInput = ({ label, value, onChange, error }: { label: string; val
   return (
     <div className="space-y-3">
       <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200 flex items-center gap-2">
-        <Video className="w-5 h-5 text-blue-600" />
+        <Video className="w-5 h-5 text-brand-500" />
         {label}
       </label>
       <input
         type="text"
         value={value}
         onChange={onChange}
-        className={`w-full border rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 ${error ? "border-red-400" : "border-gray-200 dark:border-gray-600"
+        className={`w-full border rounded-xl px-4 py-3 text-gray-900 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors duration-200 ${error ? "border-red-400" : "border-gray-200 dark:border-gray-600"
           }`}
         placeholder="Enter demo video YouTube URL"
       />
@@ -857,7 +857,7 @@ const AddCourse = () => {
                 setIsSidebarOpen(false);
               }}
               className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${activeTab === tab.key
-                ? "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 shadow-sm"
+                ? "bg-brand-50 dark:bg-brand-900 text-brand-500 dark:text-brand-300 shadow-sm"
                 : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                 }`}
             >
@@ -881,15 +881,15 @@ const AddCourse = () => {
       </aside>
       <div className="flex-1 p-4 lg:p-8">
         <button
-          className="lg:hidden mb-4 p-2 bg-blue-600 text-white rounded-lg"
+          className="lg:hidden mb-4 p-2 bg-brand-500 text-white rounded-lg"
           onClick={() => setIsSidebarOpen(true)}
         >
           <Menu className="w-6 h-6" />
         </button>
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-6">
           <h1 className="text-3xl font-bold flex items-center gap-3 text-gray-900 dark:text-gray-100">
-            <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-              <BookOpen className="w-8 h-8 text-blue-600" />
+            <div className="p-2 bg-brand-50 dark:bg-brand-900/30 rounded-lg">
+              <BookOpen className="w-8 h-8 text-brand-500" />
             </div>
             Create New Course
           </h1>
@@ -920,7 +920,7 @@ const AddCourse = () => {
                       name="title"
                       value={formData.title}
                       onChange={handleInputChange}
-                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.title
+                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.title
                         ? "border-red-400"
                         : "border-gray-300 dark:border-gray-600"
                         }`}
@@ -941,7 +941,7 @@ const AddCourse = () => {
                       value={formData.coursePosition}
                       onChange={handleInputChange}
                       min={0}
-                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.coursePosition
+                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.coursePosition
                         ? "border-red-400"
                         : "border-gray-300 dark:border-gray-600"
                         }`}
@@ -960,7 +960,7 @@ const AddCourse = () => {
                       name="subtitle"
                       value={formData.subtitle}
                       onChange={handleInputChange}
-                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                       placeholder="Enter course subtitle"
                     />
                   </div>
@@ -1002,7 +1002,7 @@ const AddCourse = () => {
                       name="level"
                       value={formData.level}
                       onChange={handleInputChange}
-                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                     >
                       <option className="dark:text-black" value="beginner">
                         Beginner
@@ -1031,14 +1031,14 @@ const AddCourse = () => {
                       }}
                       step="1"
                       min="1"
-                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 dark:border-gray-600`}
+                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent border-gray-300 dark:border-gray-600`}
                       placeholder="Course duration"
                       required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 flex items-center gap-2">
-                      <Users className="w-4 h-4 text-blue-600" />
+                      <Users className="w-4 h-4 text-brand-500" />
                       Enrolled Students Count
                     </label>
                     <input
@@ -1053,7 +1053,7 @@ const AddCourse = () => {
                       }}
                       step="1"
                       min="0"
-                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                       placeholder="Number of enrolled students"
                     />
                   </div>
@@ -1153,7 +1153,7 @@ const AddCourse = () => {
                       }}
                       step="0.01"
                       min="0"
-                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.price
+                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.price
                           ? "border-red-400"
                           : "border-gray-300 dark:border-gray-600"
                         }`}
@@ -1184,7 +1184,7 @@ const AddCourse = () => {
                       }}
                       step="0.01"
                       min="0"
-                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.salePrice
+                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.salePrice
                           ? "border-red-400"
                           : "border-gray-300 dark:border-gray-600"
                         }`}
@@ -1203,7 +1203,7 @@ const AddCourse = () => {
                       name="currency"
                       value={formData.currency}
                       onChange={handleInputChange}
-                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                     >
                       <option className="dark:text-black" value="INR">
                         INR (₹)
@@ -1282,7 +1282,7 @@ const AddCourse = () => {
                   <button
                     type="button"
                     onClick={handleAddPlan}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+                    className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 text-sm"
                   >
                     Add Plan
                   </button>
@@ -1350,7 +1350,7 @@ const AddCourse = () => {
                         type="button"
                         onClick={() => addTag(tag)}
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${selectedTags.includes(tag)
-                          ? "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 border border-blue-300 dark:border-blue-600"
+                          ? "bg-brand-50 dark:bg-brand-900 text-brand-700 dark:text-brand-300 border border-brand-300 dark:border-brand-500"
                           : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                           }`}
                       >
@@ -1365,12 +1365,12 @@ const AddCourse = () => {
                       onChange={(e) => setCustomTag(e.target.value)}
                       onKeyPress={(e) => e.key === "Enter" && addCustomTag()}
                       placeholder="Add custom tag"
-                      className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                     />
                     <button
                       type="button"
                       onClick={addCustomTag}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
@@ -1388,13 +1388,13 @@ const AddCourse = () => {
                       {selectedTags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 rounded-full text-sm"
+                          className="inline-flex items-center gap-1 px-3 py-1 bg-brand-50 dark:bg-brand-900 text-brand-700 dark:text-brand-300 rounded-full text-sm"
                         >
                           {tag}
                           <button
                             type="button"
                             onClick={() => removeTag(tag)}
-                            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200"
+                            className="text-brand-500 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-200"
                           >
                             <X className="w-3 h-3" />
                           </button>
@@ -1417,10 +1417,10 @@ const AddCourse = () => {
                       name="certificateTemplate"
                       checked={formData.certificateTemplate}
                       onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                      <Award className="w-4 h-4 text-blue-600" />
+                      <Award className="w-4 h-4 text-brand-500" />
                       Certificate Template
                     </span>
                   </label>
@@ -1430,10 +1430,10 @@ const AddCourse = () => {
                       name="isDownloadable"
                       checked={formData.isDownloadable}
                       onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                      <Download className="w-4 h-4 text-blue-600" />
+                      <Download className="w-4 h-4 text-brand-500" />
                       Downloadable Content
                     </span>
                   </label>
@@ -1443,10 +1443,10 @@ const AddCourse = () => {
                       name="courseForum"
                       checked={formData.courseForum}
                       onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                      <MessageCircle className="w-4 h-4 text-blue-600" />
+                      <MessageCircle className="w-4 h-4 text-brand-500" />
                       Course Forum
                     </span>
                   </label>
@@ -1456,10 +1456,10 @@ const AddCourse = () => {
                       name="isSubscription"
                       checked={formData.isSubscription}
                       onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-blue-600" />
+                      <Calendar className="w-4 h-4 text-brand-500" />
                       Subscription Based
                     </span>
                   </label>
@@ -1469,10 +1469,10 @@ const AddCourse = () => {
                       name="isPrivate"
                       checked={formData.isPrivate}
                       onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                      <Lock className="w-4 h-4 text-blue-600" />
+                      <Lock className="w-4 h-4 text-brand-500" />
                       Private Course
                     </span>
                   </label>
@@ -1482,10 +1482,10 @@ const AddCourse = () => {
                       name="enableWaitlist"
                       checked={formData.enableWaitlist}
                       onChange={handleInputChange}
-                      className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                     />
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-blue-600" />
+                      <Clock className="w-4 h-4 text-brand-500" />
                       Enable Waitlist
                     </span>
                   </label>
@@ -1506,7 +1506,7 @@ const AddCourse = () => {
                     value={formData.seoMetaDescription}
                     onChange={handleInputChange}
                     rows={3}
-                    className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.seoMetaDescription
+                    className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.seoMetaDescription
                       ? "border-red-400"
                       : "border-gray-300 dark:border-gray-600"
                       }`}
@@ -1554,7 +1554,7 @@ const AddCourse = () => {
                       name="mentorName"
                       value={formData.mentorName || ""}
                       onChange={handleInputChange}
-                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                       placeholder="Enter mentor name"
                     />
                   </div>
@@ -1567,7 +1567,7 @@ const AddCourse = () => {
                       name="mentorTitle"
                       value={formData.mentorTitle || ""}
                       onChange={handleInputChange}
-                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                       placeholder="e.g., Digital Marketing Expert"
                     />
                   </div>
@@ -1615,7 +1615,7 @@ const AddCourse = () => {
                             updated[index] = e.target.value;
                             setFormData({ ...formData, mentorAchievements: updated as string[] });
                           }}
-                          className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                          className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                           placeholder="Enter achievement"
                         />
                         <button
@@ -1664,7 +1664,7 @@ const AddCourse = () => {
                             linkedin: e.target.value
                           }
                         })}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="https://linkedin.com/in/..."
                       />
                     </div>
@@ -1680,7 +1680,7 @@ const AddCourse = () => {
                             youtube: e.target.value
                           }
                         })}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="https://youtube.com/..."
                       />
                     </div>
@@ -1696,7 +1696,7 @@ const AddCourse = () => {
                             twitter: e.target.value
                           }
                         })}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="https://twitter.com/..."
                       />
                     </div>
@@ -1712,7 +1712,7 @@ const AddCourse = () => {
                             website: e.target.value
                           }
                         })}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="https://example.com"
                       />
                     </div>
@@ -1729,7 +1729,7 @@ const AddCourse = () => {
                 <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                   <div className="flex items-center justify-between">
                     <h4 className="text-lg font-semibold flex items-center gap-2">
-                      <Layout className="w-5 h-5 text-blue-600" />
+                      <Layout className="w-5 h-5 text-brand-500" />
                       Overview Section
                     </h4>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -1742,7 +1742,7 @@ const AddCourse = () => {
                         })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-700 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                     </label>
                   </div>
@@ -1788,7 +1788,7 @@ const AddCourse = () => {
                 <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                   <div className="flex items-center justify-between">
                     <h4 className="text-lg font-semibold flex items-center gap-2">
-                      <Layers className="w-5 h-5 text-blue-600" />
+                      <Layers className="w-5 h-5 text-brand-500" />
                       Comparison Section
                     </h4>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -1801,7 +1801,7 @@ const AddCourse = () => {
                         })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-700 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                     </label>
                   </div>
@@ -1977,7 +1977,7 @@ const AddCourse = () => {
                 <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                   <div className="flex items-center justify-between">
                     <h4 className="text-lg font-semibold flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-blue-600" />
+                      <CheckCircle className="w-5 h-5 text-brand-500" />
                       Key Benefits Section
                     </h4>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -1990,7 +1990,7 @@ const AddCourse = () => {
                         })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-700 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                     </label>
                   </div>
@@ -2080,7 +2080,7 @@ const AddCourse = () => {
                 <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                   <div className="flex items-center justify-between">
                     <h4 className="text-lg font-semibold flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 text-blue-600" />
+                      <Sparkles className="w-5 h-5 text-brand-500" />
                       Learning Framework Section
                     </h4>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -2093,7 +2093,7 @@ const AddCourse = () => {
                         })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-700 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                     </label>
                   </div>
@@ -2149,7 +2149,7 @@ const AddCourse = () => {
                 <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                   <div className="flex items-center justify-between">
                     <h4 className="text-lg font-semibold flex items-center gap-2">
-                      <Target className="w-5 h-5 text-blue-600" />
+                      <Target className="w-5 h-5 text-brand-500" />
                       Solution Section (Pain Points)
                     </h4>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -2162,7 +2162,7 @@ const AddCourse = () => {
                         })}
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-300 dark:peer-focus:ring-brand-700 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                       <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                     </label>
                   </div>
@@ -2255,9 +2255,9 @@ const AddCourse = () => {
             )}
           </div>
           <div className="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
-            <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg">
+            <div className="mb-4 p-4 bg-brand-50 dark:bg-brand-900/30 border border-brand-100 dark:border-brand-600 rounded-lg">
               <h4 className="text-sm font-medium text-gray-900 dark:text-gray-100 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-blue-600" />
+                <AlertCircle className="w-4 h-4 text-brand-500" />
                 Before You Create
               </h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">
@@ -2275,7 +2275,7 @@ const AddCourse = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {loading ? (
                   <>

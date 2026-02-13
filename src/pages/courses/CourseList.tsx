@@ -275,7 +275,7 @@ const CourseList: React.FC = () => {
                 e.stopPropagation();
                 handleShowEnrollments(course);
               }}
-              className="p-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+              className="p-2 text-brand-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
               title="View Enrollments"
             >
               <Users className="w-4 h-4" />
@@ -322,7 +322,7 @@ const CourseList: React.FC = () => {
             </div>
             
             <button
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl font-medium"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-lg hover:from-brand-500 hover:to-brand-600 transition-all duration-200 shadow-lg hover:shadow-xl font-medium"
               onClick={() => window.location.href = "/courses/add"}
             >
               <Plus className="w-5 h-5" />
@@ -342,7 +342,7 @@ const CourseList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search courses by title..."
-                className="pl-10 pr-4 py-3 w-full border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent dark:bg-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                className="pl-10 pr-4 py-3 w-full border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
               />
             </div>
             
@@ -355,7 +355,7 @@ const CourseList: React.FC = () => {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-transparent dark:bg-gray-900 dark:text-white min-w-[140px]"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-900 dark:text-white min-w-[140px]"
               >
                 <option value="">All Status</option>
                 <option value="published">Published</option>
@@ -369,7 +369,7 @@ const CourseList: React.FC = () => {
               <select
                 value={limit}
                 onChange={(e) => handleLimitChange(Number(e.target.value))}
-                className="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-500 dark:bg-gray-900 dark:text-white min-w-[80px]"
+                className="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 dark:bg-gray-900 dark:text-white min-w-[80px]"
               >
                 <option value={5}>5</option>
                 <option value={10}>10</option>
@@ -548,7 +548,7 @@ const CourseList: React.FC = () => {
                                   e.stopPropagation();
                                   handleShowEnrollments(course);
                                 }}
-                                className="p-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+                                className="p-2 text-brand-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                                 title="View Enrollments"
                               >
                                 <Users className="w-4 h-4" />
@@ -607,7 +607,7 @@ const CourseList: React.FC = () => {
                         onClick={() => handlePageChange(pageNum)}
                         className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                           pagination.page === pageNum
-                            ? "bg-indigo-600 text-white shadow-lg"
+                            ? "bg-brand-500 text-white shadow-lg"
                             : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
                         }`}
                       >
@@ -671,14 +671,14 @@ const CourseList: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                     <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-4 rounded-xl border border-blue-200 dark:border-blue-800">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-blue-600 rounded-lg">
+                        <div className="p-2 bg-brand-500 rounded-lg">
                           <Users className="w-5 h-5 text-white" />
                         </div>
                         <div>
                           <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">
                             {enrollmentsModal.enrollments.length}
                           </p>
-                          <p className="text-sm text-blue-600 dark:text-blue-400">Total Enrollments</p>
+                          <p className="text-sm text-brand-500 dark:text-blue-400">Total Enrollments</p>
                         </div>
                       </div>
                     </div>

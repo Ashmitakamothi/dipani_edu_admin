@@ -87,7 +87,7 @@ const CreateStudentPopup: React.FC<CreateStudentPopupProps> = ({ open, onClose }
               Full Name
             </label>
             <input
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white transition-all duration-200"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white transition-all duration-200"
               placeholder="Enter full name"
               name="fullName"
               value={form.fullName}
@@ -100,7 +100,7 @@ const CreateStudentPopup: React.FC<CreateStudentPopupProps> = ({ open, onClose }
               Email
             </label>
             <input
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white transition-all duration-200"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white transition-all duration-200"
               placeholder="Enter email"
               name="email"
               type="email"
@@ -114,7 +114,7 @@ const CreateStudentPopup: React.FC<CreateStudentPopupProps> = ({ open, onClose }
               Password
             </label>
             <input
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white transition-all duration-200"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white transition-all duration-200"
               placeholder="Enter password"
               name="password"
               type="password"
@@ -137,7 +137,7 @@ const CreateStudentPopup: React.FC<CreateStudentPopupProps> = ({ open, onClose }
             <button
               type="submit"
               disabled={loading}
-              className="px-4 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-colors duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 rounded-lg bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading && (
                 <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>

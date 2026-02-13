@@ -184,7 +184,7 @@ export default function CategorySubcategoryDropdowns({
           value={selectedCategoryId}
           onChange={handleCategoryChange}
           disabled={disabled || categoriesLoading}
-          className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white disabled:bg-gray-100 disabled:cursor-not-allowed dark:disabled:bg-gray-800"
+          className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white disabled:bg-gray-100 disabled:cursor-not-allowed dark:disabled:bg-gray-800"
           
         >
           <option value="">
@@ -195,7 +195,7 @@ export default function CategorySubcategoryDropdowns({
               {category.name}
             </option>
           ))}
-          <option value="add-new-category" className="text-blue-500">
+          <option value="add-new-category" className="text-brand-500">
             Add New Category
           </option>
         </select>
@@ -233,7 +233,7 @@ export default function CategorySubcategoryDropdowns({
                   name="title"
                   value={data.title}
                   onChange={(e) => setData({ ...data, title: e.target.value })}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   placeholder="Enter name"
                   
                   disabled={isSubmitting}
@@ -249,7 +249,7 @@ export default function CategorySubcategoryDropdowns({
                   onChange={(e) =>
                     setData({ ...data, image: e.target.files?.[0] || null })
                   }
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                   disabled={isSubmitting}
                 />
               </div> */}
@@ -257,7 +257,7 @@ export default function CategorySubcategoryDropdowns({
                 type="button"
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="px-4 py-3 mt-2 flex justify-center items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed"
+                className="px-4 py-3 mt-2 flex justify-center items-center gap-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors disabled:bg-brand-300 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   "Adding..."
@@ -282,7 +282,7 @@ export default function CategorySubcategoryDropdowns({
           value={selectedSubcategoryId}
           onChange={handleSubcategoryChange}
           disabled={disabled || !selectedCategoryId || subcategoriesLoading}
-          className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white disabled:bg-gray-100 disabled:cursor-not-allowed dark:disabled:bg-gray-800"
+          className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white disabled:bg-gray-100 disabled:cursor-not-allowed dark:disabled:bg-gray-800"
         >
           <option value="">
             {!selectedCategoryId
@@ -304,7 +304,7 @@ export default function CategorySubcategoryDropdowns({
                   </option>
                 )
             )}
-          <option value="add-new-category" className="text-blue-500">
+          <option value="add-new-category" className="text-brand-500">
             Add New Subcategory
           </option>
         </select>

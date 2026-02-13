@@ -98,7 +98,7 @@ const VideoAnalyticsDashboard = () => {
               <span className="text-green-600 text-xs">+12.5%</span>
             </div>
             <div className="bg-blue-50 p-3 rounded-full">
-              <Eye className="text-blue-600" />
+              <Eye className="text-brand-500" />
             </div>
           </div>
           <div className="bg-white p-5 rounded-xl border shadow-sm flex items-center justify-between">
@@ -148,7 +148,7 @@ const VideoAnalyticsDashboard = () => {
                 onClick={() => setActiveTab(tab)}
                 className={`pb-3 text-sm font-medium ${
                   activeTab === tab
-                    ? "text-blue-600 border-b-2 border-blue-600"
+                    ? "text-brand-500 border-b-2 border-blue-600"
                     : "text-gray-500 hover:text-gray-700"
                 }`}
               >
@@ -193,10 +193,10 @@ const VideoAnalyticsDashboard = () => {
                         className="hover:bg-gray-50 transition"
                       >
                         <td className="px-6 py-3">{video.title}</td>
-                        <td className="px-6 py-3 text-blue-600">
+                        <td className="px-6 py-3 text-brand-500">
                           {formatNumber(video.views)}
                         </td>
-                        <td className="px-6 py-3 text-blue-600">
+                        <td className="px-6 py-3 text-brand-500">
                           {video.engagement?.toFixed(2) || "0"}
                         </td>
                       </tr>
@@ -212,7 +212,7 @@ const VideoAnalyticsDashboard = () => {
                 onClick={() => setOpenUserEngagement(!openUserEngagement)}
               >
                 <div className="flex items-center gap-2 dark:text-white/90">
-                  <User className="text-blue-600" size={24} /> User Engagement
+                  <User className="text-brand-500" size={24} /> User Engagement
                 </div>
                 {openUserEngagement ? (
                   <ChevronUp size={20} className="text-gray-500" />
@@ -245,7 +245,7 @@ const VideoAnalyticsDashboard = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-white/90">
                             {user?.userId?.fullName || "N/A"}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-500">
                             {user.videosWatched}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-white/70">

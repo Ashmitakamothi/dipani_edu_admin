@@ -103,14 +103,14 @@ export default function LeaderboardSetting() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-brand-50 to-brand-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <PageMeta title="Leaderboard Settings" description="Configure leaderboard XP and ranks" />
       <PageBreadcrumb pageTitle="Leaderboard Settings" />
-      
+
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent mb-2">
             Leaderboard Configuration
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
@@ -121,19 +121,19 @@ export default function LeaderboardSetting() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* XP per Action Section */}
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
-            <div className="bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-4">
+            <div className="bg-gradient-to-r from-brand-500 to-brand-600 px-6 py-4">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <span className="text-2xl">⚡</span>
                 XP Per Action
               </h2>
-              <p className="text-indigo-100 text-sm mt-1">Set experience points for user activities</p>
+              <p className="text-brand-100 text-sm mt-1">Set experience points for user activities</p>
             </div>
-            
+
             <div className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {Object.keys(actionXP).map((key) => (
-                  <div 
-                    key={key} 
+                  <div
+                    key={key}
                     className="group relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-750 rounded-xl p-4 border border-gray-200 dark:border-gray-600 hover:shadow-md transition-all duration-200"
                   >
                     <div className="flex items-center justify-between gap-4">
@@ -149,9 +149,9 @@ export default function LeaderboardSetting() {
                           value={actionXP[key]}
                           min={0}
                           onChange={(e) => handleActionChange(key, e.target.value)}
-                          className="w-24 px-4 py-2 text-center text-lg font-bold bg-white dark:bg-gray-800 border-2 border-indigo-200 dark:border-indigo-600 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-500 transition-all outline-none"
+                          className="w-24 px-4 py-2 text-center text-lg font-bold bg-white dark:bg-gray-800 border-2 border-brand-200 dark:border-brand-600 rounded-lg focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500 transition-all outline-none"
                         />
-                        <span className="absolute -right-8 top-1/2 -translate-y-1/2 text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+                        <span className="absolute -right-8 top-1/2 -translate-y-1/2 text-xs font-semibold text-brand-600 dark:text-brand-400">
                           XP
                         </span>
                       </div>
@@ -164,20 +164,20 @@ export default function LeaderboardSetting() {
 
           {/* Level Ranks Section */}
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
+            <div className="bg-gradient-to-r from-brand-500 to-brand-600 px-6 py-4">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <span className="text-2xl">🏆</span>
                 Level Ranks
               </h2>
-              <p className="text-purple-100 text-sm mt-1">Define XP thresholds and rank names</p>
+              <p className="text-brand-100 text-sm mt-1">Define XP thresholds and rank names</p>
             </div>
-            
+
             <div className="p-6">
               <div className="space-y-3">
                 {levelRanks.map((rank, idx) => (
-                  <div 
-                    key={idx} 
-                    className="group relative bg-gradient-to-r from-purple-50 via-pink-50 to-purple-50 dark:from-gray-700 dark:via-gray-750 dark:to-gray-700 rounded-xl p-4 border-2 border-purple-200 dark:border-purple-700 hover:shadow-md transition-all duration-200"
+                  <div
+                    key={idx}
+                    className="group relative bg-gradient-to-r from-brand-50 via-brand-50 to-brand-50 dark:from-gray-700 dark:via-gray-750 dark:to-gray-700 rounded-xl p-4 border-2 border-brand-200 dark:border-brand-700 hover:shadow-md transition-all duration-200"
                   >
                     <div className="flex flex-wrap items-center gap-3">
                       <div className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-sm">
@@ -187,13 +187,13 @@ export default function LeaderboardSetting() {
                           value={rank.minXP}
                           min={0}
                           onChange={(e) => handleRankChange(idx, "minXP", e.target.value)}
-                          className="w-20 px-2 py-1 text-center font-bold border border-gray-300 dark:border-gray-600 rounded focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-500 bg-white dark:bg-gray-900 outline-none"
+                          className="w-20 px-2 py-1 text-center font-bold border border-gray-300 dark:border-gray-600 rounded focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500 bg-white dark:bg-gray-900 outline-none"
                           placeholder="0"
                         />
                       </div>
-                      
+
                       <span className="text-gray-400 font-bold">→</span>
-                      
+
                       <div className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 shadow-sm">
                         <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">MAX</span>
                         <input
@@ -201,24 +201,24 @@ export default function LeaderboardSetting() {
                           value={rank.maxXP}
                           min={0}
                           onChange={(e) => handleRankChange(idx, "maxXP", e.target.value)}
-                          className="w-20 px-2 py-1 text-center font-bold border border-gray-300 dark:border-gray-600 rounded focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-500 bg-white dark:bg-gray-900 outline-none"
+                          className="w-20 px-2 py-1 text-center font-bold border border-gray-300 dark:border-gray-600 rounded focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500 bg-white dark:bg-gray-900 outline-none"
                           placeholder="0"
                         />
                       </div>
-                      
+
                       <div className="flex-1 min-w-[200px]">
                         <input
                           type="text"
                           value={rank.levelName}
                           onChange={(e) => handleRankChange(idx, "levelName", e.target.value)}
-                          className="w-full px-4 py-2 font-semibold border-2 border-purple-200 dark:border-purple-700 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-500 bg-white dark:bg-gray-900 outline-none"
+                          className="w-full px-4 py-2 font-semibold border-2 border-brand-200 dark:border-brand-700 rounded-lg focus:border-brand-500 focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500 bg-white dark:bg-gray-900 outline-none"
                           placeholder="Level Name"
                         />
                       </div>
-                      
-                      <button 
-                        type="button" 
-                        onClick={() => handleRemoveRank(idx)} 
+
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveRank(idx)}
                         className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold transition-colors shadow-sm hover:shadow"
                       >
                         Remove
@@ -227,11 +227,11 @@ export default function LeaderboardSetting() {
                   </div>
                 ))}
               </div>
-              
-              <button 
-                type="button" 
-                onClick={handleAddRank} 
-                className="mt-4 w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
+
+              <button
+                type="button"
+                onClick={handleAddRank}
+                className="mt-4 w-full py-3 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
               >
                 + Add New Rank
               </button>
@@ -244,7 +244,7 @@ export default function LeaderboardSetting() {
               <p className="text-red-700 dark:text-red-400 font-medium">{error}</p>
             </div>
           )}
-          
+
           {success && (
             <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-lg animate-pulse">
               <p className="text-green-700 dark:text-green-400 font-medium flex items-center gap-2">
@@ -258,13 +258,13 @@ export default function LeaderboardSetting() {
             <button
               type="submit"
               disabled={loading}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
+              className="px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 disabled:from-gray-400 disabled:to-gray-500 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
                   <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
                   Saving...
                 </span>

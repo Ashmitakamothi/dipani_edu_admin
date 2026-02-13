@@ -33,7 +33,7 @@ const Home: React.FC = () => {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-50">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-8 h-8 border-4 border-brand-500 border-t-transparent rounded-full animate-spin"></div>
           <span className="text-gray-600">Loading dashboard...</span>
         </div>
       </div>
@@ -124,8 +124,8 @@ const Home: React.FC = () => {
                   {counts?.totalCourses}
                 </p>
               </div>
-              <div className="bg-blue-100 p-3 rounded-lg">
-                <BookOpen className="w-6 h-6 text-blue-600" />
+              <div className="bg-brand-100 p-3 rounded-lg">
+                <BookOpen className="w-6 h-6 text-brand-500" />
               </div>
             </div>
           </div>
@@ -216,7 +216,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-sm p-6 text-white">
+          <div className="bg-gradient-to-br from-brand-500 to-brand-600 rounded-xl shadow-sm p-6 text-white">
             <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mb-4">
               <h3 className="text-lg font-semibold">Platform Revenue</h3>
               <IndianRupee className="w-5 h-5" />
@@ -225,7 +225,7 @@ const Home: React.FC = () => {
               <p className="text-3xl font-bold">
                 {formatCurrency(counts?.platformIncome)}
               </p>
-              <p className="text-blue-100 text-sm mt-1">
+              <p className="text-brand-50 text-sm mt-1">
                 Total Revenue Generated
               </p>
             </div>
@@ -266,8 +266,8 @@ const Home: React.FC = () => {
               ))}
             </div>
             <button
-            onClick={()=>navigate('/courses/all/courses')}
-            className="w-full mt-4 flex items-center justify-center space-x-2 text-sm text-blue-600 hover:text-blue-700 py-2">
+              onClick={() => navigate('/courses/all/courses')}
+              className="w-full mt-4 flex items-center justify-center space-x-2 text-sm text-brand-500 hover:text-brand-600 py-2">
               <span>View All Courses</span>
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -285,7 +285,7 @@ const Home: React.FC = () => {
               {latest?.supportTickets?.slice(0, 3).map((ticket) => (
                 <div
                   key={ticket?._id}
-                  className="border-l-4 border-blue-500 pl-4"
+                  className="border-l-4 border-brand-500 pl-4"
                 >
                   <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mb-1">
                     <p className="text-sm font-medium text-gray-900 truncate">
@@ -309,9 +309,9 @@ const Home: React.FC = () => {
                 </div>
               ))}
             </div>
-            <button 
-            onClick={()=>navigate('/requests')}
-            className="w-full mt-4 flex items-center justify-center space-x-2 text-sm text-blue-600 hover:text-blue-700 py-2">
+            <button
+              onClick={() => navigate('/requests')}
+              className="w-full mt-4 flex items-center justify-center space-x-2 text-sm text-brand-500 hover:text-brand-600 py-2">
               <span>View All Tickets</span>
               <ChevronRight className="w-4 h-4" />
             </button>

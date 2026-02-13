@@ -578,7 +578,7 @@ function StudentDetail() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center px-1 py-4 text-sm font-medium border-b-2 transition-colors duration-200 ${activeTab === tab.id
-                  ? "text-blue-600 border-blue-600"
+                  ? "text-brand-500 border-blue-600"
                   : "text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300"
                   }`}
               >
@@ -633,7 +633,7 @@ function StudentDetail() {
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
                 <div className="flex sm:items-center justify-between flex-col items-start sm:flex-row gap-4 mb-6">
                   <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                    <Activity className="mr-2 h-5 w-5 text-blue-500" />
+                    <Activity className="mr-2 h-5 w-5 text-brand-500" />
                     Recent Activity
                   </h3>
 
@@ -643,7 +643,7 @@ function StudentDetail() {
                     data.enrollments.slice(0, 3).map((enrollment, index) => (
                       <div key={index} className="flex items-center p-3 bg-gray-50 rounded-lg">
                         <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <BookOpen className="w-5 h-5 text-blue-600" />
+                          <BookOpen className="w-5 h-5 text-brand-500" />
                         </div>
                         <div className="ml-3 flex-1">
                           <p className="text-sm font-medium text-gray-900">
@@ -704,7 +704,7 @@ function StudentDetail() {
                 <div className="space-y-4">
                   {/* Company Name */}
                   <div className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                    <Building2 className="mr-3 h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <Building2 className="mr-3 h-5 w-5 text-brand-500 mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <span className="font-medium text-gray-700 block text-sm mb-1">
                         Company Name
@@ -758,7 +758,7 @@ function StudentDetail() {
                 </div>
                 <button
                   onClick={() => setEnrollPopupOpen(true)}
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Enroll in New Course
@@ -818,7 +818,7 @@ function StudentDetail() {
                               <div className="flex items-center ml-2 space-x-2">
                                 <input
                                   type="datetime-local"
-                                  className="border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 outline-none"
+                                  className="border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-brand-500 outline-none"
                                   value={newExpiryDate}
                                   onChange={(e) => setNewExpiryDate(e.target.value)}
                                 />
@@ -855,7 +855,7 @@ function StudentDetail() {
                                       .slice(0, 16);
                                     setNewExpiryDate(formattedDate);
                                   }}
-                                  className="ml-2 p-1 text-gray-400 hover:text-blue-600 transition-all"
+                                  className="ml-2 p-1 text-gray-400 hover:text-brand-500 transition-all"
                                   title="Edit Expiry"
                                 >
                                   <Edit className="w-3 h-3" />
@@ -898,7 +898,7 @@ function StudentDetail() {
                       <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mt-4 pt-4 border-t border-gray-100">
                         <a
                           href={enrollment.course?._id ? `/courses/edit/${enrollment.course._id}` : "#"}
-                          className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 font-medium"
+                          className="inline-flex items-center text-sm text-brand-500 hover:text-blue-700 font-medium"
                         >
                           View Course
                           <ArrowRight className="w-4 h-4 ml-1" />
@@ -957,7 +957,7 @@ function StudentDetail() {
                 </p>
                 <button
                   onClick={() => setEnrollPopupOpen(true)}
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Enroll in Course
@@ -1025,7 +1025,7 @@ function StudentDetail() {
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                    <MessageCircle className="mr-2 h-5 w-5 text-blue-500" />
+                    <MessageCircle className="mr-2 h-5 w-5 text-brand-500" />
                     Forum Posts
                   </h3>
                   <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
@@ -1092,7 +1092,7 @@ function StudentDetail() {
                           {reply.createdAt ? formatDate(reply.createdAt) : "N/A"}
                         </p>
                         {reply.threadId && (
-                          <p className="text-xs text-blue-600 mt-1">Thread: {reply.threadId}</p>
+                          <p className="text-xs text-brand-500 mt-1">Thread: {reply.threadId}</p>
                         )}
                       </div>
                     ))}
@@ -1322,7 +1322,7 @@ function StudentDetail() {
                           href={doc.Doc ? `${ImageUrl}/${doc.Doc}` : "#"}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-100 rounded-md hover:bg-blue-200 transition-colors"
+                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-brand-500 bg-blue-100 rounded-md hover:bg-blue-200 transition-colors"
                         >
                           <Eye className="w-3 h-3 mr-1" />
                           View

@@ -791,7 +791,7 @@ const EditCreateCertificateTemplate = () => {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-6">
           <h1 className="text-3xl font-bold flex items-center gap-3 text-gray-900 dark:text-white">
             <div className="p-2 bg-blue-100 rounded-lg">
-              <BookOpen className="w-8 h-8 text-blue-600" />
+              <BookOpen className="w-8 h-8 text-brand-500" />
             </div>
             Edit Certificate Template
           </h1>
@@ -1025,7 +1025,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex items-center gap-2 dark:text-white/90">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Subtitle
                       </label>
                     </div>
@@ -1102,7 +1102,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium dark:text-white/90 flex items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Body Text
                       </label>
                     </div>
@@ -1179,7 +1179,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex items-center dark:text-white/90 gap-2">
-                        <Move className="w-4 h-4 text-blue-500 " />
+                        <Move className="w-4 h-4 text-brand-500 " />
                         Student Name
                       </label>
                     </div>
@@ -1270,7 +1270,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex items-center dark:text-white/90 gap-2">
-                        <Move className="w-4 h-4 text-blue-500 " />
+                        <Move className="w-4 h-4 text-brand-500 " />
                         Platform Signature
                       </label>
                     </div>
@@ -1330,7 +1330,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         QR Code
                       </label>
                     </div>
@@ -1377,7 +1377,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex items-center dark:text-white/90 gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Stamp
                       </label>
                     </div>
@@ -1437,7 +1437,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex dark:text-white/90 items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Date
                       </label>
                     </div>
@@ -1514,7 +1514,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex dark:text-white/90 items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Completion Text
                       </label>
                     </div>
@@ -1591,7 +1591,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium flex dark:text-white/90  items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Instructor Name
                       </label>
                     </div>
@@ -1668,7 +1668,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium dark:text-white/90 flex items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Platform Name
                       </label>
                     </div>
@@ -1745,7 +1745,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium dark:text-white/90 flex items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Hint Text
                       </label>
                     </div>
@@ -1822,7 +1822,7 @@ const EditCreateCertificateTemplate = () => {
                         }
                       />
                       <label className="font-medium dark:text-white/90 flex items-center gap-2">
-                        <Move className="w-4 h-4 text-blue-500" />
+                        <Move className="w-4 h-4 text-brand-500" />
                         Additional Info
                       </label>
                     </div>
@@ -1895,7 +1895,7 @@ const EditCreateCertificateTemplate = () => {
               {/* Submit Button */}
               {loading ? (
                 <div className="bg-white dark:bg-white/[0.03] rounded-lg shadow-sm p-6">
-                  <button className="w-full opacity-75 bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2">
+                  <button className="w-full opacity-75 bg-brand-500 text-white py-4 px-6 rounded-lg font-semibold hover:bg-brand-600 transition-colors duration-200 flex items-center justify-center gap-2">
                     <Upload className="w-5 h-5" />
                     Update ...
                   </button>
@@ -1904,7 +1904,7 @@ const EditCreateCertificateTemplate = () => {
                 <div className="bg-white dark:bg-white/[0.03] rounded-lg shadow-sm p-6">
                   <button
                     onClick={handleSubmit}
-                    className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-brand-500 text-white py-4 px-6 rounded-lg font-semibold hover:bg-brand-600 transition-colors duration-200 flex items-center justify-center gap-2"
                   >
                     <Upload className="w-5 h-5" />
                     Update Template
@@ -1954,7 +1954,7 @@ const EditCreateCertificateTemplate = () => {
                   {/* Drag helper overlay */}
                   {draggedElement && (
                     <div className="absolute inset-0 bg-blue-50 bg-opacity-30 pointer-events-none">
-                      <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-md text-sm">
+                      <div className="absolute top-4 left-4 bg-brand-500 text-white px-3 py-1 rounded-md text-sm">
                         Dragging: {draggedElement.replace("_", " ")}
                       </div>
                     </div>

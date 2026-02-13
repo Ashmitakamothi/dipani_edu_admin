@@ -170,7 +170,7 @@ const JobProposals: React.FC<JobProposalsProps> = ({ proposals, isOpen, onClose,
                               console.log('Opening CV URL:', url);
                               window.open(url, '_blank', 'noopener,noreferrer');
                             }}
-                            className="flex items-center text-sm text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                            className="flex items-center text-sm text-brand-500 dark:text-blue-400 hover:underline cursor-pointer"
                           >
                             <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z" />

@@ -180,7 +180,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
       {/* Basic Quiz Information */}
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 shadow-sm">
         <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-          <Settings className="w-5 h-5 mr-2 text-blue-600" />
+          <Settings className="w-5 h-5 mr-2 text-brand-500" />
           Quiz Configuration
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -195,7 +195,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
               value={quizData.courseTitle}
               onChange={(e) => handleChange("quizTitle", e.target.value)}
               placeholder="Enter quiz title"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               required
             />
           </div>
@@ -210,7 +210,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
               value={quizData.lessonTitle}
               onChange={(e) => handleChange("quizTitle", e.target.value)}
               placeholder="Enter quiz title"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               required
             />
           </div>
@@ -222,7 +222,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
             <select
               value={quizData.quizDifficulty}
               onChange={(e) => handleChange("quizDifficulty", e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             >
               <option value="">Select difficulty</option>
               <option value="easy">🟢 Easy</option>
@@ -244,7 +244,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
                 handleChange("passMark", parseInt(e.target.value) || 70)
               }
               placeholder="70"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
               required
             />
           </div>
@@ -259,7 +259,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
             onChange={(e) => handleChange("quizDescription", e.target.value)}
             placeholder="Brief description of the quiz content and objectives"
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-vertical"
           />
         </div> */}
       </div>
@@ -301,7 +301,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
               </p>
               <button
                 onClick={() => setShowQuestionBuilder(true)}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-flex items-center gap-2"
+                className="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2 rounded-lg inline-flex items-center gap-2"
               >
                 <Plus className="w-4 h-4" />
                 Add First Question
@@ -339,7 +339,7 @@ const EditQuiz = ({ section, lesson, onChange, courseId, lessonId }) => {
           className={`px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-colors shadow ${
             saving || questions?.length === 0
               ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700 text-white"
+              : "bg-brand-500 hover:bg-brand-600 text-white"
           }`}
         >
           <Save className="w-5 h-5" />
@@ -407,7 +407,7 @@ const QuestionCard = ({ question, index, onEdit, onDelete }) => {
         <div className="flex items-center gap-1 ml-4">
           <button
             onClick={() => setShowPreview(!showPreview)}
-            className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+            className="p-2 text-gray-500 hover:text-brand-500 hover:bg-blue-50 rounded-lg transition-colors"
             title="Preview"
           >
             <Eye className="w-4 h-4" />
@@ -549,7 +549,7 @@ const QuestionBuilder = ({ question, onSave, onClose }) => {
               }
               placeholder="Enter your question here..."
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-vertical"
             />
           </div>
           <div>
@@ -560,7 +560,7 @@ const QuestionBuilder = ({ question, onSave, onClose }) => {
               {formData.options.length < 6 && (
                 <button
                   onClick={addOption}
-                  className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1"
+                  className="text-brand-500 hover:text-blue-700 text-sm font-medium flex items-center gap-1"
                 >
                   <Plus className="w-4 h-4" />
                   Add Option
@@ -597,7 +597,7 @@ const QuestionBuilder = ({ question, onSave, onClose }) => {
                         handleOptionChange(index, e.target.value)
                       }
                       placeholder={`Option ${String.fromCharCode(65 + index)}`}
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                     />
                     {formData.options.length > 2 && (
                       <button
@@ -626,7 +626,7 @@ const QuestionBuilder = ({ question, onSave, onClose }) => {
             </button>
             <button
               onClick={handleSave}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors flex items-center gap-2"
             >
               <Save className="w-4 h-4" />
               {question ? "Update Question" : "Add Question"}

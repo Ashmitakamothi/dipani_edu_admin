@@ -54,7 +54,7 @@ const getEventIcon = (eventType: string) => {
     case "VIDEO_PAUSED":
       return <Pause size={16} className="text-orange-500" />;
     case "VIDEO_SEEKED":
-      return <SkipForward size={16} className="text-blue-500" />;
+      return <SkipForward size={16} className="text-brand-500" />;
     case "VIDEO_RETRY":
       return <Repeat size={16} className="text-yellow-500" />;
     case "VIDEO_OPENED_NEW_TAB":
@@ -452,7 +452,7 @@ const Session: React.FC = () => {
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-white/[0.03] text-blue-700">
         <div className="flex flex-col items-center p-6 bg-white dark:bg-white/[0.06] rounded-lg shadow-xl">
-          <Loader className="animate-spin h-10 w-10 text-blue-600 mb-4" />
+          <Loader className="animate-spin h-10 w-10 text-brand-500 mb-4" />
           <p className="text-xl font-medium text-gray-700 dark:text-white/90">
             Loading Video Session Analytics...
           </p>
@@ -482,7 +482,7 @@ const Session: React.FC = () => {
     <div className="min-h-screen bg-gray-100 dark:bg-white/[0.03] text-gray-800 p-4 sm:p-6 lg:p-8 font-sans">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-extrabold mb-8 text-gray-900 dark:text-white/90 border-b-4 border-blue-600 pb-4 flex items-center gap-3">
-          <BarChart2 className="text-blue-600" size={32} /> Video Engagement
+          <BarChart2 className="text-brand-500" size={32} /> Video Engagement
           Dashboard
         </h1>
 
@@ -573,7 +573,7 @@ const Session: React.FC = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => handleSort(e.target.value as typeof sortBy)}
-                  className="p-2 border border-gray-300 rounded-md bg-white dark:bg-white/[0.03] focus:ring-blue-500 focus:border-blue-500"
+                  className="p-2 border border-gray-300 rounded-md bg-white dark:bg-white/[0.03] focus:ring-brand-500 focus:border-brand-500"
                 >
                   <option className="dark:text-black" value="timestamp">
                     Date
@@ -710,7 +710,7 @@ const Session: React.FC = () => {
                           <div className="flex items-center gap-2">
                             <div className="w-20 bg-gray-200 rounded-full h-2">
                               <div
-                                className="bg-blue-600 h-2 rounded-full"
+                                className="bg-brand-500 h-2 rounded-full"
                                 style={{
                                   width: `${Math.min(
                                     session.completionPercentage || 0,
@@ -784,7 +784,7 @@ const Session: React.FC = () => {
                         setItemsPerPage(Number(e.target.value));
                         setCurrentPage(1); // Reset to first page when items per page changes
                       }}
-                      className="px-2 py-1 border dark:text-white/90 border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500"
+                      className="px-2 py-1 border dark:text-white/90 border-gray-300 rounded-md text-sm focus:ring-brand-500 focus:border-brand-500"
                     >
                       <option className="dark:text-black" value={5}>
                         5
@@ -818,7 +818,7 @@ const Session: React.FC = () => {
                         }
                         className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold rounded-md ${
                           currentPage === number
-                            ? "z-10 bg-blue-600 text-white dark:text-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            ? "z-10 bg-brand-500 text-white dark:text-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                             : "text-gray-900 dark:text-white/90 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0"
                         }`}
                       >
@@ -908,7 +908,7 @@ const Session: React.FC = () => {
                   </div>
                   {selectedSession.completed && (
                     <div className="flex items-center gap-2">
-                      <TrendingUp size={16} className="text-blue-500" />
+                      <TrendingUp size={16} className="text-brand-500" />
                       <strong>Completed:</strong> Yes
                     </div>
                   )}

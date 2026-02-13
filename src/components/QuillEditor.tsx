@@ -519,7 +519,7 @@ const QuillEditor = ({
         ) : (
           <div
             ref={editorRef}
-            className="p-6 outline-none prose max-w-none bg-white dark:bg-white/[0.03] dark:text-white/90 text-black dark:placeholder:text-white/60 placeholder:text-black/80 overflow-y-auto focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+            className="p-6 outline-none prose max-w-none bg-white dark:bg-white/[0.03] dark:text-white/90 text-black dark:placeholder:text-white/60 placeholder:text-black/80 overflow-y-auto focus:ring-2 focus:ring-brand-500 focus:ring-inset"
             style={{ 
               height: editorHeight,
             }}

@@ -341,9 +341,9 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
         prev.map((sub) =>
           sub._id === editingSubCategory
             ? {
-                ...result,
-                status: result.status === "active" ? "active" : "inactive",
-              }
+              ...result,
+              status: result.status === "active" ? "active" : "inactive",
+            }
             : sub
         )
       );
@@ -456,7 +456,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
             <div className="p-6">
               {isLoadingCategory ? (
                 <div className="flex justify-center items-center py-8">
-                  <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+                  <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
                 </div>
               ) : (
                 <div className="space-y-8">
@@ -476,7 +476,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                           onChange={(e) =>
                             handleCategoryInputChange("name", e.target.value)
                           }
-                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                           placeholder="Enter category name"
                         />
                       </div>
@@ -495,7 +495,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                           type="file"
                           accept="image/*"
                           onChange={handleCategoryImageChange}
-                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                         />
                       </div>
                       <div>
@@ -507,7 +507,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                           onChange={(e) =>
                             handleCategoryInputChange("status", e.target.value)
                           }
-                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                         >
                           <option value="active">Active</option>
                           <option value="inactive">Inactive</option>
@@ -518,7 +518,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                       <button
                         onClick={handleUpdateCategory}
                         disabled={isSavingCategory}
-                        className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                        className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                       >
                         {isSavingCategory ? (
                           <>
@@ -572,7 +572,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                   e.target.value
                                 )
                               }
-                              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                               placeholder="Enter subcategory name"
                             />
                           </div>
@@ -589,7 +589,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                   e.target.value
                                 )
                               }
-                              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                               placeholder="Enter subcategory slug"
                             />
                           </div>
@@ -605,7 +605,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                   e.target.value
                                 )
                               }
-                              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                             >
                               <option value="active">Active</option>
                               <option value="inactive">Inactive</option>
@@ -669,7 +669,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                           e.target.value
                                         )
                                       }
-                                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                                     />
                                   </div>
                                   <div>
@@ -685,7 +685,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                           e.target.value
                                         )
                                       }
-                                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                                     />
                                   </div>
                                   <div>
@@ -700,7 +700,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                           e.target.value
                                         )
                                       }
-                                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 dark:bg-gray-700 dark:text-white"
                                     >
                                       <option value="active">Active</option>
                                       <option value="inactive">Inactive</option>
@@ -711,7 +711,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                   <button
                                     onClick={handleUpdateSubCategory}
                                     disabled={isUpdatingSubCategory}
-                                    className="px-3 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 text-sm"
+                                    className="px-3 py-1 bg-brand-500 text-white rounded-md hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 text-sm"
                                   >
                                     {isUpdatingSubCategory ? (
                                       <>
@@ -761,7 +761,7 @@ const EditCategoryModal: React.FC<EditCategoryModalProps> = ({
                                     onClick={() =>
                                       startEditingSubCategory(subCategory)
                                     }
-                                    className="text-blue-500 hover:text-blue-700 transition-colors p-1"
+                                    className="text-brand-500 hover:text-brand-600 transition-colors p-1"
                                     title="Edit subcategory"
                                   >
                                     <Pencil className="h-4 w-4" />

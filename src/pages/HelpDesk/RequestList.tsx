@@ -480,7 +480,7 @@ const RequestList: React.FC = () => {
                     {analyticsLoading ? (
                         <div className="flex justify-center items-center py-12">
                             <div className="text-center">
-                                <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin mx-auto mb-4"></div>
+                                <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin mx-auto mb-4"></div>
                                 <p className="text-gray-600 dark:text-gray-400">Loading analytics data...</p>
                             </div>
                         </div>
@@ -615,7 +615,7 @@ const RequestList: React.FC = () => {
                                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
                                     <div className="flex items-center justify-between">
                                         <div className="flex-1">
-                                            <p className="text-blue-600 dark:text-blue-400 text-sm font-medium uppercase tracking-wide">
+                                            <p className="text-brand-500 dark:text-blue-400 text-sm font-medium uppercase tracking-wide">
                                                 Active Users
                                             </p>
                                             <p className="text-3xl font-bold text-blue-700 dark:text-blue-300 mt-2">
@@ -625,14 +625,14 @@ const RequestList: React.FC = () => {
                                                 <div className="text-xs px-2 py-1 rounded-full bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
                                                     {stats.avgMessagesPerTicket} Avg Messages
                                                 </div>
-                                                <Users className="w-4 h-4 text-blue-500" />
+                                                <Users className="w-4 h-4 text-brand-500" />
                                             </div>
                                             <div className="mt-2 bg-blue-200 dark:bg-blue-800 rounded-full h-1">
-                                                <div className="bg-blue-600 h-1 rounded-full transition-all duration-300" style={{ width: '85%' }}></div>
+                                                <div className="bg-brand-500 h-1 rounded-full transition-all duration-300" style={{ width: '85%' }}></div>
                                             </div>
                                         </div>
                                         <div className="w-12 h-12 bg-blue-200 dark:bg-blue-800 rounded-lg flex items-center justify-center">
-                                            <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                                            <Users className="w-6 h-6 text-brand-500 dark:text-blue-400" />
                                         </div>
                                     </div>
                                 </div>
@@ -647,7 +647,7 @@ const RequestList: React.FC = () => {
                                 <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm">
                                     <div className="flex items-center justify-between mb-6">
                                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                                            <BarChart3 className="w-5 h-5 text-indigo-600" />
+                                            <BarChart3 className="w-5 h-5 text-brand-600" />
                                             Top Users by Tickets
                                         </h3>
                                         <span className="text-sm text-gray-500 dark:text-gray-400">Last 30 days</span>
@@ -730,7 +730,7 @@ const RequestList: React.FC = () => {
                             {/* Category Distribution */}
                             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm mb-8">
                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                                    <BarChart3 className="w-5 h-5 text-purple-600" />
+                                    <BarChart3 className="w-5 h-5 text-brandd-600" />
                                     Ticket Categories Distribution
                                 </h3>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -762,7 +762,7 @@ const RequestList: React.FC = () => {
                                 value={searchInput}
                                 onChange={(e) => setSearchInput(e.target.value)}
                                 placeholder="Search by subject, category, user, or description..."
-                                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                             />
                         </div>
                         <div className="flex gap-2">
@@ -805,7 +805,7 @@ const RequestList: React.FC = () => {
 
                 {loading ? (
                     <div className="flex justify-center items-center py-8">
-                        <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+                        <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
                     </div>
                 ) : (
                     <div className="bg-white shadow rounded-lg overflow-x-auto dark:bg-gray-900">
@@ -898,7 +898,7 @@ const RequestList: React.FC = () => {
                                                                 e.stopPropagation();
                                                                 navigate(`/students/${ticket.userId._id}`);
                                                             }}
-                                                            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 ml-2"
+                                                            className="text-brand-500 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 ml-2"
                                                             title="View User Profile"
                                                         >
                                                             <User className="w-4 h-4" />
@@ -960,7 +960,7 @@ const RequestList: React.FC = () => {
                                                             e.stopPropagation();
                                                             navigate(`/support-tickets/edit/${ticket._id}`);
                                                         }}
-                                                        className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                                                        className="text-brand-500 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                                                         title="Edit Ticket"
                                                     >
                                                         <Edit className="w-5 h-5" />
@@ -1013,7 +1013,7 @@ const RequestList: React.FC = () => {
                                         onClick={() => handlePageChange(p)}
                                         className={`px-3 py-1 rounded ${
                                             currentPage === p
-                                                ? "bg-indigo-500 text-white"
+                                                ? "bg-brand-500 text-white"
                                                 : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                                         }`}
                                     >
@@ -1068,7 +1068,7 @@ const RequestList: React.FC = () => {
                             {userAnalytics.get(selectedUserId) && (
                                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
                                     <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg text-center">
-                                        <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                                        <div className="text-2xl font-bold text-brand-500 dark:text-blue-400">
                                             {userAnalytics.get(selectedUserId).totalTickets}
                                         </div>
                                         <div className="text-xs text-gray-600 dark:text-gray-400">Total</div>
@@ -1187,7 +1187,7 @@ const RequestList: React.FC = () => {
                         <div className="p-6">
                             {studentLoading ? (
                                 <div className="flex justify-center items-center py-8">
-                                    <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+                                    <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
                                 </div>
                             ) : studentDetails ? (
                                 <div className="space-y-8">
@@ -1348,7 +1348,7 @@ const RequestList: React.FC = () => {
                                                 navigate(`/students/${studentDetails._id}`);
                                                 handleCloseUserProfile();
                                             }}
-                                            className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+                                            className="px-6 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-colors"
                                         >
                                             View Full Profile
                                         </button>

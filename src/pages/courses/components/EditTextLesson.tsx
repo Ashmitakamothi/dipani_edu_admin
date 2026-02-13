@@ -320,7 +320,7 @@ const EditTextLessonEditor = ({
             <select
               value={formData.language}
               onChange={(e) => handleInputChange("language", e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
               disabled={loading}
             >
               <option value="English">English</option>
@@ -343,7 +343,7 @@ const EditTextLessonEditor = ({
               placeholder="Between 255 characters"
               maxLength={255}
               disabled={loading}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 disabled:bg-gray-100"
             />
             <div className="text-xs text-gray-500 text-right mt-1">
               {titleCharCount}/255
@@ -361,7 +361,7 @@ const EditTextLessonEditor = ({
               onChange={(e) => handleInputChange("bookTitle", e.target.value)}
               placeholder="+"
               disabled={loading}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 disabled:bg-gray-100"
             />
           </div>
 
@@ -381,7 +381,7 @@ const EditTextLessonEditor = ({
                     handleInputChange("accessibility", e.target.value)
                   }
                   disabled={loading}
-                  className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 disabled:opacity-50"
+                  className="w-4 h-4 text-brand-500 border-gray-300 focus:ring-brand-500 disabled:opacity-50"
                 />
                 <span className="ml-2 text-sm text-gray-700">Free</span>
               </label>
@@ -395,7 +395,7 @@ const EditTextLessonEditor = ({
                     handleInputChange("accessibility", e.target.value)
                   }
                   disabled={loading}
-                  className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 disabled:opacity-50"
+                  className="w-4 h-4 text-brand-500 border-gray-300 focus:ring-brand-500 disabled:opacity-50"
                 />
                 <span className="ml-2 text-sm text-gray-700">Paid</span>
               </label>
@@ -484,7 +484,7 @@ const EditTextLessonEditor = ({
               onChange={(e) => handleInputChange("summary", e.target.value)}
               rows={4}
               disabled={loading}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none disabled:bg-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 resize-none disabled:bg-gray-100"
               placeholder="Write a brief summary of the lesson..."
             />
           </div>
@@ -514,7 +514,7 @@ const EditTextLessonEditor = ({
                   checked={archive}
                   onChange={(e) => setArchive(e.target.checked)}
                   disabled={loading}
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50"
+                  className="w-4 h-4 text-brand-500 border-gray-300 rounded focus:ring-brand-500 disabled:opacity-50"
                 />
                 <span className="ml-2 text-sm text-gray-700">Active</span>
               </label>
@@ -524,7 +524,7 @@ const EditTextLessonEditor = ({
                   checked={dropContent}
                   onChange={(e) => setDropContent(e.target.checked)}
                   disabled={loading}
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 disabled:opacity-50"
+                  className="w-4 h-4 text-brand-500 border-gray-300 rounded focus:ring-brand-500 disabled:opacity-50"
                 />
                 <span className="ml-2 text-sm text-gray-700">Drip content</span>
               </label>
@@ -534,14 +534,14 @@ const EditTextLessonEditor = ({
               <button
                 onClick={handleCancel}
                 disabled={loading}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSave}
                 disabled={loading}
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-4 py-2 text-sm font-medium text-white bg-brand-500 border border-transparent rounded-md hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {loading && (
                   <svg

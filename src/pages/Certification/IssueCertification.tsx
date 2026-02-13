@@ -285,7 +285,7 @@ const IssueCertificateForm = () => {
   return (
     <div className="mx-auto p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg max-w-4xl">
       <div className="flex items-center mb-6">
-        <Award className="w-8 h-8 text-blue-600 mr-3" />
+        <Award className="w-8 h-8 text-brand-500 mr-3" />
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
           Issue Certificate
         </h2>
@@ -310,7 +310,7 @@ const IssueCertificateForm = () => {
                 value={formData.serial_number}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                 placeholder="CERT-20250707-001"
               />
             </div>
@@ -323,7 +323,7 @@ const IssueCertificateForm = () => {
                 name="type"
                 value={formData.type}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               >
                 <option value="course">Course</option>
                 {/* <option value="quiz">Quiz</option> */}
@@ -339,7 +339,7 @@ const IssueCertificateForm = () => {
                 name="status"
                 value={formData.status}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               >
                 <option value="issued">Issued</option>
                 <option value="revoked">Revoked</option>
@@ -356,7 +356,7 @@ const IssueCertificateForm = () => {
                 value={formData.date}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               />
             </div>
           </div>
@@ -380,7 +380,7 @@ const IssueCertificateForm = () => {
                 value={formData.user_id}
                 // onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                 placeholder="686ba78b85181158a7c64ba7"
               />
             </div>
@@ -394,7 +394,7 @@ const IssueCertificateForm = () => {
                   name="course_id"
                   value={formData.course_id || ""}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                   <option value="">Select Course Submission ID</option>
                   {filteredCourses?.length > 0 &&
@@ -425,7 +425,7 @@ const IssueCertificateForm = () => {
                 value={formData.instructor_id}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                 placeholder="68376865e572d08d7905882d"
               />
             </div> */}
@@ -448,7 +448,7 @@ const IssueCertificateForm = () => {
                 name="certification_template"
                 value={formData.certification_template || ""}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
               >
                 <option value="">Select Certification Template</option>
                 {templates?.length > 0 &&
@@ -472,7 +472,7 @@ const IssueCertificateForm = () => {
             value={formData.remarks}
             onChange={handleInputChange}
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
             placeholder="Excellent Performance"
           />
         </div>
@@ -486,7 +486,7 @@ const IssueCertificateForm = () => {
             className={`px-6 py-3 rounded-md font-medium flex items-center space-x-2 ${
               loading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
+                : "bg-brand-500 hover:bg-brand-600"
             } text-white transition duration-200`}
           >
             <Award className="w-5 h-5" />

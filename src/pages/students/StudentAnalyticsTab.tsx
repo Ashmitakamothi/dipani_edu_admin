@@ -74,13 +74,13 @@ const ActivityCard = ({ activity, index }: { activity: any; index: number }) => 
       {activity.completed ? (
         <CheckCircle className="w-5 h-5 text-green-500" />
       ) : (
-        <PlayCircle className="w-5 h-5 text-blue-500" />
+        <PlayCircle className="w-5 h-5 text-brand-500" />
       )}
     </div>
 
     
     <div className="pr-8">
-      <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+      <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-brand-500 transition-colors">
         Course: {activity.courseName}
       </h4>
       <p className="text-sm text-black-600 mb-3">Lesson: {activity.lessonName}</p>
@@ -89,7 +89,7 @@ const ActivityCard = ({ activity, index }: { activity: any; index: number }) => 
         <div>
           <div className="flex justify-between items-center mb-2">
             <span className="text-xs font-medium text-gray-700">Progress</span>
-            <span className="text-xs font-bold text-blue-600">
+            <span className="text-xs font-bold text-brand-500">
               {Math.round(activity.progressPercentage)}%
             </span>
           </div>
@@ -136,7 +136,7 @@ const StudentAnalyticsTab = ({ studentId }: { studentId: string }) => {
         <div className="relative">
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-100 border-t-blue-500"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <BarChart3 className="w-6 h-6 text-blue-500" />
+            <BarChart3 className="w-6 h-6 text-brand-500" />
           </div>
         </div>
         <p className="mt-4 text-gray-600 font-medium">Loading analytics...</p>
@@ -212,7 +212,7 @@ const StudentAnalyticsTab = ({ studentId }: { studentId: string }) => {
 
       {/* Recent Learning Activity */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+        <div className="bg-gradient-to-rfrom-brand-500 to-brand-600 px-6 py-4">
           <h3 className="text-xl font-semibold text-white flex items-center">
             <Activity className="w-6 h-6 mr-3" />
             Recent Learning Activity

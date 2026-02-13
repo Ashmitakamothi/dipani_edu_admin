@@ -40,19 +40,18 @@ layer(base);
   --color-transparent: transparent;
   --color-white: #ffffff;
   --color-black: #101828;
-
-  --color-brand-25: #f2f7ff;
-  --color-brand-50: #ecf3ff;
-  --color-brand-100: #dde9ff;
-  --color-brand-200: #c2d6ff;
-  --color-brand-300: #9cb9ff;
-  --color-brand-400: #7592ff;
-  --color-brand-500: #465fff;
-  --color-brand-600: #3641f5;
-  --color-brand-700: #2a31d8;
-  --color-brand-800: #252dae;
-  --color-brand-900: #262e89;
-  --color-brand-950: #161950;
+ --color-brand-25: #FCF9F5;
+  --color-brand-50: #F9F2E7;
+  --color-brand-100: #F5ECD9;
+  --color-brand-200: #EAD6B0;
+  --color-brand-300: #DFC087;
+  --color-brand-400: #D4AA5D;
+  --color-brand-500: #C0913D; /* Primary Logo Gold */
+  --color-brand-600: #A67528;
+  --color-brand-700: #85591B;
+  --color-brand-800: #6B4515;
+  --color-brand-900: #5F2F05; /* Dark Logo Brown */
+  --color-brand-950: #3E1C02;
 
   --color-blue-light-25: #f5fbff;
   --color-blue-light-50: #f0f9ff;

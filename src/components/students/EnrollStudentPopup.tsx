@@ -154,7 +154,7 @@ const EnrollStudentPopup: React.FC<EnrollStudentPopupProps> = ({ open, onClose, 
               <div className="relative" ref={dropdownRef}>
                 <button
                   type="button"
-                  className={`w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-left flex justify-between items-center focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 disabled:opacity-50 ${!!studentId || loading ? "opacity-60 cursor-not-allowed" : ""}`}
+                  className={`w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-left flex justify-between items-center focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 disabled:opacity-50 ${!!studentId || loading ? "opacity-60 cursor-not-allowed" : ""}`}
                   onClick={() => {
                     if (!studentId && !loading) setStudentDropdownOpen((v) => !v);
                   }}
@@ -216,7 +216,7 @@ const EnrollStudentPopup: React.FC<EnrollStudentPopupProps> = ({ open, onClose, 
               </label>
               <select
                 id="course-select"
-                className="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 disabled:opacity-50"
+                className="w-full p-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 disabled:opacity-50"
                 value={selectedCourse}
                 onChange={(e) => setSelectedCourse(e.target.value)}
                 required
@@ -301,7 +301,7 @@ const EnrollStudentPopup: React.FC<EnrollStudentPopupProps> = ({ open, onClose, 
                 type="submit"
                 disabled={loading}
                 onClick={handleSubmit}
-                className="px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-200 disabled:opacity-50 flex items-center gap-2"
+                className="px-4 py-2 rounded-lg bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors duration-200 disabled:opacity-50 flex items-center gap-2"
               >
                 {loading && (
                   <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>

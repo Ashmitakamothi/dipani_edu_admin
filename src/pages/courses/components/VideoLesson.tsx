@@ -89,7 +89,7 @@ const EnhancedPopup: React.FC<{
       case "warning":
         return <AlertCircle className="w-5 h-5 text-amber-600" />;
       case "info":
-        return <Info className="w-5 h-5 text-blue-600" />;
+        return <Info className="w-5 h-5 text-brand-500" />;
       default:
         return <Info className="w-5 h-5 text-gray-600" />;
     }
@@ -666,7 +666,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
       return (
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 p-5 rounded-xl">
           <div className="flex items-center gap-2 mb-3">
-            <MonitorPlay className="w-5 h-5 text-blue-600" />
+            <MonitorPlay className="w-5 h-5 text-brand-500" />
             <h4 className="font-semibold text-blue-900">VdoCipher Video Details</h4>
           </div>
           <div className="grid grid-cols-2 gap-4 text-sm">
@@ -763,7 +763,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
               >
                 <div className="flex items-center gap-2">
                   <Upload className={`w-5 h-5 ${
-                    form.uploadMethod === "file" ? "text-blue-600" : "text-gray-400"
+                    form.uploadMethod === "file" ? "text-brand-500" : "text-gray-400"
                   }`} />
                   <span className={`font-medium text-sm ${
                     form.uploadMethod === "file" ? "text-blue-900" : "text-gray-700"
@@ -773,7 +773,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
                 </div>
                 {form.uploadMethod === "file" && (
                   <div className="absolute top-2 right-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                    <CheckCircle2 className="w-4 h-4 text-brand-500" />
                   </div>
                 )}
               </div>
@@ -824,7 +824,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
                 <label htmlFor="video-file" className="cursor-pointer">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Video className="w-6 h-6 text-blue-600" />
+                      <Video className="w-6 h-6 text-brand-500" />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-700">
@@ -960,7 +960,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
               name="title"
               value={form.title}
               onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200"
               placeholder="Enter an engaging title for your video"
               required
             />
@@ -976,7 +976,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
               value={form.description}
               onChange={handleChange}
               rows={4}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 resize-none"
               placeholder="Describe what students will learn from this video..."
             />
           </div>
@@ -1010,7 +1010,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
                     <div className="flex items-center gap-3">
                       <Icon className={`w-6 h-6 ${
                         form.sourcePlatform === platform.value 
-                          ? "text-blue-600" 
+                          ? "text-brand-500" 
                           : "text-gray-400"
                       }`} />
                       <span className={`font-medium ${
@@ -1023,7 +1023,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
                     </div>
                     {form.sourcePlatform === platform.value && (
                       <div className="absolute top-2 right-2">
-                        <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                        <CheckCircle2 className="w-5 h-5 text-brand-500" />
                       </div>
                     )}
                   </div>

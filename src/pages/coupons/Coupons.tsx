@@ -78,7 +78,7 @@ const UsageDetailsModal: React.FC<{
           <div className="flex items-center justify-between gap-4 p-6 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3">
               <div className="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center">
-                <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <Users className="w-5 h-5 text-brand-500 dark:text-blue-400" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -102,7 +102,7 @@ const UsageDetailsModal: React.FC<{
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                 <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-blue-600" />
+                  <Users className="w-5 h-5 text-brand-500" />
                   <span className="text-sm font-medium text-blue-900 dark:text-blue-300">
                     Total Users
                   </span>
@@ -188,7 +188,7 @@ const UsageDetailsModal: React.FC<{
           <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
             <button
               onClick={onClose}
-              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-500"
             >
               Close
             </button>
@@ -246,7 +246,7 @@ const DeleteModal: React.FC<{
             <button
               onClick={onClose}
               disabled={isDeleting}
-              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50"
             >
               Cancel
             </button>
@@ -481,7 +481,7 @@ const Coupons: React.FC = () => {
             </span>
             <button
              onClick={() => navigate("/coupons/add")}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-md shadow transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-5 py-2 rounded-md shadow transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400"
             >
               + Add Coupon
             </button>
@@ -498,7 +498,7 @@ const Coupons: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by code or description..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
             <div className="flex items-center gap-2">
@@ -508,7 +508,7 @@ const Coupons: React.FC = () => {
                 onChange={(e) =>
                   handleFilterChange("isActive", e.target.value === "" ? undefined : e.target.value === "true")
                 }
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Status</option>
                 <option value="true">Active</option>
@@ -520,7 +520,7 @@ const Coupons: React.FC = () => {
               <select
                 value={localFilters.discountType || ""}
                 onChange={(e) => handleFilterChange("discountType", e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Types</option>
                 <option value="flat">Flat</option>
@@ -532,7 +532,7 @@ const Coupons: React.FC = () => {
               <select
                 value={pagination.limit}
                 onChange={(e) => handleLimitChange(Number(e.target.value))}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value={5}>5</option>
                 <option value={10}>10</option>
@@ -560,7 +560,7 @@ const Coupons: React.FC = () => {
         {/* Loading State */}
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -628,7 +628,7 @@ const Coupons: React.FC = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
                         <div className="flex items-center gap-2">
-                          <span className="text-blue-600 dark:text-blue-400 font-medium">
+                          <span className="text-brand-500 dark:text-blue-400 font-medium">
                             {totalUsages}
                           </span>
                           <span className="text-gray-400">/</span>
@@ -638,7 +638,7 @@ const Coupons: React.FC = () => {
                           {validUsages.length > 0 && (
                             <button
                               onClick={() => openUsageModal(coupon)}
-                              className="ml-2 text-blue-500 hover:text-blue-700 transition-colors"
+                              className="ml-2 text-brand-500 hover:text-blue-700 transition-colors"
                               title="View usage details"
                             >
                               <Eye className="h-4 w-4" />
@@ -673,7 +673,7 @@ const Coupons: React.FC = () => {
                           </button>
                           <button
                             onClick={() => openUsageModal(coupon)}
-                            className="text-blue-500 hover:text-blue-700 transition-colors p-1"
+                            className="text-brand-500 hover:text-blue-700 transition-colors p-1"
                             title="View usage details"
                           >
                             <Eye className="h-5 w-5" />
@@ -720,7 +720,7 @@ const Coupons: React.FC = () => {
                     onClick={() => handlePageChange(page)}
                     className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
                       pagination.page === page
-                        ? "bg-indigo-500 text-white"
+                        ? "bg-brand-500 text-white"
                         : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                     }`}
                   >

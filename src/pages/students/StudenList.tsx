@@ -108,7 +108,7 @@ const DeleteModal: React.FC<{
             <button
               onClick={onClose}
               disabled={isDeleting}
-              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50"
             >
               Cancel
             </button>
@@ -458,7 +458,7 @@ const StudentList: React.FC = () => {
             {/* Add Student Button */}
             <button
               onClick={() => setCreatePopupOpen(true)}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-md shadow transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-5 py-2 rounded-md shadow transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400"
             >
               + Add Student
             </button>
@@ -497,7 +497,7 @@ const StudentList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by name or email..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
 
@@ -507,7 +507,7 @@ const StudentList: React.FC = () => {
               <select
                 value={localFilters.status || ""}
                 onChange={(e) => handleFilterChange("status", e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Status</option>
                 <option value="active">Active</option>
@@ -521,7 +521,7 @@ const StudentList: React.FC = () => {
               <select
                 value={pagination.limit}
                 onChange={(e) => handleLimitChange(Number(e.target.value))}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value={5}>5</option>
                 <option value={10}>10</option>
@@ -550,7 +550,7 @@ const StudentList: React.FC = () => {
         {/* Loading State */}
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -767,7 +767,7 @@ const StudentList: React.FC = () => {
                     onClick={() => handlePageChange(page)}
                     className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
                       pagination.page === page
-                        ? "bg-indigo-500 text-white"
+                        ? "bg-brand-500 text-white"
                         : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                     }`}
                   >

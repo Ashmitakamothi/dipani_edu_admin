@@ -213,7 +213,7 @@ export default function EditAssignmentForm({
                 name="title"
                 value={formData.title}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                 placeholder="Enter assignment title"
                 required
                 disabled={loading}
@@ -230,7 +230,7 @@ export default function EditAssignmentForm({
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                   required
                   disabled={loading}
                 >
@@ -249,7 +249,7 @@ export default function EditAssignmentForm({
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border opacity-70 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border opacity-70 border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                   placeholder="Enter assignment title"
                   disabled
                 />
@@ -263,7 +263,7 @@ export default function EditAssignmentForm({
                   name="language"
                   value={formData.language}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border opacity-70 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border opacity-70 border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                   disabled
                 >
                   <option value="English">English</option>
@@ -286,7 +286,7 @@ export default function EditAssignmentForm({
                 value={formData.description}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-none"
                 placeholder="A homework is to be completed on your course of CSS and research yourself that you've got this! Please send your homework as soon as possible. Regards."
                 required
                 disabled={loading}
@@ -304,7 +304,7 @@ export default function EditAssignmentForm({
                   name="score"
                   value={formData.score}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                   placeholder="100"
                   disabled={loading}
                 />
@@ -319,7 +319,7 @@ export default function EditAssignmentForm({
                   name="maxScore"
                   value={formData.maxScore}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                   placeholder="250"
                   disabled={loading}
                 />
@@ -334,7 +334,7 @@ export default function EditAssignmentForm({
                   name="duration"
                   value={formData.duration}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                   placeholder="60"
                   disabled={loading}
                 />
@@ -351,7 +351,7 @@ export default function EditAssignmentForm({
                 name="materials"
                 value={formData.materials}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                 placeholder="Maximum 255 characters"
                 maxLength={255}
                 disabled={loading}
@@ -369,7 +369,7 @@ export default function EditAssignmentForm({
                   {formData.file ? (
                     <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 bg-blue-50 p-3 rounded-lg">
                       <div className="flex items-center gap-2">
-                        <FileText className="w-5 h-5 text-blue-600" />
+                        <FileText className="w-5 h-5 text-brand-500" />
                         <span className="text-sm font-medium text-blue-800">
                           {formData.file.name}
                         </span>
@@ -398,7 +398,7 @@ export default function EditAssignmentForm({
                       />
                       <label
                         htmlFor="file-upload"
-                        className={`inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer transition-colors ${
+                        className={`inline-flex items-center px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 cursor-pointer transition-colors ${
                           loading ? "opacity-50 cursor-not-allowed" : ""
                         }`}
                       >
@@ -465,7 +465,7 @@ export default function EditAssignmentForm({
                 type="submit"
                 onClick={handleSubmit}
                 disabled={loading}
-                className={`px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all font-medium flex items-center gap-2 ${
+                className={`px-8 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-all font-medium flex items-center gap-2 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >

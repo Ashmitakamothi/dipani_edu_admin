@@ -71,7 +71,7 @@ const EnhancedPopup: React.FC<EnhancedPopupProps> = ({ isVisible, message, type,
       case "warning":
         return <AlertCircle className="w-5 h-5 text-amber-600" />;
       case "info":
-        return <AlertCircle className="w-5 h-5 text-blue-600" />;
+        return <AlertCircle className="w-5 h-5 text-brand-500" />;
       default:
         return <AlertCircle className="w-5 h-5 text-gray-600" />;
     }
@@ -565,7 +565,7 @@ export default function AddAssignmentForm({
                         </div>
                       ) : (
                         <div className="text-center">
-                          <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500 mx-auto mb-2 sm:mb-3" />
+                          <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-brand-500 mx-auto mb-2 sm:mb-3" />
                           <p className="text-sm font-medium text-gray-700 mb-1">Choose Attachment</p>
                           <p className="text-xs text-gray-500 mb-3">Upload related files or resources</p>
                           <input
@@ -577,7 +577,7 @@ export default function AddAssignmentForm({
                           />
                           <label
                             htmlFor="file-upload"
-                            className={`inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 cursor-pointer transition-colors ${
+                            className={`inline-flex items-center px-4 py-2 bg-brand-500 text-white text-sm font-medium rounded-lg hover:bg-brand-600 cursor-pointer transition-colors ${
                               loading ? "opacity-50 cursor-not-allowed" : ""
                             }`}
                           >

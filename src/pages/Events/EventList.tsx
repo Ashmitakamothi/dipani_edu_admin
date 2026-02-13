@@ -124,7 +124,7 @@ const EventList: React.FC = () => {
       case 'cancelled':
         return 'text-red-500';
       case 'completed':
-        return 'text-blue-500';
+        return 'text-brand-500';
       default:
         return 'text-gray-500';
     }
@@ -166,7 +166,7 @@ const EventList: React.FC = () => {
               Total: {pagination.total}
             </span>
             <button
-              className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+              className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600 transition-colors"
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href = "/event/add";
@@ -187,7 +187,7 @@ const EventList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by title..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
             <div className="flex items-center gap-2">
@@ -195,7 +195,7 @@ const EventList: React.FC = () => {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Status</option>
                 <option value="published">Published</option>
@@ -206,7 +206,7 @@ const EventList: React.FC = () => {
               <select
                 value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               >
                 <option value="">All Types</option>
                 <option value="online">Online</option>
@@ -246,7 +246,7 @@ const EventList: React.FC = () => {
         {/* Loading State */}
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -310,7 +310,7 @@ const EventList: React.FC = () => {
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
                     <span className={`capitalize ${
-                      event.type === 'online' ? 'text-blue-500' :
+                      event.type === 'online' ? 'text-brand-500' :
                       event.type === 'offline' ? 'text-green-500' :
                       'text-purple-500'
                     }`}>
@@ -375,7 +375,7 @@ const EventList: React.FC = () => {
                 onClick={() => handlePageChange(pageNum)}
                 className={`px-3 py-1 rounded ${
                   pagination.page === pageNum
-                    ? "bg-indigo-500 text-white"
+                    ? "bg-brand-500 text-white"
                     : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >

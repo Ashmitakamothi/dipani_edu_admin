@@ -304,7 +304,7 @@ const EditFilterModal: React.FC<{
                   onChange={(e) =>
                     setFormData({ ...formData, title: e.target.value })
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-colors"
                   placeholder="Enter filter title"
                   required
                 />
@@ -320,7 +320,7 @@ const EditFilterModal: React.FC<{
                   onChange={(e) =>
                     setFormData({ ...formData, language: e.target.value })
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-colors"
                 >
                   <option value="">Select Language</option>
                   <option value="English">English</option>
@@ -340,7 +340,7 @@ const EditFilterModal: React.FC<{
                   value={formData.category}
                   onChange={handleCategoryChange}
                   disabled={categoriesLoading}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed"
                   required
                 >
                   <option value="">
@@ -370,7 +370,7 @@ const EditFilterModal: React.FC<{
                   value={formData.subCategory}
                   onChange={handleSubcategoryChange}
                   disabled={!formData.category || subcategoriesLoading}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed"
                   required
                 >
                   <option value="">
@@ -436,13 +436,13 @@ const EditFilterModal: React.FC<{
                     onChange={(e) => setNewOption(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Add new option..."
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-colors"
                   />
                   <button
                     type="button"
                     onClick={handleAddOption}
                     disabled={!newOption.trim()}
-                    className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-colors"
+                    className="px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-colors"
                   >
                     <Plus className="w-4 h-4" />
                     Add
@@ -515,14 +515,14 @@ const EditFilterModal: React.FC<{
                 type="button"
                 onClick={onClose}
                 disabled={isUpdating}
-                className="px-6 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 transition-colors"
+                className="px-6 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isUpdating || formData.filterOptions.length === 0}
-                className="px-6 py-3 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-colors"
+                className="px-6 py-3 text-sm font-medium text-white bg-brand-500 border border-transparent rounded-lg hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-colors"
               >
                 {isUpdating ? (
                   <>
@@ -585,7 +585,7 @@ const EditableOption: React.FC<{
           onKeyPress={handleKeyPress}
           onBlur={handleSave}
           autoFocus
-          className="flex-1 px-3 py-2 text-sm border border-indigo-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          className="flex-1 px-3 py-2 text-sm border border-indigo-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500"
         />
       </div>
     );
@@ -651,7 +651,7 @@ const DeleteModal: React.FC<{
             <button
               onClick={onClose}
               disabled={isDeleting}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50"
             >
               Cancel
             </button>
@@ -914,7 +914,7 @@ const FilterList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by title..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 text-black-400 dark:text-white/90 dark:placeholder:text-white/80  placeholder:text-black/80  rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 text-black-400 dark:text-white/90 dark:placeholder:text-white/80  placeholder:text-black/80  rounded-md focus:ring-brand-500 focus:border-indigo-500"
               />
             </div>
 
@@ -924,7 +924,7 @@ const FilterList: React.FC = () => {
               <select
                 value={localFilters.language || ""}
                 onChange={(e) => handleFilterChange("language", e.target.value)}
-                className="border border-gray-300 text-black-400 dark:text-white/90 dark:placeholder:text-white/80  placeholder:text-black/80 rounded-md px-3 py-2 focus:ring-indigo-500"
+                className="border border-gray-300 text-black-400 dark:text-white/90 dark:placeholder:text-white/80  placeholder:text-black/80 rounded-md px-3 py-2 focus:ring-brand-500"
               >
                 <option className="dark:text-black" value="">
                   All Languages
@@ -947,7 +947,7 @@ const FilterList: React.FC = () => {
               <select
                 value={pagination.limit}
                 onChange={(e) => handleLimitChange(Number(e.target.value))}
-                className="border border-gray-300 text-black-400 dark:text-white/90 dark:placeholder:text-white/80  placeholder:text-black/80 rounded-md px-3 py-2 focus:ring-indigo-500"
+                className="border border-gray-300 text-black-400 dark:text-white/90 dark:placeholder:text-white/80  placeholder:text-black/80 rounded-md px-3 py-2 focus:ring-brand-500"
               >
                 <option className="dark:text-black" value={5}>
                   5
@@ -981,7 +981,7 @@ const FilterList: React.FC = () => {
         {/* Loading */}
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -1048,7 +1048,7 @@ const FilterList: React.FC = () => {
                   <td className="px-6 py-4 text-right space-x-2">
                     <button
                       onClick={() => openEditModal(filter)}
-                      className="text-blue-500 hover:text-blue-700 transition-colors"
+                      className="text-brand-500 hover:text-blue-700 transition-colors"
                     >
                       <Pencil className="h-5 w-5" />
                     </button>
@@ -1089,7 +1089,7 @@ const FilterList: React.FC = () => {
                   onClick={() => handlePageChange(page)}
                   className={`px-3 py-1 rounded ${
                     pagination.page === page
-                      ? "bg-indigo-500 text-white"
+                      ? "bg-brand-500 text-white"
                       : "bg-gray-100 hover:bg-gray-200"
                   }`}
                 >

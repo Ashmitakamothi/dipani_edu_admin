@@ -314,7 +314,7 @@ export default function DeviceApprovals() {
                 </label>
                 <textarea
                   id="reject-reason"
-                  className="w-full border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none"
+                  className="w-full border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none"
                   value={rejectReason}
                   onChange={(e) => setRejectReason(e.target.value)}
                   rows={4}
@@ -378,7 +378,7 @@ export default function DeviceApprovals() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+              className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
             >
               <option value="">All Status</option>
               <option value="pending">Pending</option>
@@ -391,7 +391,7 @@ export default function DeviceApprovals() {
             <select
               value={limit}
               onChange={e => handleLimitChange(Number(e.target.value))}
-              className="border border-gray-300 rounded-md px-3 py-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+              className="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
             >
               <option value={5}>5</option>
               <option value={10}>10</option>
@@ -485,7 +485,7 @@ export default function DeviceApprovals() {
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-3">
                           <div className="flex-shrink-0">
-                            <User2 className="w-8 h-8 p-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full" />
+                            <User2 className="w-8 h-8 p-1.5 bg-blue-100 dark:bg-blue-900/30 text-brand-500 dark:text-blue-400 rounded-full" />
                           </div>
                           <div>
                             <div className="font-medium text-gray-900 dark:text-white">

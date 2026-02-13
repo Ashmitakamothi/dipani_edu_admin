@@ -151,7 +151,7 @@ const FileUpload = ({
           <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400 dark:text-gray-500" />
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Drop file here or{" "}
-            <span className="text-blue-600 hover:underline">browse</span>
+            <span className="text-brand-500 hover:underline">browse</span>
           </p>
         </label>
         {currentFile && (
@@ -181,14 +181,14 @@ const YouTubeUrlInput = ({
   return (
     <div className="space-y-2">
       <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 flex items-center gap-2">
-        <Video className="w-4 h-4 text-blue-600" />
+        <Video className="w-4 h-4 text-brand-500" />
         {label}
       </label>
       <input
         type="text"
         value={value}
         onChange={onChange}
-        className={`w-full border dark:text-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${error ? "border-red-400" : "border-gray-300 dark:border-gray-600"
+        className={`w-full border dark:text-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${error ? "border-red-400" : "border-gray-300 dark:border-gray-600"
           }`}
         placeholder="Enter YouTube URL (e.g., https://www.youtube.com/watch?v=xyz)"
       />
@@ -860,7 +860,7 @@ const EditCourse = () => {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" />
+          <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-brand-500" />
           <p className="text-gray-600 dark:text-gray-300">Loading course data...</p>
         </div>
       </div>
@@ -918,7 +918,7 @@ const EditCourse = () => {
                   setIsSidebarOpen(false); // Close sidebar on mobile after selection
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${activeTab === tab.key
-                  ? "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 shadow-sm"
+                  ? "bg-blue-100 dark:bg-blue-900 text-brand-500 dark:text-blue-300 shadow-sm"
                   : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                   }`}
               >
@@ -936,7 +936,7 @@ const EditCourse = () => {
         <div className="flex-1 p-4 lg:p-8">
           {/* Mobile Sidebar Toggle */}
           <button
-            className="lg:hidden mb-4 p-2 bg-blue-600 text-white rounded-lg"
+            className="lg:hidden mb-4 p-2 bg-brand-500 text-white rounded-lg"
             onClick={() => setIsSidebarOpen(true)}
           >
             <Menu className="w-6 h-6" />
@@ -946,7 +946,7 @@ const EditCourse = () => {
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-6">
             <h1 className="text-3xl font-bold flex items-center gap-3 text-gray-900 dark:text-gray-100">
               <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                <Edit className="w-8 h-8 text-blue-600" />
+                <Edit className="w-8 h-8 text-brand-500" />
               </div>
               Edit Course
             </h1>
@@ -983,7 +983,7 @@ const EditCourse = () => {
                         name="title"
                         value={formData.title}
                         onChange={handleInputChange}
-                        className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.title
+                        className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.title
                           ? "border-red-400"
                           : "border-gray-300 dark:border-gray-600"
                           }`}
@@ -1005,7 +1005,7 @@ const EditCourse = () => {
                         name="subtitle"
                         value={formData.subtitle}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:text-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full border border-gray-300 dark:text-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                         placeholder="Enter course subtitle"
                       />
                     </div>
@@ -1020,7 +1020,7 @@ const EditCourse = () => {
                       value={formData.coursePosition}
                       onChange={handleInputChange}
                       min={0}
-                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.coursePosition
+                      className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.coursePosition
                         ? "border-red-400"
                         : "border-gray-300 dark:border-gray-600"
                         }`}
@@ -1066,7 +1066,7 @@ const EditCourse = () => {
                         name="level"
                         value={typeof formData.level == "string" && formData.level ? formData.level : "beginner"}
                         onChange={handleInputChange}
-                        className="w-full border dark:text-gray-200 border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full border dark:text-gray-200 border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                       >
                         <option value="beginner">Beginner</option>
                         <option value="intermediate">Intermediate</option>
@@ -1082,7 +1082,7 @@ const EditCourse = () => {
                         name="duration"
                         value={formData.duration}
                         onChange={handleInputChange}
-                        className={`w-full border dark:text-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent border-gray-300 dark:border-gray-600`}
+                        className={`w-full border dark:text-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent border-gray-300 dark:border-gray-600`}
                         placeholder="Enter duration in minutes"
                         min={1}
                         step={1}
@@ -1097,7 +1097,7 @@ const EditCourse = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2 flex items-center gap-2">
-                        <Users className="w-4 h-4 text-blue-600" />
+                        <Users className="w-4 h-4 text-brand-500" />
                         Enrolled Students Count
                       </label>
                       <input
@@ -1112,7 +1112,7 @@ const EditCourse = () => {
                         }}
                         step="1"
                         min="0"
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                         placeholder="Number of enrolled students"
                         onWheel={(e) => e.currentTarget.blur()}
                         onInput={(e) => {
@@ -1141,7 +1141,7 @@ const EditCourse = () => {
                               updated[index] = e.target.value;
                               setFormData({ ...formData, learningOutcomes: updated });
                             }}
-                            className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                            className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                             placeholder="Enter learning outcome"
                           />
                           <button
@@ -1188,7 +1188,7 @@ const EditCourse = () => {
                               updated[index] = e.target.value;
                               setFormData({ ...formData, targetAudience: updated });
                             }}
-                            className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                            className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                             placeholder="Enter target audience"
                           />
                           <button
@@ -1310,7 +1310,7 @@ const EditCourse = () => {
                             handleInputChange(e);
                           }
                         }}
-                        className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.price ? "border-red-400" : "border-gray-300 dark:border-gray-600"
+                        className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.price ? "border-red-400" : "border-gray-300 dark:border-gray-600"
                           }`}
                         placeholder="Enter price"
                         required
@@ -1342,7 +1342,7 @@ const EditCourse = () => {
                             handleInputChange(e);
                           }
                         }}
-                        className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.salePrice ? "border-red-400" : "border-gray-300 dark:border-gray-600"
+                        className={`w-full border rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.salePrice ? "border-red-400" : "border-gray-300 dark:border-gray-600"
                           }`}
                         placeholder="Enter Sale price"
                         required
@@ -1364,7 +1364,7 @@ const EditCourse = () => {
                         name="currency"
                         value={formData.currency}
                         onChange={handleInputChange}
-                        className="w-full border dark:text-gray-200 border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full border dark:text-gray-200 border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                       >
                         <option className="dark:text-black" value="INR">
                           INR (₹)
@@ -1434,7 +1434,7 @@ const EditCourse = () => {
                     <button
                       type="button"
                       onClick={handleAddOrUpdatePlan}
-                      className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+                      className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600 text-sm"
                     >
                       {editingPlanIdx !== null ? "Update Plan" : "Add Plan"}
                     </button>
@@ -1470,7 +1470,7 @@ const EditCourse = () => {
                                   <button
                                     type="button"
                                     onClick={() => handleEditPlan(idx)}
-                                    className="text-blue-500 hover:underline mr-2"
+                                    className="text-brand-500 hover:underline mr-2"
                                   >
                                     Edit
                                   </button>
@@ -1503,9 +1503,9 @@ const EditCourse = () => {
                         name="certificateTemplate"
                         checked={formData.certificateTemplate}
                         onChange={handleInputChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                       />
-                      <Award className="w-4 h-4 text-blue-600" />
+                      <Award className="w-4 h-4 text-brand-500" />
                       <span className="text-sm text-gray-700 dark:text-gray-200">
                         Certificate Available
                       </span>
@@ -1516,9 +1516,9 @@ const EditCourse = () => {
                         name="isDownloadable"
                         checked={formData.isDownloadable}
                         onChange={handleInputChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                       />
-                      <Download className="w-4 h-4 text-blue-600" />
+                      <Download className="w-4 h-4 text-brand-500" />
                       <span className="text-sm text-gray-700 dark:text-gray-200">
                         Downloadable Content
                       </span>
@@ -1529,9 +1529,9 @@ const EditCourse = () => {
                         name="courseForum"
                         checked={formData.courseForum}
                         onChange={handleInputChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                       />
-                      <MessageCircle className="w-4 h-4 text-blue-600" />
+                      <MessageCircle className="w-4 h-4 text-brand-500" />
                       <span className="text-sm text-gray-700 dark:text-gray-200">
                         Course Forum
                       </span>
@@ -1542,9 +1542,9 @@ const EditCourse = () => {
                         name="isPrivate"
                         checked={formData.isPrivate}
                         onChange={handleInputChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                       />
-                      <Lock className="w-4 h-4 text-blue-600" />
+                      <Lock className="w-4 h-4 text-brand-500" />
                       <span className="text-sm text-gray-700 dark:text-gray-200">
                         Private Course
                       </span>
@@ -1555,9 +1555,9 @@ const EditCourse = () => {
                         name="enableWaitlist"
                         checked={formData.enableWaitlist}
                         onChange={handleInputChange}
-                        className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                       />
-                      <Users className="w-4 h-4 text-blue-600" />
+                      <Users className="w-4 h-4 text-brand-500" />
                       <span className="text-sm text-gray-700 dark:text-gray-200">
                         Enable Waitlist
                       </span>
@@ -1594,7 +1594,7 @@ const EditCourse = () => {
                         type="text"
                         value={customTag}
                         onChange={(e) => setCustomTag(e.target.value)}
-                        className="flex-1 border dark:text-gray-200 border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="flex-1 border dark:text-gray-200 border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                         placeholder="Add custom tag"
                         onKeyPress={(e) => {
                           if (e.key === "Enter") {
@@ -1606,7 +1606,7 @@ const EditCourse = () => {
                       <button
                         type="button"
                         onClick={addCustomTag}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
@@ -1632,7 +1632,7 @@ const EditCourse = () => {
                             <button
                               type="button"
                               onClick={() => removeTag(tag)}
-                              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200"
+                              className="text-brand-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200"
                             >
                               <X className="w-3 h-3" />
                             </button>
@@ -1656,7 +1656,7 @@ const EditCourse = () => {
                       value={formData.seoMetaDescription}
                       onChange={handleInputChange}
                       rows={3}
-                      className={`w-full border dark:text-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${formErrors.seoMetaDescription
+                      className={`w-full border dark:text-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-500 focus:border-transparent ${formErrors.seoMetaDescription
                         ? "border-red-400"
                         : "border-gray-300 dark:border-gray-600"
                         }`}
@@ -1723,7 +1723,7 @@ const EditCourse = () => {
                         name="mentorName"
                         value={formData.mentorName || ""}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="Enter mentor name"
                       />
                     </div>
@@ -1736,7 +1736,7 @@ const EditCourse = () => {
                         name="mentorTitle"
                         value={formData.mentorTitle || ""}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="e.g., Digital Marketing Expert"
                       />
                     </div>
@@ -1793,7 +1793,7 @@ const EditCourse = () => {
                               updated[index] = e.target.value;
                               setFormData({ ...formData, mentorAchievements: updated });
                             }}
-                            className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                            className="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                             placeholder="Enter achievement"
                           />
                           <button
@@ -1841,7 +1841,7 @@ const EditCourse = () => {
                               linkedin: e.target.value
                             }
                           })}
-                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                           placeholder="https://linkedin.com/in/..."
                         />
                       </div>
@@ -1857,7 +1857,7 @@ const EditCourse = () => {
                               youtube: e.target.value
                             }
                           })}
-                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                           placeholder="https://youtube.com/..."
                         />
                       </div>
@@ -1873,7 +1873,7 @@ const EditCourse = () => {
                               twitter: e.target.value
                             }
                           })}
-                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                           placeholder="https://twitter.com/..."
                         />
                       </div>
@@ -1889,7 +1889,7 @@ const EditCourse = () => {
                               website: e.target.value
                             }
                           })}
-                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                          className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                           placeholder="https://example.com"
                         />
                       </div>
@@ -1906,7 +1906,7 @@ const EditCourse = () => {
                   <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                     <div className="flex items-center justify-between">
                       <h4 className="text-lg font-semibold flex items-center gap-2 text-gray-900 dark:text-gray-100">
-                        <Layout className="w-5 h-5 text-blue-600" />
+                        <Layout className="w-5 h-5 text-brand-500" />
                         Overview Section
                       </h4>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -1919,7 +1919,7 @@ const EditCourse = () => {
                           })}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                         <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                       </label>
                     </div>
@@ -1966,7 +1966,7 @@ const EditCourse = () => {
                   <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                     <div className="flex items-center justify-between">
                       <h4 className="text-lg font-semibold flex items-center gap-2 text-gray-900 dark:text-gray-100">
-                        <Layers className="w-5 h-5 text-blue-600" />
+                        <Layers className="w-5 h-5 text-brand-500" />
                         Comparison Section
                       </h4>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -1979,7 +1979,7 @@ const EditCourse = () => {
                           })}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                         <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                       </label>
                     </div>
@@ -2152,7 +2152,7 @@ const EditCourse = () => {
                   <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                     <div className="flex items-center justify-between">
                       <h4 className="text-lg font-semibold flex items-center gap-2 text-gray-900 dark:text-gray-100">
-                        <CheckCircle className="w-5 h-5 text-blue-600" />
+                        <CheckCircle className="w-5 h-5 text-brand-500" />
                         Key Benefits Section
                       </h4>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -2165,7 +2165,7 @@ const EditCourse = () => {
                           })}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                         <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                       </label>
                     </div>
@@ -2256,7 +2256,7 @@ const EditCourse = () => {
                   <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                     <div className="flex items-center justify-between">
                       <h4 className="text-lg font-semibold flex items-center gap-2 text-gray-900 dark:text-gray-100">
-                        <Sparkles className="w-5 h-5 text-blue-600" />
+                        <Sparkles className="w-5 h-5 text-brand-500" />
                         Learning Framework Section
                       </h4>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -2269,7 +2269,7 @@ const EditCourse = () => {
                           })}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                         <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                       </label>
                     </div>
@@ -2326,7 +2326,7 @@ const EditCourse = () => {
                   <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 space-y-6">
                     <div className="flex items-center justify-between">
                       <h4 className="text-lg font-semibold flex items-center gap-2 text-gray-900 dark:text-gray-100">
-                        <Target className="w-5 h-5 text-blue-600" />
+                        <Target className="w-5 h-5 text-brand-500" />
                         Solution Section (Pain Points)
                       </h4>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -2339,7 +2339,7 @@ const EditCourse = () => {
                           })}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-brand-500"></div>
                         <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Visible</span>
                       </label>
                     </div>
@@ -2535,7 +2535,7 @@ const EditCourse = () => {
                         name="certificateTitle"
                         value={formData.certificateTitle || "Certificate of Completion"}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="Certificate of Completion"
                       />
                     </div>
@@ -2548,7 +2548,7 @@ const EditCourse = () => {
                         name="certificateSubtitle"
                         value={formData.certificateSubtitle || "Awarded for Excellence"}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="Awarded for Excellence"
                       />
                     </div>
@@ -2563,7 +2563,7 @@ const EditCourse = () => {
                       value={formData.certificateDescription || ""}
                       onChange={handleInputChange}
                       rows={3}
-                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                       placeholder="This certificate is awarded to **Student Name** for successfully completing the course."
                     />
                     <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
@@ -2581,7 +2581,7 @@ const EditCourse = () => {
                         name="certificateRecipientName"
                         value={formData.certificateRecipientName || "Student Name"}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="Student Name"
                       />
                     </div>
@@ -2594,7 +2594,7 @@ const EditCourse = () => {
                         name="certificateOrganization"
                         value={formData.certificateOrganization || "Lapaas LMS"}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="Lapaas LMS"
                       />
                     </div>
@@ -2610,7 +2610,7 @@ const EditCourse = () => {
                         name="certificateIssuerName"
                         value={formData.certificateIssuerName || formData.mentorName || ""}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="Instructor Name"
                       />
                       <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
@@ -2626,7 +2626,7 @@ const EditCourse = () => {
                         name="certificateIssuerTitle"
                         value={formData.certificateIssuerTitle || formData.mentorTitle || ""}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 dark:text-gray-200 focus:ring-2 focus:ring-brand-500"
                         placeholder="Instructor Title"
                       />
                       <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
@@ -2661,9 +2661,9 @@ const EditCourse = () => {
                           }));
                           setFormErrors((prev) => ({ ...prev, isPublished: "" }));
                         }}
-                        className="w-4 h-4 text-blue-600 border-gray-300 dark:border-gray-600 rounded focus:ring-blue-500"
+                        className="w-4 h-4 text-brand-500 border-gray-300 dark:border-gray-600 rounded focus:ring-brand-500"
                       />
-                      <Eye className="w-4 h-4 text-blue-600" />
+                      <Eye className="w-4 h-4 text-brand-500" />
                       <span className="text-sm text-gray-700 dark:text-gray-200">
                         Publish Course
                       </span>
@@ -2691,7 +2691,7 @@ const EditCourse = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {loading ? (
                   <>

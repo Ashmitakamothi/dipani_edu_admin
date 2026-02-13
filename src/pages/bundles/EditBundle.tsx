@@ -68,7 +68,7 @@ const MultiSelectDropdown = ({
                 <button
                   type="button"
                   onClick={() => removeCourse(courseId)}
-                  className="ml-2 hover:text-blue-600"
+                  className="ml-2 hover:text-brand-500"
                 >
                   <X size={14} />
                 </button>
@@ -78,7 +78,7 @@ const MultiSelectDropdown = ({
         </div>
       </div>
       <div
-        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white cursor-pointer flex sm:flex-row items-center sm:items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white cursor-pointer flex sm:flex-row items-center sm:items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-brand-500"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="text-gray-700">
@@ -103,7 +103,7 @@ const MultiSelectDropdown = ({
               placeholder="Search courses..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
               onClick={(e) => e.stopPropagation()}
             />
           </div>
@@ -140,7 +140,7 @@ const MultiSelectDropdown = ({
                       {courseName}
                     </span>
                     {isSelected && (
-                      <Check size={16} className="text-blue-600" />
+                      <Check size={16} className="text-brand-500" />
                     )}
                   </div>
                 );
@@ -440,7 +440,7 @@ const EditBundleForm = () => {
         </div>
         <button
           onClick={() => navigate("/bundles/all")}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="px-4 py-2 bg-brand-500 text-white rounded hover:bg-brand-600"
         >
           Back to Bundles
         </button>
@@ -478,7 +478,7 @@ const EditBundleForm = () => {
                             value={formData.title}
                             onChange={handleInputChange}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="Complete Solar Energy Design Master Bundle"
                         />
                     </div>
@@ -491,7 +491,7 @@ const EditBundleForm = () => {
                             name="subtitle"
                             value={formData.subtitle}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="Master 3 solar courses in one"
                         />
                     </div>
@@ -507,7 +507,7 @@ const EditBundleForm = () => {
                         value={formData.slug}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         placeholder="complete-solar-bundle"
                     />
                 </div>
@@ -549,7 +549,7 @@ const EditBundleForm = () => {
                             name="language"
                             value={formData.language}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         >
                             <option value="English">English</option>
                             <option value="Hindi">Hindi</option>
@@ -564,7 +564,7 @@ const EditBundleForm = () => {
                             name="level"
                             value={formData.level}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         >
                             <option value="Beginner">Beginner</option>
                             <option value="Intermediate">Intermediate</option>
@@ -579,7 +579,7 @@ const EditBundleForm = () => {
                             name="currency"
                             value={formData.currency}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         >
                             <option value="INR">INR</option>
                             {/* <option value="USD">USD</option>
@@ -614,7 +614,7 @@ const EditBundleForm = () => {
                             required
                             step="0.01"
                             min={0}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="699"
                         />
                     </div>
@@ -647,7 +647,7 @@ const EditBundleForm = () => {
                           min={0}
                           max={100}
                           step="any"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                           placeholder="10"
                         />
 
@@ -664,7 +664,7 @@ const EditBundleForm = () => {
                             name="thumbnail"
                             onChange={handleFileChange}
                             accept="image/*"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         />
                         {(files.thumbnail || bundleData?.thumbnail) && (
                             <div className="mt-2">
@@ -686,7 +686,7 @@ const EditBundleForm = () => {
                             name="banner"
                             onChange={handleFileChange}
                             accept="image/*"
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         />
                         {(files.banner || bundleData?.banner) && (
                             <div className="mt-2">
@@ -727,7 +727,7 @@ const EditBundleForm = () => {
                         name="tags"
                         value={formData.tags}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         placeholder="solar, engineering, renewable"
                     />
                 </div>
@@ -742,7 +742,7 @@ const EditBundleForm = () => {
                             name="seoTitle"
                             value={formData.seoTitle}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="Solar Energy Design Course Bundle"
                         />
                     </div>
@@ -755,7 +755,7 @@ const EditBundleForm = () => {
                             value={formData.seoDescription}
                             onChange={handleInputChange}
                             rows={2}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="Get 3-in-1 solar courses and start your career in renewable energy."
                         />
                     </div>
@@ -770,7 +770,7 @@ const EditBundleForm = () => {
                       name="accessType"
                       value={formData.accessType}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                     >
                       <option value="lifetime">Lifetime</option>
                       <option value="limited">Limited</option>
@@ -787,7 +787,7 @@ const EditBundleForm = () => {
                         value={formData.accessPeriod}
                         onChange={handleInputChange}
                         min={1}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500"
                         placeholder="Number of days"
                       />
                     </div>
@@ -809,7 +809,7 @@ const EditBundleForm = () => {
                         className={`px-6 py-3 rounded-md font-medium ${
                             bundleLoading || selectedCourses.length === 0
                                 ? 'bg-gray-400 cursor-not-allowed'
-                                : 'bg-blue-600 hover:bg-blue-700'
+                                : 'bg-brand-500 hover:bg-brand-600'
                         } text-white transition duration-200`}
                     >
                         {bundleLoading ? 'Updating Bundle...' : 'Update Bundle'}

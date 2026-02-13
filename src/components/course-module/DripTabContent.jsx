@@ -268,7 +268,7 @@ const CourseAccordion = ({ courseId }) => {
       <div className="max-w-full mx-auto min-h-fit">
         <div className="bg-white dark:bg-white/[0.03] rounded-lg shadow-lg border border-blue-100 p-8">
           <div className="flex items-center justify-center">
-            <Loader2 className="w-8 h-8 animate-spin text-blue-600 mr-3" />
+            <Loader2 className="w-8 h-8 animate-spin text-brand-500 mr-3" />
             <span className="text-gray-600 dark:text-white/70 text-lg">
               Loading course content...
             </span>
@@ -336,7 +336,7 @@ const CourseAccordion = ({ courseId }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex items-center space-x-3">
               <div className="p-2 bg-blue-100 rounded-lg">
-                <BookOpen className="w-6 h-6 text-blue-600" />
+                <BookOpen className="w-6 h-6 text-brand-500" />
               </div>
               <div>
                 <p className="text-sm font-medium text-gray-600 dark:text-white/90">
@@ -390,9 +390,9 @@ const CourseAccordion = ({ courseId }) => {
                   <div className="flex items-center space-x-3">
                     <div className="transition-transform duration-300 ease-in-out">
                       {expandedModules.has(module.id || module._id) ? (
-                        <ChevronDown className="w-5 h-5 text-blue-600" />
+                        <ChevronDown className="w-5 h-5 text-brand-500" />
                       ) : (
-                        <ChevronRight className="w-5 h-5 text-blue-600" />
+                        <ChevronRight className="w-5 h-5 text-brand-500" />
                       )}
                     </div>
                     <div>
@@ -412,7 +412,7 @@ const CourseAccordion = ({ courseId }) => {
                         Draft
                       </span>
                     )}
-                    <div className="text-sm text-blue-600 bg-blue-100 px-3 py-1 rounded-full font-medium">
+                    <div className="text-sm text-brand-500 bg-blue-100 px-3 py-1 rounded-full font-medium">
                       {module.lessons?.length || 0} lessons
                     </div>
                     {/* Add Drip Button */}
@@ -448,7 +448,7 @@ const CourseAccordion = ({ courseId }) => {
                             className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium ${
                               lesson.isCompleted
                                 ? "bg-green-600 text-white"
-                                : "bg-blue-600 text-white"
+                                : "bg-brand-500 text-white"
                             }`}
                           >
                             {lesson.isCompleted ? "✓" : index + 1}
@@ -493,7 +493,7 @@ const CourseAccordion = ({ courseId }) => {
                               e.stopPropagation();
                               openModal("view", lesson, module);
                             }}
-                            className="flex items-center space-x-1 px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm font-medium shadow-sm"
+                            className="flex items-center space-x-1 px-3 py-1.5 bg-brand-500 text-white rounded-md hover:bg-brand-600 transition-colors duration-200 text-sm font-medium shadow-sm"
                           >
                             <Eye className="w-4 h-4" />
                             <span>View</span>
@@ -523,7 +523,7 @@ const CourseAccordion = ({ courseId }) => {
                                 module.id || module._id
                               );
                             }}
-                            className="p-1.5 text-blue-600 hover:text-blue-700 hover:bg-blue-100 rounded-md transition-colors duration-200"
+                            className="p-1.5 text-brand-500 hover:text-blue-700 hover:bg-blue-100 rounded-md transition-colors duration-200"
                           >
                             {/* <Settings className="w-4 h-4" /> */}
                           </button>
@@ -591,7 +591,7 @@ const CourseAccordion = ({ courseId }) => {
                               modalData.lesson.accessSettings?.platform ===
                                 "phone"
                             }
-                            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                            className="w-4 h-4 text-brand-500 border-gray-300 focus:ring-brand-500"
                             disabled={savingSettings}
                           />
                           <label
@@ -619,7 +619,7 @@ const CourseAccordion = ({ courseId }) => {
                                 modalData.lesson.accessSettings?.platform ===
                                   "both")
                             }
-                            className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                            className="w-4 h-4 text-brand-500 border-gray-300 focus:ring-brand-500"
                             disabled={savingSettings}
                           />
                           <label
@@ -661,7 +661,7 @@ const CourseAccordion = ({ courseId }) => {
                         { platform }
                       );
                     }}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600 transition-colors duration-200 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={savingSettings}
                   >
                     {savingSettings && (

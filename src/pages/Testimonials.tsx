@@ -496,7 +496,7 @@ const TestimonialsPage: React.FC = () => {
                 </h1>
                 <button
                     onClick={() => setShowAddForm(true)}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+                    className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors flex items-center gap-2"
                 >
                     <Plus className="w-4 h-4" />
                     Add Testimonial
@@ -512,7 +512,7 @@ const TestimonialsPage: React.FC = () => {
                         </div>
                         <input
                             type="text"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                             placeholder="Search testimonials..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -523,7 +523,7 @@ const TestimonialsPage: React.FC = () => {
                 <div className="flex justify-end gap-2">
                     <button
                         className={`px-3 py-2 text-sm rounded-md ${statusFilter === 'all'
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-brand-500 text-white'
                             : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
                             }`}
                         onClick={() => handleStatusFilter('all')}
@@ -532,7 +532,7 @@ const TestimonialsPage: React.FC = () => {
                     </button>
                     <button
                         className={`px-3 py-2 text-sm rounded-md ${statusFilter === 'pending'
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-brand-500 text-white'
                             : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
                             }`}
                         onClick={() => handleStatusFilter('pending')}
@@ -541,7 +541,7 @@ const TestimonialsPage: React.FC = () => {
                     </button>
                     <button
                         className={`px-3 py-2 text-sm rounded-md ${statusFilter === 'approved'
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-brand-500 text-white'
                             : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
                             }`}
                         onClick={() => handleStatusFilter('approved')}
@@ -550,7 +550,7 @@ const TestimonialsPage: React.FC = () => {
                     </button>
                     <button
                         className={`px-3 py-2 text-sm rounded-md ${statusFilter === 'rejected'
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-brand-500 text-white'
                             : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
                             }`}
                         onClick={() => handleStatusFilter('rejected')}
@@ -572,7 +572,7 @@ const TestimonialsPage: React.FC = () => {
             {/* Loading state */}
             {loading && (
                 <div className="flex justify-center p-8">
-                    <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                    <Loader2 className="w-8 h-8 animate-spin text-brand-500" />
                 </div>
             )}
 
@@ -608,7 +608,7 @@ const TestimonialsPage: React.FC = () => {
                                     {/* Edit button will be implemented later */}
                                     <button
                                         onClick={() => handleEditClick(testimonial)}
-                                        className="p-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                                        className="p-1 text-brand-500 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                                         title="Edit testimonial"
                                     >
                                         <Edit size={16} />
@@ -663,7 +663,7 @@ const TestimonialsPage: React.FC = () => {
                                         className="w-5 h-5 rounded-full object-cover"
                                     />
                                 ) : (
-                                    <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                                    <User className="w-5 h-5 text-brand-500 dark:text-blue-400" />
                                 )}
                             </div>
                             <div>
@@ -737,7 +737,7 @@ const TestimonialsPage: React.FC = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleInputChange}
-                                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                                     placeholder="Enter name"
                                     required
                                 />
@@ -752,7 +752,7 @@ const TestimonialsPage: React.FC = () => {
                                     name="role"
                                     value={formData.role}
                                     onChange={handleInputChange}
-                                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                                     placeholder="Enter role or position"
                                     required
                                 />
@@ -768,7 +768,7 @@ const TestimonialsPage: React.FC = () => {
                                             name="status"
                                             value={formData.status || 'pending'}
                                             onChange={handleInputChange}
-                                            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white appearance-none"
+                                            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-700 dark:text-white appearance-none"
                                         >
                                             <option value="pending">Pending</option>
                                             <option value="approved">Approved</option>
@@ -787,7 +787,7 @@ const TestimonialsPage: React.FC = () => {
                                         name="courseId"
                                         value={formData.courseId || ''}
                                         onChange={handleInputChange}
-                                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white appearance-none"
+                                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-700 dark:text-white appearance-none"
                                     >
                                         <option value="">Select a course</option>
                                         {coursesList.map((course) => (
@@ -801,7 +801,7 @@ const TestimonialsPage: React.FC = () => {
                                     </div>
                                 </div>
                                 {coursesLoading && (
-                                    <div className="mt-1 text-sm text-blue-600 dark:text-blue-400 flex items-center">
+                                    <div className="mt-1 text-sm text-brand-500 dark:text-blue-400 flex items-center">
                                         <Loader2 className="w-3 h-3 mr-1 animate-spin" />
                                         Loading courses...
                                     </div>
@@ -824,7 +824,7 @@ const TestimonialsPage: React.FC = () => {
                                     value={formData.message}
                                     onChange={handleInputChange}
                                     rows={4}
-                                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                                     placeholder="Enter testimonial message"
                                     required
                                 />
@@ -864,7 +864,7 @@ const TestimonialsPage: React.FC = () => {
                                     <div className="relative group overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-blue-500 transition-colors aspect-square">
                                         {videoPreview ? (
                                             <div className="relative w-full h-full flex items-center justify-center">
-                                                <Film className="w-12 h-12 text-blue-500" />
+                                                <Film className="w-12 h-12 text-brand-500" />
                                                 <button
                                                     type="button"
                                                     onClick={() => { setVideoFile(null); setVideoPreview(null); }}
@@ -910,7 +910,7 @@ const TestimonialsPage: React.FC = () => {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                    className="px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                                 >
                                     {loading ? (
                                         <>

@@ -114,7 +114,7 @@ export default function AddFilter() {
                                 name="language"
                                 value={form.language}
                                 onChange={handleChange}
-                                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                                 placeholder="Enter language"
                                 required
                             />
@@ -138,7 +138,7 @@ export default function AddFilter() {
                                 name="title"
                                 value={form.title}
                                 onChange={handleChange}
-                                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                                className="w-full rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                                 placeholder="Enter filter title"
                                 required
                             />
@@ -152,7 +152,7 @@ export default function AddFilter() {
                                     type="text"
                                     value={optionInput}
                                     onChange={(e) => setOptionInput(e.target.value)}
-                                    className="flex-1 rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                                    className="flex-1 rounded border border-gray-300 px-3 py-2 focus:border-brand-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-white"
                                     placeholder="Add option"
                                 />
                                 <button
@@ -180,7 +180,7 @@ export default function AddFilter() {
                         </div>
                         <button
                             type="submit"
-                            className="rounded bg-blue-600 px-6 py-2 text-white font-semibold hover:bg-blue-700 transition"
+                            className="rounded bg-brand-500 px-6 py-2 text-white font-semibold hover:bg-brand-600 transition"
                             disabled={loading}
                         >
                             {loading ? "Adding..." : "Add Filter"}

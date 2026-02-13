@@ -164,11 +164,11 @@ const NotificationList: React.FC = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-indigo-100 rounded-xl">
-              <Bell className="w-8 h-8 text-indigo-600" />
+            <div className="p-3 bg-brand-100 rounded-xl">
+              <Bell className="w-8 h-8 text-brand-600" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Notification History</h1>
+              <h1 className="text-3xl font-bold text-brand-900 dark:text-white">Notification History</h1>
               <p className="text-gray-600 dark:text-gray-400 mt-1">View and manage all sent notifications</p>
             </div>
           </div>
@@ -192,7 +192,7 @@ const NotificationList: React.FC = () => {
                   value={localFilters.search}
                   onChange={(e) => handleFilterChange('search', e.target.value)}
                   placeholder="Search notifications..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 />
               </div>
             </div>
@@ -205,7 +205,7 @@ const NotificationList: React.FC = () => {
               <select
                 value={localFilters.status}
                 onChange={(e) => handleFilterChange('status', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               >
                 <option value="">All Status</option>
                 <option value="0">Unread</option>
@@ -221,7 +221,7 @@ const NotificationList: React.FC = () => {
               <select
                 value={localFilters.type}
                 onChange={(e) => handleFilterChange('type', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               >
                 <option value="">All Types</option>
                 {notificationTypes.map((type) => (
@@ -241,7 +241,7 @@ const NotificationList: React.FC = () => {
                 value={localFilters.courseId}
                 onChange={(e) => handleFilterChange('courseId', e.target.value)}
                 disabled={coursesLoading}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               >
                 <option value="">All Courses</option>
                 {courses.map((course: any) => (
@@ -257,7 +257,7 @@ const NotificationList: React.FC = () => {
           <div className="flex gap-3">
             <button
               onClick={applyFilters}
-              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
             >
               <Filter className="w-4 h-4" />
               Apply Filters

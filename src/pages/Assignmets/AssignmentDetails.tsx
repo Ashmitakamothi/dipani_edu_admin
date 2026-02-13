@@ -290,7 +290,7 @@ const AssignmentSubmissionReview = () => {
               {/* Student Details */}
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white/90 flex items-center gap-2">
-                  <User className="w-5 h-5 text-blue-600" />
+                  <User className="w-5 h-5 text-brand-500" />
                   Student Information
                 </h3>
                 <div className="space-y-3">
@@ -375,19 +375,19 @@ const AssignmentSubmissionReview = () => {
                 </label>
                 <div className="bg-blue-50 dark:bg-white/[0.03] border border-blue-200 rounded-lg p-4 flex sm:flex-row items-center sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <FileText className="w-6 h-6 text-blue-600" />
+                    <FileText className="w-6 h-6 text-brand-500" />
                     <div>
                       <p className="font-medium text-blue-900">
                         {submission.submissionFile.split("/").pop() || "Submitted File"}
                       </p>
-                      <p className="text-sm text-blue-600">
+                      <p className="text-sm text-brand-500">
                         Click to download and review
                       </p>
                     </div>
                   </div>
                   <button
                     onClick={() => handleFileDownload(submission.submissionFile)}
-                    className="flex items-center gap-2 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                   >
                     <Download className="w-4 h-4" />
                     Download

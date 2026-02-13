@@ -364,7 +364,7 @@ export default function AddNews() {
                 value={headingColor}
                 onChange={(e) => setHeadingColor(e.target.value)}
                 placeholder="Enter colored heading..."
-                className="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-blue-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
               />
             </div>
@@ -377,7 +377,7 @@ export default function AddNews() {
                 value={headingRest}
                 onChange={(e) => setHeadingRest(e.target.value)}
                 placeholder="Enter rest of heading..."
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
           </div>
@@ -393,7 +393,7 @@ export default function AddNews() {
               value={formData.title || (headingColor.trim() + " " + headingRest.trim()).trim()}
               onChange={handleInputChange}
               placeholder="News title..."
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               required
             />
           </div>
@@ -412,7 +412,7 @@ export default function AddNews() {
           {/* Main Content Editor */}
           <div>
             <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              <FileText className="w-4 h-4 mr-2 text-blue-500" /> Main Article Content *
+              <FileText className="w-4 h-4 mr-2 text-brand-500" /> Main Article Content *
             </label>
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">This is the main content of your article (separate from live updates)</p>
             <Editor
@@ -426,7 +426,7 @@ export default function AddNews() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                <User className="w-4 h-4 mr-2 text-blue-500" /> Author
+                <User className="w-4 h-4 mr-2 text-brand-500" /> Author
               </label>
               <input
                 type="text"
@@ -434,19 +434,19 @@ export default function AddNews() {
                 value={formData.author}
                 onChange={handleInputChange}
                 placeholder="Author name..."
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
 
             <div>
               <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                <Tag className="w-4 h-4 mr-2 text-blue-500" /> Category
+                <Tag className="w-4 h-4 mr-2 text-brand-500" /> Category
               </label>
               <select
                 name="category"
                 value={formData.category}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               >
                 <option value="">Select a category...</option>
                 {PREDEFINED_CATEGORIES.map((category) => (
@@ -462,7 +462,7 @@ export default function AddNews() {
           {/* Tags */}
           <div>
             <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              <Hash className="w-4 h-4 mr-2 text-blue-500" /> Tags
+              <Hash className="w-4 h-4 mr-2 text-brand-500" /> Tags
             </label>
 
             {formData.tags && formData.tags.length > 0 && (
@@ -470,7 +470,7 @@ export default function AddNews() {
                 {formData.tags.map((tag: string, idx: number) => (
                   <span key={tag + idx} className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 border border-blue-200 dark:bg-blue-900 dark:text-blue-200">
                     #{tag}
-                    <button type="button" onClick={() => removeTag(tag)} className="ml-2 text-blue-600 hover:text-blue-800 focus:outline-none">
+                    <button type="button" onClick={() => removeTag(tag)} className="ml-2 text-brand-500 hover:text-blue-800 focus:outline-none">
                       <X className="w-3 h-3" />
                     </button>
                   </span>
@@ -489,7 +489,7 @@ export default function AddNews() {
                 onKeyDown={handleTagInputKeyDown}
                 onFocus={() => setShowTagSuggestions(tagInput.length > 0)}
                 onBlur={() => setTimeout(() => setShowTagSuggestions(false), 200)}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 placeholder="Type tags and press Enter or comma to add..."
               />
 
@@ -515,14 +515,14 @@ export default function AddNews() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                <Calendar className="w-4 h-4 mr-2 text-blue-500" /> Status
+                <Calendar className="w-4 h-4 mr-2 text-brand-500" /> Status
               </label>
               <select
                 name="status"
                 value={formData.status}
                 onChange={handleInputChange}
                 disabled={formData.isScheduled}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors disabled:bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors disabled:bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               >
                 <option value="active">Active</option>
                 <option value="blocked">Blocked</option>
@@ -532,7 +532,7 @@ export default function AddNews() {
 
             <div>
               <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                <Clock className="w-4 h-4 mr-2 text-blue-500" /> Schedule Publication
+                <Clock className="w-4 h-4 mr-2 text-brand-500" /> Schedule Publication
               </label>
               <div className="flex items-center h-12">
                 <input
@@ -540,7 +540,7 @@ export default function AddNews() {
                   name="isScheduled"
                   checked={formData.isScheduled}
                   onChange={handleInputChange}
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                  className="w-4 h-4 text-brand-500 bg-gray-100 border-gray-300 rounded focus:ring-brand-500"
                 />
                 <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">Schedule for later</span>
               </div>
@@ -596,7 +596,7 @@ export default function AddNews() {
                     value={formData.scheduledDateTime}
                     onChange={handleInputChange}
                     min={getMinDateTime()}
-                    className="w-full px-4 py-3 border-2 border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    className="w-full px-4 py-3 border-2 border-blue-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent text-base dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     required={formData.isScheduled}
                   />
                   {formData.scheduledDateTime && (
@@ -614,13 +614,13 @@ export default function AddNews() {
           {/* Cover Image */}
           <div>
             <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              <Upload className="w-4 h-4 mr-2 text-blue-500" /> Cover Image
+              <Upload className="w-4 h-4 mr-2 text-brand-500" /> Cover Image
             </label>
             <input
               type="file"
               accept="image/*"
               onChange={handleCoverImageUpload}
-              className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:file:bg-gray-700 dark:file:text-gray-300"
+              className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-brand-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:file:bg-gray-700 dark:file:text-gray-300"
             />
             {formData.image && formData.image instanceof File && (
               <div className="mt-2">
@@ -641,7 +641,7 @@ export default function AddNews() {
                   name="imageUrl"
                   value={formData.imageUrl}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                   placeholder="https://example.com/image.jpg"
                 />
               </div>
@@ -651,13 +651,13 @@ export default function AddNews() {
           {/* Video Upload */}
           <div>
             <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              <Video className="w-4 h-4 mr-2 text-blue-500" /> Upload Video (optional)
+              <Video className="w-4 h-4 mr-2 text-brand-500" /> Upload Video (optional)
             </label>
             <input
               type="file"
               accept="video/*"
               onChange={handleVideoUpload}
-              className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:file:bg-gray-700 dark:file:text-gray-300"
+              className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-brand-500 focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:file:bg-gray-700 dark:file:text-gray-300"
             />
             {formData.videoUrl && (
               <div className="mt-2">
@@ -666,7 +666,7 @@ export default function AddNews() {
                   name="videoUrl"
                   value={formData.videoUrl}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                   placeholder="Or enter video URL (YouTube, etc.)"
                 />
               </div>
@@ -676,7 +676,7 @@ export default function AddNews() {
           {/* Summary */}
           <div>
             <label className="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              <FileText className="w-4 h-4 mr-2 text-blue-500" /> Summary
+              <FileText className="w-4 h-4 mr-2 text-brand-500" /> Summary
             </label>
             <textarea
               name="summary"
@@ -684,7 +684,7 @@ export default function AddNews() {
               onChange={handleInputChange}
               placeholder="Brief description of the news..."
               rows={3}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             />
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">A brief summary that will appear in news previews</p>
           </div>
@@ -699,7 +699,7 @@ export default function AddNews() {
                 value={formData.source.name}
                 onChange={handleInputChange}
                 placeholder="News source..."
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
             <div>
@@ -710,7 +710,7 @@ export default function AddNews() {
                 value={formData.source.url}
                 onChange={handleInputChange}
                 placeholder="https://example.com"
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
             </div>
@@ -723,7 +723,7 @@ export default function AddNews() {
                 name="language"
                 value={formData.language}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               >
                 <option value="en">English</option>
                 <option value="es">Spanish</option>
@@ -740,7 +740,7 @@ export default function AddNews() {
                 value={formData.country}
                 onChange={handleInputChange}
                 placeholder="Country..."
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
             </div>
           </div>
@@ -753,7 +753,7 @@ export default function AddNews() {
               name="publishedAt"
               value={formData.publishedAt}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-brand-500 focus:outline-none transition-colors dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             />
           </div>
 

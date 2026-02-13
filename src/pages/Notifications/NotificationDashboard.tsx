@@ -142,7 +142,7 @@ const NotificationDashboard: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl">
+            <div className="p-4 bg-gradient-to-r from-brand-500 to-brand-600 rounded-2xl">
               <Bell className="w-10 h-10 text-white" />
             </div>
           </div>
@@ -206,7 +206,7 @@ const NotificationDashboard: React.FC = () => {
             >
               <div className="flex items-center gap-4">
                 <div className={`p-3 rounded-lg ${
-                  notificationType === 'course' ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
+                  notificationType === 'course' ? 'bg-blue-100 text-brand-500' : 'bg-gray-100 text-gray-600'
                 }`}>
                   <Target className="w-8 h-8" />
                 </div>
@@ -228,7 +228,7 @@ const NotificationDashboard: React.FC = () => {
               {notificationType === 'global' ? (
                 <Globe className="w-6 h-6 text-green-600" />
               ) : (
-                <Target className="w-6 h-6 text-blue-600" />
+                <Target className="w-6 h-6 text-brand-500" />
               )}
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {notificationType === 'global' ? 'Global' : 'Course'} Notification Details
@@ -249,7 +249,7 @@ const NotificationDashboard: React.FC = () => {
                     onChange={handleChange}
                     required
                     disabled={coursesLoading}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
                   >
                     <option value="">
                       {coursesLoading ? "Loading courses..." : "Choose a course to notify"}
@@ -276,7 +276,7 @@ const NotificationDashboard: React.FC = () => {
                     onChange={handleChange}
                     required
                     placeholder={notificationType === 'global' ? "e.g., System Maintenance Notice" : "e.g., Assignment Deadline Reminder"}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
                   />
                 </div>
 
@@ -289,7 +289,7 @@ const NotificationDashboard: React.FC = () => {
                     value={form.type}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
                   >
                     <option value="">Select notification type</option>
                     {(notificationType === 'global' ? globalNotificationTypes : courseNotificationTypes).map((type) => (
@@ -313,7 +313,7 @@ const NotificationDashboard: React.FC = () => {
                   required
                   rows={5}
                   placeholder="Enter your notification message here..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
                 />
               </div>
 
@@ -328,7 +328,7 @@ const NotificationDashboard: React.FC = () => {
                   value={form.webPushLink}
                   onChange={handleChange}
                   placeholder="https://yourlms.com/course/assignments"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white text-lg"
                 />
                 <p className="text-sm text-gray-500 mt-2">URL to redirect users when they click the notification</p>
               </div>
@@ -354,7 +354,7 @@ const NotificationDashboard: React.FC = () => {
                     />
                     <label
                       htmlFor="image-upload"
-                      className="cursor-pointer inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold"
+                      className="cursor-pointer inline-flex items-center gap-2 px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-500 transition-colors font-semibold"
                     >
                       <Upload className="w-5 h-5" />
                       Choose Image
@@ -386,7 +386,7 @@ const NotificationDashboard: React.FC = () => {
                   className={`flex items-center gap-3 px-12 py-4 text-white rounded-xl font-bold text-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg ${
                     notificationType === 'global' 
                       ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700' 
-                      : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700'
+                      : 'bg-gradient-to-rfrom-brand-500 to-brand-600 hover:from-blue-600 hover:to-blue-700'
                   }`}
                 >
                   {loading ? (

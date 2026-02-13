@@ -259,13 +259,13 @@ function Faqs({ courseId }) {
         {" "}
         <div className="flex  items-start justify-between mb-6">
           <h2 className="text-xl font-semibold mb-4 flex items-center dark:text-white/90 gap-2">
-            <CircleHelp className="w-5 h-5 text-blue-600" />
+            <CircleHelp className="w-5 h-5 text-brand-500" />
             FAQ'S
           </h2>
           <button
             type="button"
             onClick={() => setShowPopup(true)}
-            className="px-4 py-2 flex items-center gap-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 flex items-center gap-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
           >
             <Plus className="w-4 h-4" />
             Add
@@ -294,7 +294,7 @@ function Faqs({ courseId }) {
                     });
                   }}
                 >
-                  <Pen className="w-4 h-4 text-blue-600 mt-2 cursor-pointer" />
+                  <Pen className="w-4 h-4 text-brand-500 mt-2 cursor-pointer" />
                 </div>
               </div>
             ))

@@ -167,7 +167,7 @@ export default function NewsList() {
             <div className="mt-4 sm:mt-0 flex gap-2">
               <button
                 onClick={() => navigate("/news/add")}
-                className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all"
+                className="inline-flex items-center px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md transition-all"
                 title="Add News"
               >
                 <Plus className="w-4 h-4 mr-2" />
@@ -181,7 +181,7 @@ export default function NewsList() {
             <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg">
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">Loading news...</span>
+                <span className="text-sm text-brand-500 dark:text-blue-400 font-medium">Loading news...</span>
               </div>
             </div>
           )}
@@ -207,7 +207,7 @@ export default function NewsList() {
                   placeholder="Search news..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white transition-all"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white transition-all"
                 />
               </div>
 
@@ -215,7 +215,7 @@ export default function NewsList() {
                 <select
                   value={statusFilter}
                   onChange={(e) => { setStatusFilter(e.target.value); setPage(1); }}
-                  className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                 >
                   <option value="">All Status</option>
                   <option value="active">Active</option>
@@ -231,7 +231,7 @@ export default function NewsList() {
                   value={categoryFilter}
                   onChange={(e) => { setCategoryFilter(e.target.value); setPage(1); }}
                   placeholder="Category..."
-                  className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
                 />
               </div>
             </div>
@@ -267,7 +267,7 @@ export default function NewsList() {
                           {!searchTerm && (
                             <button
                               onClick={() => navigate("/news/add")}
-                              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                              className="mt-4 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
                             >
                               Create Your First News
                             </button>
@@ -366,14 +366,14 @@ export default function NewsList() {
                           <div className="flex items-center space-x-2">
                             <button
                               onClick={() => handleView(item)}
-                              className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
+                              className="p-2 text-gray-400 hover:text-brand-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
                               title="View Details"
                             >
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => handleEdit(item)}
-                              className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
+                              className="p-2 text-gray-400 hover:text-brand-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
                               title="Edit"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -387,7 +387,7 @@ export default function NewsList() {
                             </button>
                             <button
                               onClick={() => handleCopyLink(item)}
-                              className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
+                              className="p-2 text-gray-400 hover:text-brand-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all"
                               title="Copy Share Link"
                             >
                               <Copy className="w-4 h-4" />
@@ -438,7 +438,7 @@ export default function NewsList() {
                         key={pageNum}
                         onClick={() => setPage(pageNum)}
                         className={`px-4 py-2 rounded-lg font-medium transition-all ${page === pageNum
-                          ? "bg-blue-600 text-white shadow-md"
+                          ? "bg-brand-500 text-white shadow-md"
                           : "bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
                           }`}
                       >

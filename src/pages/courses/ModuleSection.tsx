@@ -197,7 +197,7 @@ const ModuleCreationForm = ({ onModuleCreated, courseId }) => {
       <div className="bg-white   dark:bg-white/[0.03] border-2 border-blue-200 rounded-2xl p-8 shadow-lg">
         <div className="text-center mb-8">
           <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-            <BookOpen className="w-8 h-8 text-blue-600" />
+            <BookOpen className="w-8 h-8 text-brand-500" />
           </div>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white/90 mb-2">
             Create New Module
@@ -219,7 +219,7 @@ const ModuleCreationForm = ({ onModuleCreated, courseId }) => {
                 setModuleData({ ...moduleData, title: e.target.value })
               }
               placeholder="e.g., Introduction to React Basics"
-              className="w-full px-4 py-3 border-2 dark:text-white/70 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-lg"
+              className="w-full px-4 py-3 border-2 dark:text-white/70 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 text-lg"
             />
           </div>
 
@@ -233,7 +233,7 @@ const ModuleCreationForm = ({ onModuleCreated, courseId }) => {
                 setModuleData({ ...moduleData, description: e.target.value })
               }
               placeholder="Describe what students will learn in this module..."
-              className="w-full px-4 py-3 border-2 dark:text-white/70 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
+              className="w-full px-4 py-3 border-2 dark:text-white/70 border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 resize-none"
               rows={4}
             />
           </div>
@@ -252,7 +252,7 @@ const ModuleCreationForm = ({ onModuleCreated, courseId }) => {
                     estimatedDuration: parseInt(e.target.value),
                   })
                 }
-                className="w-full px-4 py-3 border-2 border-gray-300 dark:text-white/70 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                className="w-full px-4 py-3 border-2 border-gray-300 dark:text-white/70 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200"
                 min="1"
                 placeholder="60"
               />
@@ -270,7 +270,7 @@ const ModuleCreationForm = ({ onModuleCreated, courseId }) => {
                     order: parseInt(e.target.value) || 1,
                   })
                 }
-                className="w-full px-4 py-3 border-2 border-gray-300 dark:text-white/70  rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                className="w-full px-4 py-3 border-2 border-gray-300 dark:text-white/70  rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200"
                 min="1"
                 placeholder="1"
               />
@@ -285,7 +285,7 @@ const ModuleCreationForm = ({ onModuleCreated, courseId }) => {
               onChange={(e) =>
                 setModuleData({ ...moduleData, isPublished: e.target.checked })
               }
-              className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              className="w-4 h-4 text-brand-500 border-gray-300 rounded focus:ring-brand-500"
             />
             <label
               htmlFor="isPublished"
@@ -479,7 +479,7 @@ const LessonEditor = ({
     text: {
       icon: FileText,
       label: "Text Lesson",
-      color: "text-blue-500 bg-blue-50 border-blue-200",
+      color: "text-brand-500 bg-blue-50 border-blue-200",
     },
     quiz: {
       icon: HelpCircle,
@@ -819,7 +819,7 @@ const LessonEditor = ({
     if (isNewLesson) {
       return (
         <div className="text-center py-6 bg-blue-50 rounded-lg border-2 border-blue-200">
-          <AlertCircle className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+          <AlertCircle className="w-8 h-8 text-brand-500 mx-auto mb-3" />
           <h4 className="font-semibold text-blue-900 mb-2">
             Save Lesson First
           </h4>
@@ -830,7 +830,7 @@ const LessonEditor = ({
             type="button"
             onClick={handleSaveLesson}
             disabled={isSaving || !lesson.title?.trim()}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSaving ? "Saving..." : "Save Lesson"}
           </button>
@@ -846,7 +846,7 @@ const LessonEditor = ({
           className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
             hasExistingContent
               ? "bg-amber-600 text-white hover:bg-amber-700"
-              : "bg-blue-600 text-white hover:bg-blue-700"
+              : "bg-brand-500 text-white hover:bg-brand-600"
           }`}
         >
           <Edit className="w-4 h-4" />
@@ -981,7 +981,7 @@ const LessonEditor = ({
                     onChange({ ...lesson, title: e.target.value })
                   }
                   placeholder="Enter lesson title..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-base"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 text-base"
                 />
               </div>
 
@@ -995,7 +995,7 @@ const LessonEditor = ({
                     onChange({ ...lesson, type: e.target.value })
                   }
                   disabled={savedLessonId}
-                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-base ${
+                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 text-base ${
                     savedLessonId
                       ? "bg-gray-100 text-gray-500 cursor-not-allowed"
                       : ""
@@ -1027,7 +1027,7 @@ const LessonEditor = ({
                       order: parseInt(e.target.value) || 1,
                     })
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-base"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all duration-200 text-base"
                   min="1"
                   placeholder="1"
                 />
@@ -1051,7 +1051,7 @@ const LessonEditor = ({
                       onChange={(e) =>
                         onChange({ ...lesson, isRequired: e.target.checked })
                       }
-                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                      className="w-4 h-4 text-brand-500 border-gray-300 rounded focus:ring-brand-500 focus:ring-2"
                     />
                     <span className="text-sm font-medium text-gray-700">
                       Required Lesson
@@ -1071,7 +1071,7 @@ const LessonEditor = ({
                           order: parseInt(e.target.value) || 1,
                         })
                       }
-                      className="w-20 px-3 py-2 text-center border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      className="w-20 px-3 py-2 text-center border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
                       min="1"
                     />
                   </div>
@@ -1167,7 +1167,7 @@ const SavedModuleDisplay = ({
 
           {/* Right Side - Lesson Count */}
           <div className="flex items-center space-x-2">
-            <span className="text-sm text-blue-600 font-medium">
+            <span className="text-sm text-brand-500 font-medium">
               {totalLessons} lesson{totalLessons !== 1 ? "s" : ""}
             </span>
             <div className="flex items-center justify-center w-6 h-6">
@@ -1256,7 +1256,7 @@ const SavedModuleDisplay = ({
             <div className="flex sm:items-center justify-between flex-col items-start sm:flex-row gap-4 mb-6">
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <BookOpen className="w-5 h-5 text-blue-600" />
+                  <BookOpen className="w-5 h-5 text-brand-500" />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900">
                   Lessons{" "}
@@ -1272,7 +1272,7 @@ const SavedModuleDisplay = ({
                   e.stopPropagation();
                   addLesson();
                 }}
-                className="flex items-center space-x-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow-sm hover:shadow-md transition-all duration-200"
+                className="flex items-center space-x-2 px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-sm hover:shadow-md transition-all duration-200"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Lesson</span>
@@ -1317,7 +1317,7 @@ const SavedModuleDisplay = ({
               {totalLessons === 0 && (
                 <div className="text-center py-12 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border-2 border-dashed border-gray-300">
                   <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <BookOpen className="w-10 h-10 text-blue-600" />
+                    <BookOpen className="w-10 h-10 text-brand-500" />
                   </div>
                   <h4 className="text-xl font-semibold text-gray-900 mb-2">
                     Ready to Create Lessons!
@@ -1332,7 +1332,7 @@ const SavedModuleDisplay = ({
                       e.stopPropagation();
                       addLesson();
                     }}
-                    className="inline-flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow-sm hover:shadow-md transition-all duration-200"
+                    className="inline-flex items-center space-x-2 px-6 py-3 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-sm hover:shadow-md transition-all duration-200"
                   >
                     <Plus className="w-5 h-5" />
                     <span>Add First Lesson</span>
@@ -1347,7 +1347,7 @@ const SavedModuleDisplay = ({
                   e.stopPropagation();
                   addLesson();
                 }}
-                className="flex mt-4 items-center space-x-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow-sm hover:shadow-md transition-all duration-200"
+                className="flex mt-4 items-center space-x-2 px-5 py-2.5 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-medium shadow-sm hover:shadow-md transition-all duration-200"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Lesson</span>
@@ -1596,7 +1596,7 @@ const ModuleSection = ({
             <div>
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white/90 flex items-center gap-3">
                 <div className="p-2 bg-blue-100 rounded-xl">
-                  <BookOpen className="w-8 h-8 text-blue-600" />
+                  <BookOpen className="w-8 h-8 text-brand-500" />
                 </div>
                 Course Content
               </h2>

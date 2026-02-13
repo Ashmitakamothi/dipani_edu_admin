@@ -129,7 +129,7 @@ const CreateCoupon: React.FC = () => {
             value={formData.code}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-brand-500"
             placeholder="SAVE20"
           />
         </div>
@@ -144,7 +144,7 @@ const CreateCoupon: React.FC = () => {
             value={formData.description}
             onChange={handleChange}
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-brand-500"
             placeholder="Brief description of the coupon"
           />
         </div>
@@ -246,7 +246,7 @@ const CreateCoupon: React.FC = () => {
             name="courseId"
             value={formData.courseId}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white/90 focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white/90 focus:ring-2 focus:ring-brand-500"
           >
             <option value="">All Courses (Apply to any course)</option>
             {coursesLoading ? (
@@ -306,7 +306,7 @@ const CreateCoupon: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+            className="px-6 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
           >
             {loading ? "Creating..." : "Create Coupon"}
           </button>
@@ -335,7 +335,7 @@ const CreateCoupon: React.FC = () => {
             <div className="mt-4 flex justify-end">
               <button
                 onClick={() => setPopup({ ...popup, show: false })}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
               >
                 OK
               </button>

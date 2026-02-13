@@ -123,9 +123,9 @@ const User: React.FC = () => {
   const getSortIcon = (column: typeof sortBy) => {
     if (sortBy !== column) return <Filter size={16} className="text-gray-400" />;
     return sortOrder === "asc" ? (
-      <SortAsc size={16} className="text-blue-500" />
+      <SortAsc size={16} className="text-brand-500" />
     ) : (
-      <SortDesc size={16} className="text-blue-500" />
+      <SortDesc size={16} className="text-brand-500" />
     );
   };
 
@@ -133,7 +133,7 @@ const User: React.FC = () => {
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-white/[0.03]">
         <div className="flex flex-col items-center p-6 bg-white dark:bg-white/[0.06] rounded-lg shadow-xl">
-          <Loader className="animate-spin h-10 w-10 text-blue-600 mb-4" />
+          <Loader className="animate-spin h-10 w-10 text-brand-500 mb-4" />
           <p className="text-xl font-medium text-gray-700 dark:text-white/90">
             Loading User Sales Analytics...
           </p>
@@ -161,7 +161,7 @@ const User: React.FC = () => {
               const token = localStorage.getItem("token");
               if (token) dispatch(fetchUserSalesAnalytics({ token }));
             }}
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="mt-4 px-4 py-2 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors"
           >
             Retry
           </button>
@@ -176,7 +176,7 @@ const User: React.FC = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white/90 border-b-4 border-blue-600 pb-4 flex items-center gap-3 mb-2">
-            <Users className="text-blue-600" size={32} />
+            <Users className="text-brand-500" size={32} />
             User Sales Analytics
           </h1>
           <p className="text-gray-600 dark:text-white/70 text-lg">
@@ -281,7 +281,7 @@ const User: React.FC = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => handleSort(e.target.value as typeof sortBy)}
-                  className="p-2 border border-gray-300 rounded-md bg-white dark:bg-white/[0.03] dark:text-white/90 focus:ring-blue-500 focus:border-blue-500"
+                  className="p-2 border border-gray-300 rounded-md bg-white dark:bg-white/[0.03] dark:text-white/90 focus:ring-brand-500 focus:border-brand-500"
                 >
                   <option className="dark:text-black" value="totalSpent">Total Spent</option>
                   <option className="dark:text-black" value="orderCount">Order Count</option>
@@ -373,7 +373,7 @@ const User: React.FC = () => {
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
                             <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
-                              <UserIcon className="h-6 w-6 text-blue-600" />
+                              <UserIcon className="h-6 w-6 text-brand-500" />
                             </div>
                           </div>
                           <div className="ml-4">
@@ -396,8 +396,8 @@ const User: React.FC = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <ShoppingCart size={16} className="text-blue-500 mr-2" />
-                          <span className="text-sm font-bold text-blue-600">
+                          <ShoppingCart size={16} className="text-brand-500 mr-2" />
+                          <span className="text-sm font-bold text-brand-500">
                             {user.orderCount.toLocaleString()}
                           </span>
                         </div>
@@ -430,7 +430,7 @@ const User: React.FC = () => {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <button
                           onClick={() => setSelectedUser(user)}
-                          className="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                          className="text-brand-500 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                         >
                           <Eye size={18} />
                         </button>
@@ -466,7 +466,7 @@ const User: React.FC = () => {
       <div className="p-6">
         <div className="flex items-center mb-6">
           <div className="h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mr-4">
-            <UserIcon className="h-8 w-8 text-blue-600" />
+            <UserIcon className="h-8 w-8 text-brand-500" />
           </div>
           <div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white/90">
@@ -481,12 +481,12 @@ const User: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="bg-gray-50 dark:bg-white/[0.06] p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <ShoppingCart className="text-blue-500" size={20} />
+              <ShoppingCart className="text-brand-500" size={20} />
               <span className="font-medium text-gray-700 dark:text-white/80">
                 Total Orders
               </span>
             </div>
-            <p className="text-2xl font-bold text-blue-600">
+            <p className="text-2xl font-bold text-brand-500">
               {selectedUser.orderCount.toLocaleString()}
             </p>
           </div>

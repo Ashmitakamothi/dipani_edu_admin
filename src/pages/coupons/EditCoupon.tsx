@@ -234,7 +234,7 @@ const EditCoupon: React.FC = () => {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="text-center">
-          <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-500 dark:text-gray-300">Loading coupon...</p>
         </div>
       </div>
@@ -250,7 +250,7 @@ const EditCoupon: React.FC = () => {
           <p className="text-red-500 dark:text-red-400 mb-4">{couponError}</p>
           <button
             onClick={() => navigate("/coupons/all")}
-            className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+            className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
           >
             Back to Coupons
           </button>
@@ -264,7 +264,7 @@ const EditCoupon: React.FC = () => {
     <div className="mx-auto p-6 bg-white dark:bg-white/[0.03] shadow-lg rounded-lg max-w-4xl">
       {loading && !singleCoupon && (
         <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-          <p className="text-blue-600 dark:text-blue-400">Loading coupon data...</p>
+          <p className="text-brand-500 dark:text-blue-400">Loading coupon data...</p>
         </div>
       )}
       {couponError && !singleCoupon && (
@@ -272,7 +272,7 @@ const EditCoupon: React.FC = () => {
           <p className="text-red-600 dark:text-red-400">Error: {couponError}</p>
           <button
             onClick={() => navigate("/coupons/all")}
-            className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+            className="mt-2 px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
           >
             Back to Coupons
           </button>
@@ -294,7 +294,7 @@ const EditCoupon: React.FC = () => {
             value={formData.code}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-brand-500"
           />
         </div>
 
@@ -308,7 +308,7 @@ const EditCoupon: React.FC = () => {
             value={formData.description}
             onChange={handleChange}
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white/90 rounded-md focus:ring-2 focus:ring-brand-500"
           />
         </div>
 
@@ -409,7 +409,7 @@ const EditCoupon: React.FC = () => {
             name="courseId"
             value={formData.courseId}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white/90 focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white/90 focus:ring-2 focus:ring-brand-500"
           >
             <option value="">All Courses (Apply to any course)</option>
             {coursesLoading ? (
@@ -483,7 +483,7 @@ const EditCoupon: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+            className="px-6 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
           >
             {loading ? "Updating..." : "Update Coupon"}
           </button>
@@ -512,7 +512,7 @@ const EditCoupon: React.FC = () => {
             <div className="mt-4 flex justify-end">
               <button
                 onClick={() => setPopup({ ...popup, show: false })}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
               >
                 OK
               </button>

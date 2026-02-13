@@ -19,7 +19,8 @@ import {
     Clock,
     CheckCircle,
     XCircle,
-    MoreHorizontal
+    MoreHorizontal,
+    Download
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -128,9 +129,20 @@ const EbookList: React.FC = () => {
                         <span className="flex items-center gap-1 text-yellow-500"><Star className="w-4 h-4 fill-current" /> {ebook.averageRating}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Link to={`/ebooks/edit/${ebook._id}`} className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg">
+                        <Link to={`/ebooks/edit/${ebook._id}`} className="p-2 text-brand-500 hover:bg-brand-50 rounded-lg">
                             <Edit3 className="w-4 h-4" />
                         </Link>
+                        {ebook.fullFile && (
+                            <a
+                                href={`${VITE_IMAGE_URL}/${ebook.fullFile}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg"
+                                title="Download Ebook"
+                            >
+                                <Download className="w-4 h-4" />
+                            </a>
+                        )}
                         <button onClick={() => handleDelete(ebook._id, ebook.title)} className="p-2 text-red-600 hover:bg-red-50 rounded-lg">
                             <Trash2 className="w-4 h-4" />
                         </button>
@@ -153,7 +165,7 @@ const EbookList: React.FC = () => {
                     </div>
                     <Link
                         to="/ebooks/add"
-                        className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all shadow-lg font-medium"
+                        className="flex items-center gap-2 px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-all shadow-lg font-medium"
                     >
                         <Plus className="w-5 h-5" /> Add Ebook
                     </Link>
@@ -232,7 +244,18 @@ const EbookList: React.FC = () => {
                                                 <td className="px-6 py-4"><StatusBadge isPublished={ebook.isPublished} /></td>
                                                 <td className="px-6 py-4 text-right">
                                                     <div className="flex justify-end gap-2">
-                                                        <Link to={`/ebooks/edit/${ebook._id}`} className="text-indigo-600 hover:text-indigo-900"><Edit3 className="w-4 h-4" /></Link>
+                                                        <Link to={`/ebooks/edit/${ebook._id}`} className="text-brand-500 hover:text-brand-600"><Edit3 className="w-4 h-4" /></Link>
+                                                        {ebook.fullFile && (
+                                                            <a
+                                                                href={`${VITE_IMAGE_URL}/${ebook.fullFile}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="text-blue-600 hover:text-blue-900"
+                                                                title="Download Ebook"
+                                                            >
+                                                                <Download className="w-4 h-4" />
+                                                            </a>
+                                                        )}
                                                         <button onClick={() => handleDelete(ebook._id, ebook.title)} className="text-red-600 hover:text-red-900"><Trash2 className="w-4 h-4" /></button>
                                                     </div>
                                                 </td>
@@ -251,7 +274,7 @@ const EbookList: React.FC = () => {
                                     <button onClick={() => handlePageChange(page - 1)} disabled={page === 1} className="p-2 border rounded shadow-sm disabled:opacity-50"><ChevronLeft className="w-5 h-5" /></button>
                                     {generatePageNumbers().map((n, i) => (
                                         typeof n === 'number' ? (
-                                            <button key={i} onClick={() => handlePageChange(n)} className={`px-4 py-2 border rounded ${page === n ? 'bg-indigo-600 text-white' : 'hover:bg-gray-50'}`}>{n}</button>
+                                            <button key={i} onClick={() => handlePageChange(n)} className={`px-4 py-2 border rounded ${page === n ? 'bg-brand-500 text-white' : 'hover:bg-gray-50'}`}>{n}</button>
                                         ) : <span key={i} className="px-2">...</span>
                                     ))}
                                     <button onClick={() => handlePageChange(page + 1)} disabled={page === totalPages} className="p-2 border rounded shadow-sm disabled:opacity-50"><ChevronRight className="w-5 h-5" /></button>

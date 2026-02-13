@@ -96,7 +96,7 @@ const DeleteModal: React.FC<{
             <button
               onClick={onClose}
               disabled={isDeleting}
-              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-500 disabled:opacity-50"
             >
               Cancel
             </button>
@@ -236,7 +236,7 @@ const QuizList: React.FC = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="Search by course or lesson..."
-                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+                className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:ring-brand-500 focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
               />
             </div>
             <button
@@ -257,7 +257,7 @@ const QuizList: React.FC = () => {
 
         {loading && (
           <div className="flex justify-center items-center py-8">
-            <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-500 rounded-full animate-spin"></div>
           </div>
         )}
 
@@ -340,7 +340,7 @@ const QuizList: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 text-right space-x-2">
                       <button
-                        className="text-blue-500 hover:text-blue-700 transition-colors"
+                        className="text-brand-500 hover:text-blue-700 transition-colors"
                         onClick={() => navigate(`/quiz/edit/${quiz._id}`)}
                         title="Edit Quiz"
                       >
@@ -393,7 +393,7 @@ const QuizList: React.FC = () => {
                     onClick={() => handlePageChange(p)}
                     className={`px-3 py-1 rounded ${
                       page === p
-                        ? "bg-indigo-500 text-white"
+                        ? "bg-brand-500 text-white"
                         : "bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
                     }`}
                   >

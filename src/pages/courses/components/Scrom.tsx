@@ -9,7 +9,7 @@ const inputClass =
 const labelClass = "block text-sm font-medium mb-1 flex items-center gap-2";
 
 const buttonClass =
-    "flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition";
+    "flex items-center gap-2 bg-brand-500 text-white px-4 py-2 rounded hover:bg-brand-600 transition";
 
 const ScromForm: React.FC = () => {
     return (

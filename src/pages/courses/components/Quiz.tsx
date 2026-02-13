@@ -82,7 +82,7 @@ const EnhancedPopup: React.FC<EnhancedPopupProps> = ({
       case "warning":
         return <AlertCircle className="w-5 h-5 text-amber-600" />;
       case "info":
-        return <AlertCircle className="w-5 h-5 text-blue-600" />;
+        return <AlertCircle className="w-5 h-5 text-brand-500" />;
       default:
         return <AlertCircle className="w-5 h-5 text-gray-600" />;
     }
@@ -540,7 +540,7 @@ const Quiz = ({
                         handleChange("quizTitle", e.target.value)
                       }
                       placeholder="Enter quiz title"
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
                       required
                     />
                   </div>
@@ -562,7 +562,7 @@ const Quiz = ({
                         )
                       }
                       placeholder="30"
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
                     />
                   </div>
 
@@ -576,7 +576,7 @@ const Quiz = ({
                       onChange={(e) =>
                         handleChange("quizDifficulty", e.target.value)
                       }
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
                     >
                       <option className="dark:text-black" value="">
                         Select difficulty
@@ -610,7 +610,7 @@ const Quiz = ({
                         onChange={(e) =>
                           handleChange("totalMarks", parseInt(e.target.value))
                         }
-                        className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
+                        className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
                         required
                       />
                     </div>
@@ -627,7 +627,7 @@ const Quiz = ({
                         onChange={(e) =>
                           handleChange("passMark", parseInt(e.target.value))
                         }
-                        className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
+                        className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 transition-all duration-200 text-sm sm:text-base"
                         required
                       />
                     </div>
@@ -641,7 +641,7 @@ const Quiz = ({
                         onChange={(e) =>
                           handleChange("isTestSeries", e.target.checked)
                         }
-                        className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                        className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-brand-500"
                       />
                       <span className="text-sm font-medium text-gray-700 dark:text-white/70 flex items-center gap-2">
                         <Sparkles className="w-4 h-4" />
@@ -684,7 +684,7 @@ const Quiz = ({
                   }
                   placeholder="Brief description of the quiz content and objectives"
                   rows={3}
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-none transition-all duration-200 text-sm sm:text-base"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border-2 dark:text-white/70 border-gray-200 rounded-lg sm:rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-indigo-500 resize-none transition-all duration-200 text-sm sm:text-base"
                 />
               </div>
             </div>
@@ -943,7 +943,7 @@ const SectionBuilder = ({ section, onSave, onClose }: SectionBuilderProps) => {
             type="text"
             value={sectionTitle}
             onChange={(e) => setSectionTitle(e.target.value)}
-            className="w-full px-3 py-2 border dark:text-white/90 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border dark:text-white/90 border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             placeholder="Enter section title"
             required
           />
@@ -956,7 +956,7 @@ const SectionBuilder = ({ section, onSave, onClose }: SectionBuilderProps) => {
             rows={3}
             value={sectionDescription}
             onChange={(e) => setSectionDescription(e.target.value)}
-            className="w-full px-3 py-2 border dark:text-white/70 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+            className="w-full px-3 py-2 border dark:text-white/70 border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-vertical"
             placeholder="Enter section description (optional)"
           />
         </div>
@@ -969,7 +969,7 @@ const SectionBuilder = ({ section, onSave, onClose }: SectionBuilderProps) => {
           </button>
           <button
             onClick={handleSave}
-            className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+            className="px-5 py-2 rounded-lg bg-brand-500 text-white hover:bg-brand-600 transition-colors"
           >
             Save Section
           </button>
@@ -1079,7 +1079,7 @@ const QuestionBuilder = ({
             rows={3}
             value={questionText}
             onChange={(e) => setQuestionText(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:text-white/70 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+            className="w-full px-3 py-2 border border-gray-300 dark:text-white/70 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-vertical"
             placeholder="Enter the question"
             required
           />
@@ -1095,7 +1095,7 @@ const QuestionBuilder = ({
                 value={option.text}
                 onChange={(e) => handleOptionChange(index, e.target.value)}
                 placeholder={`Option ${option.label}`}
-                className="flex-grow px-3 py-2 border dark:text-white/70 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-grow px-3 py-2 border dark:text-white/70 border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                 required
               />
               {options.length > 2 && (
@@ -1113,7 +1113,7 @@ const QuestionBuilder = ({
           <button
             type="button"
             onClick={addOption}
-            className="inline-flex items-center px-3 py-1 text-blue-600 hover:text-blue-800 font-medium space-x-1 transition-colors"
+            className="inline-flex items-center px-3 py-1 text-brand-500 hover:text-blue-800 font-medium space-x-1 transition-colors"
           >
             <Plus className="w-4 h-4" />
             <span>Add Option</span>
@@ -1126,7 +1126,7 @@ const QuestionBuilder = ({
           <select
             value={correctAnswer}
             onChange={(e) => setCorrectAnswer(e.target.value)}
-            className="w-full px-3 py-2 dark:text-white/70 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 dark:text-white/70 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent"
             required
           >
             <option className="dark:text-black" value="">
@@ -1154,7 +1154,7 @@ const QuestionBuilder = ({
           </button>
           <button
             onClick={handleSave}
-            className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+            className="px-5 py-2 rounded-lg bg-brand-500 text-white hover:bg-brand-600 transition-colors"
           >
             Save Question
           </button>
@@ -1279,7 +1279,7 @@ const SectionCard = ({
                   e.stopPropagation();
                   onAddQuestion();
                 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg inline-flex items-center gap-2"
+                className="bg-brand-500 hover:bg-brand-600 text-white px-4 py-2 rounded-lg inline-flex items-center gap-2"
               >
                 <Plus className="w-4 h-4" />
                 Add Question
@@ -1303,7 +1303,7 @@ const SectionCard = ({
                   e.stopPropagation();
                   onAddQuestion();
                 }}
-                className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:text-blue-600 hover:border-blue-300 transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:text-brand-500 hover:border-blue-300 transition-colors flex items-center justify-center gap-2"
               >
                 <Plus className="w-4 h-4" />
                 Add Another Question
@@ -1345,7 +1345,7 @@ const QuestionCard = ({
                 e.stopPropagation();
                 setShowPreview(!showPreview);
               }}
-              className="text-gray-500 dark:text-white/90 dark:hover:text-blue-600  hover:text-blue-600 focus:outline-none"
+              className="text-gray-500 dark:text-white/90 dark:hover:text-brand-500  hover:text-brand-500 focus:outline-none"
               title="Preview Question"
               aria-label="Preview Question"
             >

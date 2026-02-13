@@ -123,7 +123,7 @@ const EditForumThread: React.FC = () => {
   if (loading && isEditMode) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+        <Loader2 className="h-8 w-8 animate-spin text-brand-500" />
       </div>
     );
   }
@@ -135,7 +135,7 @@ const EditForumThread: React.FC = () => {
           <p className="text-red-500 mb-4">{error || "Thread not found"}</p>
           <button
             onClick={() => navigate("/forum")}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
           >
             Back to Forum
           </button>
@@ -173,7 +173,7 @@ const EditForumThread: React.FC = () => {
               value={formData.title}
               onChange={handleInputChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
               placeholder="Enter thread title"
             />
           </div>
@@ -189,7 +189,7 @@ const EditForumThread: React.FC = () => {
               onChange={handleInputChange}
               required
               rows={8}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
               placeholder="Enter thread content"
             />
           </div>
@@ -205,13 +205,13 @@ const EditForumThread: React.FC = () => {
                 value={tagInput}
                 onChange={(e) => setTagInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddTag())}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-brand-500 focus:border-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                 placeholder="Add a tag and press Enter"
               />
               <button
                 type="button"
                 onClick={handleAddTag}
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                className="px-4 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600"
               >
                 Add
               </button>
@@ -220,13 +220,13 @@ const EditForumThread: React.FC = () => {
               {formData.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800"
+                  className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-brand-100 text-brand-800"
                 >
                   {tag}
                   <button
                     type="button"
                     onClick={() => handleRemoveTag(tag)}
-                    className="ml-1 text-blue-600 hover:text-blue-800"
+                    className="ml-1 text-brand-600 hover:text-brand-800"
                   >
                     <X className="w-3 h-3" />
                   </button>
@@ -251,7 +251,7 @@ const EditForumThread: React.FC = () => {
                           href={attachmentUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center text-blue-600 hover:text-blue-800"
+                          className="flex items-center text-brand-500 hover:text-brand-600"
                         >
                           <Paperclip className="w-4 h-4 mr-2" />
                           <span className="text-sm">{att.originalName}</span>
@@ -339,7 +339,7 @@ const EditForumThread: React.FC = () => {
             <button
               type="submit"
               disabled={updating}
-              className="flex items-center gap-2 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center gap-2 px-6 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {updating ? (
                 <>

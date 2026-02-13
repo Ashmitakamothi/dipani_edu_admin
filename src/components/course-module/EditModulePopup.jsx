@@ -192,7 +192,7 @@ const EditModulePopup = ({ module, courseId, onClose, onModuleUpdated }) => {
                     </button>
                     <button
                         onClick={handleSave}
-                        className="px-6 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2"
+                        className="px-6 py-2 rounded bg-brand-500 text-white hover:bg-brand-600 flex items-center gap-2"
                         disabled={saving || loading}
                     >
                         {saving ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
