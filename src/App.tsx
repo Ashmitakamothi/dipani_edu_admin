@@ -28,7 +28,7 @@ import AddFile from "./pages/courses/components/AddFile";
 import Session from "./pages/Files/Session";
 import { useSelector } from "react-redux";
 import { selectIsAuthenticated } from "./store/slices/authslice";
-import StudentList from "./pages/students/StudenList";
+import StudentList from "./pages/students/StudentList";
 import StudentDetail from "./pages/students/StudentDetail";
 import AssignmentSubmissionReview from "./pages/Assignmets/AssignmentDetails";
 import AssignmentPage from "./pages/Assignmets/AssignmentPage";
@@ -63,6 +63,7 @@ import AllBanners from "./pages/Banner/AllBanners";
 import AddBanner from "./pages/Banner/AddBanner";
 import EditBanner from "./pages/Banner/EditBanner";
 import LeaderboardSetting from "./pages/LeaderboardSetting";
+import GeneralSetting from "./pages/GeneralSetting";
 import NotificationDashboard from "./pages/Notifications/NotificationDashboard";
 import NotificationList from "./pages/Notifications/NotificationList";
 import NewsList from "./pages/News/NewsList";
@@ -97,6 +98,9 @@ const CategoryList = lazy(() => import("./pages/CategoryList"));
 const AppLayout = lazy(() => import("./layout/AppLayout"));
 const Home = lazy(() => import("./pages/Dashboard/Home"));
 const AddReporter = lazy(() => import("./pages/Reporters/AddReporter"));
+const AddPartner = lazy(() => import("./pages/Reporters/AddPartner"));
+const PartnerList = lazy(() => import("./pages/Reporters/PartnerList"));
+const EditPartner = lazy(() => import("./pages/Reporters/EditPartner"));
 const CreateCertificateTemplate = lazy(
   () => import("./pages/Certification/CreateCertificateTemplate")
 );
@@ -207,6 +211,9 @@ export default function App() {
 
 
               <Route path="/reporters/add" element={<AddReporter />} />
+              <Route path="/partners/add" element={<AddPartner />} />
+              <Route path="/partners/list" element={<PartnerList />} />
+              <Route path="/partners/edit/:id" element={<EditPartner />} />
 
               {/* Bundles */}
               <Route path="/bundles/create" element={<AddBundle />} />
@@ -336,6 +343,7 @@ export default function App() {
               <Route path="/line-chart" element={<LineChart />} />
               <Route path="/bar-chart" element={<BarChart />} />
               <Route path="/leaderboard-setting" element={<LeaderboardSetting />} />
+              <Route path="/general-setting" element={<GeneralSetting />} />
               <Route path="/personality-test" element={<ManageQuestions />} />
             </Route>
           </Route>

@@ -43,7 +43,8 @@ import {
   X,
   MessageCircle,
   Briefcase,
-  LogIn,
+  Gift,
+  Zap,
 } from "lucide-react";
 import EnrollStudentPopup from "../../components/students/EnrollStudentPopup";
 import StudentAnalyticsTab from "./StudentAnalyticsTab";
@@ -94,6 +95,11 @@ function StudentDetail() {
     lastLogin?: string;
     last_login?: string;
     lastLoginAt?: string;
+    referredByPartner?: {
+      fullName: string;
+      email: string;
+      referralCode: string;
+    };
     // Add any other fields you use from 'data'
   };
 
@@ -179,7 +185,7 @@ function StudentDetail() {
   useEffect(() => {
     const fetchActivityData = async () => {
       if (!studentId || !data?._id) return;
-      
+
       setLoadingActivity(true);
       try {
         // Fetch forum posts
@@ -743,6 +749,57 @@ function StudentDetail() {
                   </div>
                 )}
               </div>
+
+              {/* Referral Information */}
+              {data.referredByPartner && (
+                <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-shadow duration-300">
+                  <h3 className="text-xl font-semibold text-gray-900 flex items-center mb-6">
+                    <Gift className="mr-3 h-6 w-6 text-pink-600" />
+                    Referral Information
+                  </h3>
+
+                  <div className="space-y-4">
+                    {/* Partner Name */}
+                    <div className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                      <User className="mr-3 h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                      <div className="flex-1">
+                        <span className="font-medium text-gray-700 block text-sm mb-1">
+                          Referring Partner
+                        </span>
+                        <span className="text-gray-900 font-semibold">
+                          {data.referredByPartner.fullName}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Partner Email */}
+                    <div className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                      <Mail className="mr-3 h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <div className="flex-1">
+                        <span className="font-medium text-gray-700 block text-sm mb-1">
+                          Partner Email
+                        </span>
+                        <span className="text-gray-900 font-medium">
+                          {data.referredByPartner.email}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Referral Code */}
+                    <div className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                      <Zap className="mr-3 h-5 w-5 text-yellow-500 mt-0.5 flex-shrink-0" />
+                      <div className="flex-1">
+                        <span className="font-medium text-gray-700 block text-sm mb-1">
+                          Referral Code
+                        </span>
+                        <span className="text-gray-900 font-mono font-bold">
+                          {data.referredByPartner.referralCode}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -776,17 +833,17 @@ function StudentDetail() {
                     return dateB - dateA; // Descending order (newest first)
                   })
                   .map((enrollment, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-200 overflow-hidden"
-                  >
-                    <div className="p-6">
-                      <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mb-4">
-                        <div className="flex items-center">
-                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <BookOpen className="w-5 h-5 text-white" />
-                          </div>
-                          {/* <span
+                    <div
+                      key={index}
+                      className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-200 overflow-hidden"
+                    >
+                      <div className="p-6">
+                        <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mb-4">
+                          <div className="flex items-center">
+                            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                              <BookOpen className="w-5 h-5 text-white" />
+                            </div>
+                            {/* <span
                             className={`ml-auto inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                               (enrollment.status === "active")
                               ? "bg-green-100 text-green-800"
@@ -797,154 +854,154 @@ function StudentDetail() {
                               ? enrollment.status.charAt(0).toUpperCase() + enrollment.status.slice(1)
                               : "Unknown")}
                             </span> */}
+                          </div>
+                        </div>
+
+                        <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                          {enrollment.course?.title || "Untitled Course"}
+                        </h4>
+
+                        <div className="mt-4 space-y-1 text-xs text-black">
+                          {enrollment.enrolledAt && (
+                            <div>
+                              <span className="font-medium text-black">Enrolled At:</span>{" "}
+                              {new Date(enrollment.enrolledAt).toLocaleString()}
+                            </div>
+                          )}
+                          {enrollment.accessExpiry && (
+                            <div className="flex items-center group">
+                              <span className="font-medium text-black">Access Expiry:</span>{" "}
+                              {editingEnrollmentId === enrollment._id ? (
+                                <div className="flex items-center ml-2 space-x-2">
+                                  <input
+                                    type="datetime-local"
+                                    className="border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-brand-500 outline-none"
+                                    value={newExpiryDate}
+                                    onChange={(e) => setNewExpiryDate(e.target.value)}
+                                  />
+                                  <button
+                                    onClick={() => handleUpdateExpiry(enrollment._id)}
+                                    disabled={updatingExpiry}
+                                    className="p-1 bg-green-100 text-green-600 rounded hover:bg-green-200 transition-colors"
+                                    title="Save"
+                                  >
+                                    {updatingExpiry ? (
+                                      <div className="w-3 h-3 border-2 border-green-600 border-t-transparent animate-spin rounded-full"></div>
+                                    ) : (
+                                      <Save className="w-3 h-3" />
+                                    )}
+                                  </button>
+                                  <button
+                                    onClick={() => setEditingEnrollmentId(null)}
+                                    className="p-1 bg-red-100 text-red-600 rounded hover:bg-red-200 transition-colors"
+                                    title="Cancel"
+                                  >
+                                    <X className="w-3 h-3" />
+                                  </button>
+                                </div>
+                              ) : (
+                                <>
+                                  <span className="ml-1">{new Date(enrollment.accessExpiry).toLocaleString()}</span>
+                                  <button
+                                    onClick={() => {
+                                      setEditingEnrollmentId(enrollment._id);
+                                      // Format date for datetime-local input (YYYY-MM-DDThh:mm)
+                                      const date = new Date(enrollment.accessExpiry);
+                                      const formattedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+                                        .toISOString()
+                                        .slice(0, 16);
+                                      setNewExpiryDate(formattedDate);
+                                    }}
+                                    className="ml-2 p-1 text-gray-400 hover:text-brand-500 transition-all"
+                                    title="Edit Expiry"
+                                  >
+                                    <Edit className="w-3 h-3" />
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                          {enrollment.course?.subtitle || "No subtitle available"}
+                        </p>
+                        {/* Drip Setting Button */}
+                        <button
+                          className="inline-flex items-center px-3 py-1.5 bg-rose-100 text-rose-700 rounded-md text-xs font-medium hover:bg-rose-200 transition-colors mb-2"
+                          onClick={() =>
+                            setConfirmDrip({
+                              courseId: enrollment.course._id,
+                              courseTitle: enrollment.course?.title || "this course",
+                            })
+                          }
+                        >
+                          <XCircle className="w-3 h-3 mr-1" />
+                          Disable Drip
+                        </button>
+                        {/* Disable Drip for Module Button */}
+                        <button
+                          className="inline-flex items-center px-3 py-1.5 bg-yellow-100 text-yellow-700 rounded-md text-xs font-medium hover:bg-yellow-200 transition-colors mb-2 ml-2"
+                          onClick={() =>
+                            setModuleDripPopup({
+                              courseId: enrollment.course._id,
+                              courseTitle: enrollment.course?.title || "this course",
+                            })
+                          }
+                        >
+                          <XCircle className="w-3 h-3 mr-1" />
+                          Disable Module Drip
+                        </button>
+
+                        <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mt-4 pt-4 border-t border-gray-100">
+                          <a
+                            href={enrollment.course?._id ? `/courses/edit/${enrollment.course._id}` : "#"}
+                            className="inline-flex items-center text-sm text-brand-500 hover:text-blue-700 font-medium"
+                          >
+                            View Course
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </a>
+                          {enrollment.certificateIssued && (
+                            <div className="inline-flex items-center gap-2">
+                              <span className="inline-flex items-center text-sm text-green-600">
+                                <Award className="w-4 h-4 mr-1" />
+                                Certified
+                              </span>
+                              <button
+                                className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 rounded-md text-xs font-medium hover:bg-blue-200 transition-colors"
+                                onClick={async (e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  if (data?._id && enrollment.course?._id) {
+                                    await downloadCertificateByUserAndCourse(
+                                      dispatch,
+                                      data._id,
+                                      enrollment.course._id,
+                                      `certificate-${enrollment.course?.title || "course"}.pdf`
+                                    );
+                                  }
+                                }}
+                                title="Download Certificate"
+                              >
+                                <Download className="w-3 h-3 mr-1" />
+                                Download
+                              </button>
+                            </div>
+                          )}
+
+                          {/* Add enrolledAt and accessExpiry */}
+
                         </div>
                       </div>
-
-                      <h4 className="font-semibold text-gray-900 mb-2 text-lg">
-                        {enrollment.course?.title || "Untitled Course"}
-                      </h4>
-
-                      <div className="mt-4 space-y-1 text-xs text-black">
-                        {enrollment.enrolledAt && (
-                          <div>
-                            <span className="font-medium text-black">Enrolled At:</span>{" "}
-                            {new Date(enrollment.enrolledAt).toLocaleString()}
-                          </div>
-                        )}
-                        {enrollment.accessExpiry && (
-                          <div className="flex items-center group">
-                            <span className="font-medium text-black">Access Expiry:</span>{" "}
-                            {editingEnrollmentId === enrollment._id ? (
-                              <div className="flex items-center ml-2 space-x-2">
-                                <input
-                                  type="datetime-local"
-                                  className="border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-brand-500 outline-none"
-                                  value={newExpiryDate}
-                                  onChange={(e) => setNewExpiryDate(e.target.value)}
-                                />
-                                <button
-                                  onClick={() => handleUpdateExpiry(enrollment._id)}
-                                  disabled={updatingExpiry}
-                                  className="p-1 bg-green-100 text-green-600 rounded hover:bg-green-200 transition-colors"
-                                  title="Save"
-                                >
-                                  {updatingExpiry ? (
-                                    <div className="w-3 h-3 border-2 border-green-600 border-t-transparent animate-spin rounded-full"></div>
-                                  ) : (
-                                    <Save className="w-3 h-3" />
-                                  )}
-                                </button>
-                                <button
-                                  onClick={() => setEditingEnrollmentId(null)}
-                                  className="p-1 bg-red-100 text-red-600 rounded hover:bg-red-200 transition-colors"
-                                  title="Cancel"
-                                >
-                                  <X className="w-3 h-3" />
-                                </button>
-                              </div>
-                            ) : (
-                              <>
-                                <span className="ml-1">{new Date(enrollment.accessExpiry).toLocaleString()}</span>
-                                <button
-                                  onClick={() => {
-                                    setEditingEnrollmentId(enrollment._id);
-                                    // Format date for datetime-local input (YYYY-MM-DDThh:mm)
-                                    const date = new Date(enrollment.accessExpiry);
-                                    const formattedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
-                                      .toISOString()
-                                      .slice(0, 16);
-                                    setNewExpiryDate(formattedDate);
-                                  }}
-                                  className="ml-2 p-1 text-gray-400 hover:text-brand-500 transition-all"
-                                  title="Edit Expiry"
-                                >
-                                  <Edit className="w-3 h-3" />
-                                </button>
-                              </>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                      <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                        {enrollment.course?.subtitle || "No subtitle available"}
-                      </p>
-                      {/* Drip Setting Button */}
                       <button
-                        className="inline-flex items-center px-3 py-1.5 bg-rose-100 text-rose-700 rounded-md text-xs font-medium hover:bg-rose-200 transition-colors mb-2"
-                        onClick={() =>
-                          setConfirmDrip({
-                            courseId: enrollment.course._id,
-                            courseTitle: enrollment.course?.title || "this course",
-                          })
-                        }
+                        className="inline-flex items-center px-3 py-1.5 bg-red-100 text-red-700 rounded-md text-xs font-medium hover:bg-red-200 transition-colors mb-2"
+                        onClick={() => setConfirmRemove({ id: enrollment._id, title: enrollment.course?.title || "this course" })}
+                        disabled={removingEnrollmentId === enrollment._id}
                       >
                         <XCircle className="w-3 h-3 mr-1" />
-                        Disable Drip
+                        Remove Enrollment
                       </button>
-                      {/* Disable Drip for Module Button */}
-                      <button
-                        className="inline-flex items-center px-3 py-1.5 bg-yellow-100 text-yellow-700 rounded-md text-xs font-medium hover:bg-yellow-200 transition-colors mb-2 ml-2"
-                        onClick={() =>
-                          setModuleDripPopup({
-                            courseId: enrollment.course._id,
-                            courseTitle: enrollment.course?.title || "this course",
-                          })
-                        }
-                      >
-                        <XCircle className="w-3 h-3 mr-1" />
-                        Disable Module Drip
-                      </button>
-
-                      <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mt-4 pt-4 border-t border-gray-100">
-                        <a
-                          href={enrollment.course?._id ? `/courses/edit/${enrollment.course._id}` : "#"}
-                          className="inline-flex items-center text-sm text-brand-500 hover:text-blue-700 font-medium"
-                        >
-                          View Course
-                          <ArrowRight className="w-4 h-4 ml-1" />
-                        </a>
-                        {enrollment.certificateIssued && (
-                          <div className="inline-flex items-center gap-2">
-                            <span className="inline-flex items-center text-sm text-green-600">
-                              <Award className="w-4 h-4 mr-1" />
-                              Certified
-                            </span>
-                            <button
-                              className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 rounded-md text-xs font-medium hover:bg-blue-200 transition-colors"
-                              onClick={async (e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                if (data?._id && enrollment.course?._id) {
-                                  await downloadCertificateByUserAndCourse(
-                                    dispatch,
-                                    data._id,
-                                    enrollment.course._id,
-                                    `certificate-${enrollment.course?.title || "course"}.pdf`
-                                  );
-                                }
-                              }}
-                              title="Download Certificate"
-                            >
-                              <Download className="w-3 h-3 mr-1" />
-                              Download
-                            </button>
-                          </div>
-                        )}
-
-                        {/* Add enrolledAt and accessExpiry */}
-
-                      </div>
                     </div>
-                    <button
-                      className="inline-flex items-center px-3 py-1.5 bg-red-100 text-red-700 rounded-md text-xs font-medium hover:bg-red-200 transition-colors mb-2"
-                      onClick={() => setConfirmRemove({ id: enrollment._id, title: enrollment.course?.title || "this course" })}
-                      disabled={removingEnrollmentId === enrollment._id}
-                    >
-                      <XCircle className="w-3 h-3 mr-1" />
-                      Remove Enrollment
-                    </button>
-                  </div>
-                ))}
+                  ))}
               </div>
             ) : (
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-12 text-center">
@@ -1131,13 +1188,12 @@ function StudentDetail() {
                           {job.createdAt ? formatDate(job.createdAt) : "N/A"}
                         </p>
                         {job.status && (
-                          <span className={`inline-block mt-2 text-xs px-2 py-0.5 rounded ${
-                            job.status === "approved" || job.status === "active"
-                              ? "bg-green-100 text-green-700"
-                              : job.status === "pending"
+                          <span className={`inline-block mt-2 text-xs px-2 py-0.5 rounded ${job.status === "approved" || job.status === "active"
+                            ? "bg-green-100 text-green-700"
+                            : job.status === "pending"
                               ? "bg-yellow-100 text-yellow-700"
                               : "bg-red-100 text-red-700"
-                          }`}>
+                            }`}>
                             {job.status}
                           </span>
                         )}
@@ -1155,71 +1211,71 @@ function StudentDetail() {
 
             {/* Profile Information */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
-                <User className="mr-2 h-5 w-5 text-indigo-500" />
-                About {data.fullName}
-              </h3>
-              {data.bio ? (
-                <div className="prose prose-indigo max-w-none">
-                  <p className="text-gray-700 whitespace-pre-line">{data.bio}</p>
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <User className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-                  <p className="text-gray-600">
-                    {data.fullName} hasn't added a bio yet
-                  </p>
-                </div>
-              )}
-            </div>
-            {/* Skills */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
-                <Star className="mr-2 h-5 w-5 text-yellow-500" />
-                Skills & Expertise
-              </h3>
-              {(() => {
-                // Parse skills from different formats
-                const parseSkills = (skills) => {
-                  if (!skills) return [];
-                  if (Array.isArray(skills)) {
-                    // If it's an array, flatten any comma-separated strings
-                    return skills.flatMap(skill =>
-                      typeof skill === 'string' ? skill.split(',').map(s => s.trim()).filter(Boolean) : skill
-                    );
-                  }
-                  if (typeof skills === 'string') {
-                    // If it's a string, split by comma
-                    return skills.split(',').map(s => s.trim()).filter(Boolean);
-                  }
-                  return [];
-                };
-
-                const skillsArray = parseSkills(data.skills);
-
-                return skillsArray.length > 0 ? (
-                  <div className="flex flex-wrap gap-2">
-                    {skillsArray.map((skill, index) => (
-                      <span
-                        key={index}
-                        className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200 hover:bg-blue-200 transition-colors duration-200"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
+                  <User className="mr-2 h-5 w-5 text-indigo-500" />
+                  About {data.fullName}
+                </h3>
+                {data.bio ? (
+                  <div className="prose prose-indigo max-w-none">
+                    <p className="text-gray-700 whitespace-pre-line">{data.bio}</p>
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <Star className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-                    <p className="text-gray-600">No skills listed yet</p>
+                    <User className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                    <p className="text-gray-600">
+                      {data.fullName} hasn't added a bio yet
+                    </p>
                   </div>
-                );
-              })()}
-            </div>
+                )}
+              </div>
+              {/* Skills */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
+                  <Star className="mr-2 h-5 w-5 text-yellow-500" />
+                  Skills & Expertise
+                </h3>
+                {(() => {
+                  // Parse skills from different formats
+                  const parseSkills = (skills) => {
+                    if (!skills) return [];
+                    if (Array.isArray(skills)) {
+                      // If it's an array, flatten any comma-separated strings
+                      return skills.flatMap(skill =>
+                        typeof skill === 'string' ? skill.split(',').map(s => s.trim()).filter(Boolean) : skill
+                      );
+                    }
+                    if (typeof skills === 'string') {
+                      // If it's a string, split by comma
+                      return skills.split(',').map(s => s.trim()).filter(Boolean);
+                    }
+                    return [];
+                  };
 
-            {/* Qualifications */}
-            {/* <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                  const skillsArray = parseSkills(data.skills);
+
+                  return skillsArray.length > 0 ? (
+                    <div className="flex flex-wrap gap-2">
+                      {skillsArray.map((skill, index) => (
+                        <span
+                          key={index}
+                          className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200 hover:bg-blue-200 transition-colors duration-200"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-8">
+                      <Star className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                      <p className="text-gray-600">No skills listed yet</p>
+                    </div>
+                  );
+                })()}
+              </div>
+
+              {/* Qualifications */}
+              {/* <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
                 <Award className="mr-2 h-5 w-5 text-green-500" />
                 Qualifications
@@ -1264,70 +1320,70 @@ function StudentDetail() {
               })()}
             </div> */}
 
-            {/* Education */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
-                <GraduationCap className="mr-2 h-5 w-5 text-purple-500" />
-                Education History
-              </h3>
-              {data.education?.length > 0 ? (
-                <div className="space-y-4">
-                  {data.education.map((edu, index) => (
-                    <div
-                      key={index}
-                      className="border-l-4 border-purple-500 pl-4 py-2 hover:bg-gray-50 transition-colors duration-200 rounded-r-lg"
-                    >
-                      <h4 className="font-semibold text-gray-900 mb-1">
-                        {edu.degree || "Degree"}
-                      </h4>
-                      <p className="text-sm text-gray-600 mb-2">
-                        {edu.institution || "Institution"}
-                      </p>
-                      <div className="flex items-center text-xs text-gray-500">
-                        <Calendar className="w-3 h-3 mr-1" />
-                        {(edu.startDate ? formatDate(edu.startDate) : "Start")} - {(edu.endDate ? formatDate(edu.endDate) : "Ongoing")}
+              {/* Education */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
+                  <GraduationCap className="mr-2 h-5 w-5 text-purple-500" />
+                  Education History
+                </h3>
+                {data.education?.length > 0 ? (
+                  <div className="space-y-4">
+                    {data.education.map((edu, index) => (
+                      <div
+                        key={index}
+                        className="border-l-4 border-purple-500 pl-4 py-2 hover:bg-gray-50 transition-colors duration-200 rounded-r-lg"
+                      >
+                        <h4 className="font-semibold text-gray-900 mb-1">
+                          {edu.degree || "Degree"}
+                        </h4>
+                        <p className="text-sm text-gray-600 mb-2">
+                          {edu.institution || "Institution"}
+                        </p>
+                        <div className="flex items-center text-xs text-gray-500">
+                          <Calendar className="w-3 h-3 mr-1" />
+                          {(edu.startDate ? formatDate(edu.startDate) : "Start")} - {(edu.endDate ? formatDate(edu.endDate) : "Ongoing")}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <GraduationCap className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-                  <p className="text-gray-600">No education records found</p>
-                </div>
-              )}
-            </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-8">
+                    <GraduationCap className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                    <p className="text-gray-600">No education records found</p>
+                  </div>
+                )}
+              </div>
 
-            {/* Documentation */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
-                <FileText className="mr-2 h-5 w-5 text-indigo-500" />
-                Documents
-              </h3>
-              {data.documentation?.length > 0 ? (
-                <div className="space-y-3">
-                  {data.documentation.map((doc, index) => (
-                    <div
-                      key={index}
-                      className="flex sm:flex-row items-center sm:items-center justify-between gap-4 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="flex items-center">
-                        <FileText className="w-5 h-5 text-gray-400 mr-3" />
-                        <span className="text-sm font-medium text-gray-900">
-                          {doc.name || `Document ${index + 1}`}
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <a
-                          href={doc.Doc ? `${ImageUrl}/${doc.Doc}` : "#"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-brand-500 bg-blue-100 rounded-md hover:bg-blue-200 transition-colors"
-                        >
-                          <Eye className="w-3 h-3 mr-1" />
-                          View
-                        </a>
-                        {/* <a
+              {/* Documentation */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-semibold text-gray-900 flex items-center mb-6">
+                  <FileText className="mr-2 h-5 w-5 text-indigo-500" />
+                  Documents
+                </h3>
+                {data.documentation?.length > 0 ? (
+                  <div className="space-y-3">
+                    {data.documentation.map((doc, index) => (
+                      <div
+                        key={index}
+                        className="flex sm:flex-row items-center sm:items-center justify-between gap-4 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="flex items-center">
+                          <FileText className="w-5 h-5 text-gray-400 mr-3" />
+                          <span className="text-sm font-medium text-gray-900">
+                            {doc.name || `Document ${index + 1}`}
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <a
+                            href={doc.Doc ? `${ImageUrl}/${doc.Doc}` : "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-brand-500 bg-blue-100 rounded-md hover:bg-blue-200 transition-colors"
+                          >
+                            <Eye className="w-3 h-3 mr-1" />
+                            View
+                          </a>
+                          {/* <a
                           href={doc.Doc ? `${ImageUrl}/${doc.Doc}` : "#"}
                           download
                           className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
@@ -1335,26 +1391,26 @@ function StudentDetail() {
                           <Download className="w-3 h-3 mr-1" />
                           Download
                         </a> */}
-                        <a
-                          href={doc.Doc ? `${ImageUrl}/${doc.Doc}` : "#"}
-                          download={doc.name || `document-${index + 1}.pdf`}
-                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
-                        >
-                          <Download className="w-3 h-3 mr-1" />
-                          Download
-                        </a>
+                          <a
+                            href={doc.Doc ? `${ImageUrl}/${doc.Doc}` : "#"}
+                            download={doc.name || `document-${index + 1}.pdf`}
+                            className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+                          >
+                            <Download className="w-3 h-3 mr-1" />
+                            Download
+                          </a>
 
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <FileText className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-                  <p className="text-gray-600">No documents uploaded yet</p>
-                </div>
-              )}
-            </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-8">
+                    <FileText className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                    <p className="text-gray-600">No documents uploaded yet</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         )}

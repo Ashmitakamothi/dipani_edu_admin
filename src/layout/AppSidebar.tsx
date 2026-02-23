@@ -109,6 +109,14 @@ const navItems: NavItem[] = [
     path: "/reporters/add",
   },
   {
+    icon: <UserCircleIcon />,
+    name: "Partners",
+    subItems: [
+      { name: "All Partners", path: "/partners/list" },
+      { name: "Add Partner", path: "/partners/add" },
+    ],
+  },
+  {
     icon: <TableIcon />,
     name: "Assignment Submissions",
     path: "/assignments/submissions"
@@ -156,6 +164,11 @@ const navItems: NavItem[] = [
     icon: <PieChartIcon />,
     name: "Leaderboard Settings",
     path: "/leaderboard-setting"
+  },
+  {
+    icon: <Settings className="w-5 h-5" />,
+    name: "General Settings",
+    path: "/general-setting"
   },
   {
     icon: <TaskIcon />,

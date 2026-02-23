@@ -33,6 +33,7 @@ import leaderboard from "./slices/leaderboard";
 import banner from "./slices/banner";
 import news from "./slices/news";
 import ebookReducer from "./slices/ebook";
+import partnerReducer from "./slices/partners";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -67,7 +68,8 @@ export const store = configureStore({
     leaderboard: leaderboard,
     banner: banner,
     news: news,
-    ebook: ebookReducer
+    ebook: ebookReducer,
+    partners: partnerReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCourseById, updateCourse } from "../../store/slices/course";
 import CategorySubcategoryDropdowns from "../../components/CategorySubcategoryDropdowns";
 import { RootState, AppDispatch } from "../../store";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import {
   FileText,
   DollarSign,
@@ -214,6 +214,7 @@ const YouTubeUrlInput = ({
 const EditCourse = () => {
   const { id } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // Fallback extraction from pathname
@@ -889,7 +890,12 @@ const EditCourse = () => {
         message={popup.message}
         type={popup.type}
         isVisible={popup.isVisible}
-        onClose={() => setPopup({ ...popup, isVisible: false })}
+        onClose={() => {
+          setPopup({ ...popup, isVisible: false });
+          if (popup.type === "success") {
+            navigate("/courses/all/courses");
+          }
+        }}
       />
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
         {/* Sidebar */}

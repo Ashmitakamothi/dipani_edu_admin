@@ -822,7 +822,10 @@ const AddCourse = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
       <SuccessPopup
         isVisible={successPopup}
-        onClose={() => setSuccessPopup(false)}
+        onClose={() => {
+          setSuccessPopup(false);
+          navigate("/courses/all/courses");
+        }}
         onAddContent={handleAddContent}
         courseId={data?.data?.course?._id}
       />

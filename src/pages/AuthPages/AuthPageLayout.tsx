@@ -25,7 +25,7 @@ export default function AuthLayout({
                 />
               </Link>
               <p className="text-center text-gray-400 dark:text-white/60">
-                Daimond Ecommerce Admin Dashboard
+               Dipani Global Edu Admin Dashboard
               </p>
             </div>
           </div>

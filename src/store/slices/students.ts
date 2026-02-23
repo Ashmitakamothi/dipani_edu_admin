@@ -31,6 +31,23 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../services/axiosConfig";
 
 // types.ts
+export interface CourseEnrollmentInfo {
+  courseId?: string;
+  courseName: string;
+  courseThumbnail?: string;
+  pricePaid: number;
+  enrolledAt: string;
+  status: string;
+  accessExpiry?: string;
+}
+
+export interface ReferredByPartner {
+  _id: string;
+  fullName: string;
+  email: string;
+  referralCode: string;
+}
+
 export interface Student {
   isShadowBanned: string;
   isBanned: string;
@@ -38,6 +55,7 @@ export interface Student {
   name: string;
   fullName: string;
   email: string;
+  phone?: string;
   status: string;
   isActive: boolean;
   profilePicture?: string;
@@ -45,7 +63,11 @@ export interface Student {
   createdAt: string;
   updatedAt: string;
   isDeleted?: boolean;
+  referredByPartner?: ReferredByPartner | null;
+  enrollments?: CourseEnrollmentInfo[];
+  company?: { referralCode?: string };
 }
+
 
 export interface FetchStudentsParams {
   page?: number;
