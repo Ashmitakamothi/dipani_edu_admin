@@ -6,6 +6,7 @@ import { Link2, Save, Globe, Info } from "lucide-react";
 
 export default function GeneralSetting() {
     const [googleFormLink, setGoogleFormLink] = useState("");
+    const [paymentUpiId, setPaymentUpiId] = useState("");
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
@@ -16,6 +17,7 @@ export default function GeneralSetting() {
                 const response = await axiosInstance.get("/settings");
                 if (response.data && response.data.settings) {
                     setGoogleFormLink(response.data.settings.googleFormLink || "");
+                    setPaymentUpiId(response.data.settings.payment_upi_id || "");
                 }
             } catch (err) {
                 console.error("Error fetching settings:", err);
@@ -30,11 +32,18 @@ export default function GeneralSetting() {
         setError("");
         setSuccess("");
         try {
-            await axiosInstance.post("/settings/update", {
-                key: "googleFormLink",
-                value: googleFormLink,
-                description: "Link to the Google Form for student feedback/help"
-            });
+            await Promise.all([
+                axiosInstance.post("/settings/update", {
+                    key: "googleFormLink",
+                    value: googleFormLink,
+                    description: "Link to the Google Form for student feedback/help"
+                }),
+                axiosInstance.post("/settings/update", {
+                    key: "payment_upi_id",
+                    value: paymentUpiId,
+                    description: "UPI ID for manual QR code payment"
+                })
+            ]);
             setSuccess("Settings updated successfully!");
             setTimeout(() => setSuccess(""), 3000);
         } catch (err) {
@@ -107,6 +116,34 @@ export default function GeneralSetting() {
                         >
                             {loading ? "Saving..." : <><Save className="w-5 h-5" /> Save Changes</>}
                         </button>
+                    </div>
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <div className="p-6 border-b border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50">
+                            <h2 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                                <Globe className="w-5 h-5 text-brand-500" />
+                                Payment Settings
+                            </h2>
+                        </div>
+
+                        <div className="p-6 space-y-6">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+                                    <Globe className="w-4 h-4" />
+                                    Payment UPI ID
+                                </label>
+                                <input
+                                    type="text"
+                                    value={paymentUpiId}
+                                    onChange={(e) => setPaymentUpiId(e.target.value)}
+                                    placeholder="example@upi"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 focus:ring-2 focus:ring-brand-500 outline-none transition-all dark:text-white"
+                                />
+                                <div className="mt-2 flex items-start gap-2 text-xs text-gray-500 dark:text-gray-400 italic">
+                                    <Info className="w-3.5 h-3.5 mt-0.5" />
+                                    Setting this UPI ID will automatically generate a QR code for manual payments on the checkout page.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

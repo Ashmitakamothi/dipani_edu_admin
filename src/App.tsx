@@ -75,6 +75,7 @@ import AITool from "./pages/AITool/AITool";
 import EbookList from "./pages/ebooks/EbookList";
 import AddEbook from "./pages/ebooks/AddEbook";
 import EditEbook from "./pages/ebooks/EditEbook";
+import OrderList from "./pages/orders/OrderList";
 
 // Lazy load pages
 const SignIn = lazy(() => import("./pages/AuthPages/SignIn"));
@@ -342,6 +343,7 @@ export default function App() {
               {/* Charts */}
               <Route path="/line-chart" element={<LineChart />} />
               <Route path="/bar-chart" element={<BarChart />} />
+              <Route path="/orders" element={<OrderList />} />
               <Route path="/leaderboard-setting" element={<LeaderboardSetting />} />
               <Route path="/general-setting" element={<GeneralSetting />} />
               <Route path="/personality-test" element={<ManageQuestions />} />
