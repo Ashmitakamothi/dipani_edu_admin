@@ -36,6 +36,18 @@ interface Partner {
     profilePicture?: string;
     image?: string;
     referralCode?: string;
+    referredBy?: string | {
+        _id: string;
+        fullName: string;
+        email: string;
+        referralCode: string;
+    };
+    referredByPartner?: {
+        _id: string;
+        fullName: string;
+        email: string;
+        referralCode: string;
+    } | null;
     createdAt: string;
     updatedAt: string;
     isDeleted?: boolean;
@@ -405,6 +417,9 @@ const PartnerList: React.FC = () => {
                                     Referral Code
                                 </th>
                                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
+                                    Referred By
+                                </th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
                                     Status
                                 </th>
                                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
@@ -464,6 +479,20 @@ const PartnerList: React.FC = () => {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
                                                 {partner?.referralCode || "-"}
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                                {partner?.referredByPartner ? (
+                                                    <div className="flex flex-col">
+                                                        <span className="font-medium text-indigo-600 dark:text-indigo-400">
+                                                            {partner.referredByPartner.fullName}
+                                                        </span>
+                                                        <span className="text-xs text-gray-500">
+                                                            Code: {partner.referredByPartner.referralCode}
+                                                        </span>
+                                                    </div>
+                                                ) : (
+                                                    <span className="text-gray-400">-</span>
+                                                )}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm">
                                                 {partner?.is_verify ? (

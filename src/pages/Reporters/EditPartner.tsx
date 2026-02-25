@@ -149,6 +149,28 @@ const EditPartner: React.FC = () => {
                                 />
                             </div>
 
+                            {/* Referred By */}
+                            {partnerDetails?.referredByPartner && (
+                                <div className="md:col-span-2">
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                        Referred By
+                                    </label>
+                                    <div className="flex items-center gap-3 p-4 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 rounded-lg">
+                                        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/40 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold">
+                                            {partnerDetails.referredByPartner.fullName.charAt(0)}
+                                        </div>
+                                        <div>
+                                            <p className="font-semibold text-gray-900 dark:text-white">
+                                                {partnerDetails.referredByPartner.fullName}
+                                            </p>
+                                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                                {partnerDetails.referredByPartner.email} • Code: {partnerDetails.referredByPartner.referralCode}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Referral Code */}
                             <div className="md:col-span-2">
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

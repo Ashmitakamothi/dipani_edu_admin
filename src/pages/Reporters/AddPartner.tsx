@@ -8,6 +8,7 @@ const AddPartner: React.FC = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [referralCode, setReferralCode] = useState('');
+    const [referredByCode, setReferredByCode] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Generate Referral Code Function
@@ -30,8 +31,9 @@ const AddPartner: React.FC = () => {
                 email,
                 password,
                 fullName: firstName + " " + lastName,
-                role: "partner", // Set role to partner
-                referralCode, // Send referral code
+                role: "partner",
+                referralCode, // Own code
+                referredByCode, // Code of the partner who referred them
                 is_verify: true,
             };
 
@@ -48,6 +50,7 @@ const AddPartner: React.FC = () => {
             setFirstName('');
             setLastName('');
             setReferralCode('');
+            setReferredByCode('');
         } catch (err: any) {
             const message = err?.response?.data?.message || err.message || 'Failed to create partner';
             toastConfig.error(message);
@@ -105,6 +108,19 @@ const AddPartner: React.FC = () => {
                         className="w-full px-3 py-2 border rounded-md bg-transparent"
                         placeholder="Password"
                     />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium mb-1">Ref. Code (Optional)</label>
+                    <input
+                        value={referredByCode}
+                        onChange={(e) => setReferredByCode(e.target.value)}
+                        className="w-full px-3 py-2 border rounded-md bg-transparent"
+                        placeholder="Referrer's code"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">
+                        Enter the referral code of the partner who referred this new partner.
+                    </p>
                 </div>
 
                 <div>
