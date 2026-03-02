@@ -5,6 +5,7 @@ import {
     setFilters,
     resetFilters,
     deletePartner,
+    approvePartner,
 } from "../../store/slices/partners";
 import {
     Pencil,
@@ -50,6 +51,12 @@ interface Partner {
     } | null;
     createdAt: string;
     updatedAt: string;
+    registrationPayment?: {
+        method: string;
+        transactionId: string;
+        amount: number;
+        status: string;
+    };
     isDeleted?: boolean;
 }
 
@@ -139,6 +146,86 @@ const DeleteModal: React.FC<{
     );
 };
 
+// Approval Confirmation Modal Component
+const ApproveModal: React.FC<{
+    isOpen: boolean;
+    onClose: () => void;
+    onConfirm: () => void;
+    partner: Partner | null;
+    isApproving: boolean;
+}> = ({ isOpen, onClose, onConfirm, partner, isApproving }) => {
+    if (!isOpen || !partner) return null;
+
+    return (
+        <div className="fixed inset-0 z-50 overflow-y-auto">
+            <div
+                className="fixed inset-0 bg-transparent backdrop-blur-xs transition-opacity"
+                onClick={onClose}
+            ></div>
+
+            <div className="flex min-h-full items-center justify-center p-4">
+                <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full">
+                    <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+                        <div className="flex items-center gap-3">
+                            <div className="flex-shrink-0 w-10 h-10 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center">
+                                <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                Approve Partner
+                            </h3>
+                        </div>
+                        <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+                            <X className="w-6 h-6" />
+                        </button>
+                    </div>
+
+                    <div className="p-6">
+                        <p className="text-gray-600 dark:text-gray-300">
+                            Are you sure you want to approve partner{" "}
+                            <strong>"{partner.fullName || partner.name}"</strong>?
+                        </p>
+
+                        {partner.registrationPayment?.transactionId && (
+                            <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
+                                <p className="text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider mb-1">Registration Payment Details</p>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-sm text-gray-600 dark:text-gray-300">UTR / Transaction ID:</span>
+                                    <span className="text-sm font-mono font-bold text-gray-900 dark:text-white">{partner.registrationPayment.transactionId}</span>
+                                </div>
+                                <div className="flex justify-between items-center mt-1">
+                                    <span className="text-sm text-gray-600 dark:text-gray-300">Amount:</span>
+                                    <span className="text-sm font-bold text-gray-900 dark:text-white">₹{partner.registrationPayment.amount}</span>
+                                </div>
+                            </div>
+                        )}
+
+                        <p className="text-sm text-gray-500 mt-4">
+                            This will verify the partner and allow them to log in.
+                        </p>
+                    </div>
+
+                    <div className="flex justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            onClick={onClose}
+                            disabled={isApproving}
+                            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            onClick={onConfirm}
+                            disabled={isApproving}
+                            className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 flex items-center gap-2"
+                        >
+                            {isApproving ? "Approving..." : "Confirm Approval"}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const PartnerList: React.FC = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -164,6 +251,10 @@ const PartnerList: React.FC = () => {
         type: "success",
         isVisible: false,
     });
+
+    const [approveModalOpen, setApproveModalOpen] = useState(false);
+    const [partnerToApprove, setPartnerToApprove] = useState<Partner | null>(null);
+    const [isApproving, setIsApproving] = useState(false);
 
     // Debounce search input
     useEffect(() => {
@@ -299,6 +390,30 @@ const PartnerList: React.FC = () => {
                     isVisible: true,
                 });
                 setIsDeleting(false);
+            }
+        }
+    };
+
+    const handleApproveConfirm = async () => {
+        if (partnerToApprove) {
+            setIsApproving(true);
+            try {
+                await dispatch(approvePartner(partnerToApprove._id)).unwrap();
+                setPopup({
+                    message: `Partner "${partnerToApprove.fullName || partnerToApprove.name}" approved successfully`,
+                    type: "success",
+                    isVisible: true,
+                });
+                setApproveModalOpen(false);
+                setPartnerToApprove(null);
+            } catch (err: any) {
+                setPopup({
+                    message: err || "Failed to approve partner",
+                    type: "error",
+                    isVisible: true,
+                });
+            } finally {
+                setIsApproving(false);
             }
         }
     };
@@ -512,6 +627,18 @@ const PartnerList: React.FC = () => {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <div className="flex justify-end space-x-2">
+                                                    {!partner?.is_verify && (
+                                                        <button
+                                                            onClick={() => {
+                                                                setPartnerToApprove(partner);
+                                                                setApproveModalOpen(true);
+                                                            }}
+                                                            className="text-green-500 hover:text-green-700 transition-colors p-1"
+                                                            title="Approve Partner"
+                                                        >
+                                                            <CheckCircle className="h-5 w-5" />
+                                                        </button>
+                                                    )}
                                                     <button
                                                         onClick={() => navigate(`/partners/edit/${partner._id}`)}
                                                         className="text-blue-500 hover:text-blue-700 transition-colors p-1"
@@ -592,6 +719,13 @@ const PartnerList: React.FC = () => {
                 onClose={() => setPopup({ ...popup, isVisible: false })}
             />
 
+            <ApproveModal
+                isOpen={approveModalOpen}
+                onClose={() => setApproveModalOpen(false)}
+                onConfirm={handleApproveConfirm}
+                partner={partnerToApprove}
+                isApproving={isApproving}
+            />
             <DeleteModal
                 isOpen={deleteModalOpen}
                 onClose={closeDeleteModal}

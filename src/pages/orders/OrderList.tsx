@@ -168,6 +168,11 @@ const OrderList: React.FC = () => {
                                         <div className="text-xs text-gray-500 mt-1">
                                             {new Date(order.createdAt).toLocaleDateString()}
                                         </div>
+                                        {order.items?.some((item: any) => item.type === 'partnerRegistration') && (
+                                            <span className="inline-block mt-1 px-2 py-0.5 text-[10px] font-bold uppercase rounded-full bg-purple-100 text-purple-700">
+                                                Partner Registration
+                                            </span>
+                                        )}
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">

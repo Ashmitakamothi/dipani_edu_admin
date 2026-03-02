@@ -129,27 +129,24 @@ export const updatePartner = createAsyncThunk<
     { id: string; data: Partial<Partner> }
 >("partners/update", async ({ id, data }, { rejectWithValue }) => {
     try {
-        // Assuming we use the generic profile update or a specific one?
-        // For Admins updating other users, usually we hit a specific endpoint or the generic update with ID.
-        // Checking userController, `updateProfile` updates *me*. `updateUserRole` is admin only.
-        // There might not be a generic "admin update user" endpoint other than specific fields.
-        // However, `updateProfile` uses `req.user._id`.
-        // Let's assume for now we might need to rely on what's available or add one.
-        // Wait, `updateProfile` is for self.
-        // I will put a placeholder here or use `patch` if a generic one exists.
-        // Actually `userRoute.js` has `updateUserRole`, `banOrShadowBanUser`, etc.
-        // But no generic "update user details by admin".
-        // I might need to add `updatePartner` to `partnerController`. 
-        // For now, let's just implement listing and delete as requested.
-        // "admin able to edit and delte" -> I need edit too.
-        // I'll add `updatePartner` to `partnerController` in backend later if needed.
-        // For now, let's assume I will add `partners/:id` PUT endpoint.
         const response = await axiosInstance.put(`${API_BASE_URL}/partners/${id}`, data);
         return response.data?.data?.partner;
     } catch (error: any) {
         return rejectWithValue(error.response?.data?.message || error.message);
     }
 });
+
+export const approvePartner = createAsyncThunk<Partner, string>(
+    "partners/approve",
+    async (id, { rejectWithValue }) => {
+        try {
+            const response = await axiosInstance.put(`/approve-partner/${id}`);
+            return response.data?.data;
+        } catch (error: any) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
+    }
+);
 
 
 const initialState: PartnerState = {
@@ -231,6 +228,22 @@ const partnerSlice = createSlice({
                 );
             })
             .addCase(deletePartner.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload as string;
+            })
+            // approve
+            .addCase(approvePartner.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(approvePartner.fulfilled, (state, action) => {
+                state.loading = false;
+                const index = state.partners.findIndex(p => p._id === action.payload._id);
+                if (index !== -1) {
+                    state.partners[index] = action.payload;
+                }
+            })
+            .addCase(approvePartner.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload as string;
             });
