@@ -12,7 +12,8 @@ import {
     Mail,
     Phone,
     Copy,
-    ExternalLink
+    ExternalLink,
+    RefreshCcw
 } from "lucide-react";
 
 interface Order {
@@ -23,6 +24,7 @@ interface Order {
         fullName: string;
         email: string;
         phone?: string;
+        status?: string;
     };
     items: Array<{
         type: string;
@@ -43,8 +45,25 @@ const OrderList: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [statusFilter, setStatusFilter] = useState("");
     const [providerFilter, setProviderFilter] = useState("");
+    const [typeFilter, setTypeFilter] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
     const [approvingId, setApprovingId] = useState<string | null>(null);
+    const [totalOrders, setTotalOrders] = useState(0);
+    const [syncing, setSyncing] = useState(false);
+
+    const handleSync = async () => {
+        try {
+            setSyncing(true);
+            const response = await axiosInstance.post("/sync-partner-orders");
+            alert(response.data.message || "Sync completed successfully!");
+            fetchOrders();
+        } catch (error: any) {
+            console.error("Sync failed", error);
+            alert(error.response?.data?.message || "Sync failed. Check console.");
+        } finally {
+            setSyncing(false);
+        }
+    };
 
     const fetchOrders = async () => {
         try {
@@ -52,10 +71,13 @@ const OrderList: React.FC = () => {
             const response = await axiosInstance.get("/orders", {
                 params: {
                     status: statusFilter || undefined,
-                    provider: providerFilter || undefined
+                    provider: providerFilter || undefined,
+                    type: typeFilter || undefined,
+                    limit: 200
                 }
             });
             setOrders(response.data.orders);
+            setTotalOrders(response.data.totalOrders || response.data.orders.length);
         } catch (error) {
             console.error("Failed to fetch orders", error);
         } finally {
@@ -65,7 +87,7 @@ const OrderList: React.FC = () => {
 
     useEffect(() => {
         fetchOrders();
-    }, [statusFilter, providerFilter]);
+    }, [statusFilter, providerFilter, typeFilter]);
 
     const handleApprove = async (orderId: string) => {
         if (!window.confirm("Are you sure you want to approve this order? This will enroll the student.")) return;
@@ -104,11 +126,24 @@ const OrderList: React.FC = () => {
                     <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                         <ShoppingCart className="text-brand-500" />
                         Order Management
+                        <span className="ml-2 text-sm font-normal bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full">
+                            {totalOrders} orders
+                        </span>
                     </h1>
                     <p className="text-gray-500 dark:text-gray-400">Manage and verify student payments</p>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={handleSync}
+                        disabled={syncing}
+                        className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors disabled:opacity-50"
+                        title="Sync missing partner orders from user profiles"
+                    >
+                        <RefreshCcw size={16} className={syncing ? "animate-spin" : ""} />
+                        {syncing ? "Syncing..." : "Sync Missing Orders"}
+                    </button>
+                    <div className="flex flex-wrap gap-3">
                     <div className="relative">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
                         <input
@@ -121,6 +156,18 @@ const OrderList: React.FC = () => {
                     </div>
 
                     <select
+                        value={typeFilter}
+                        onChange={(e) => setTypeFilter(e.target.value)}
+                        className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm outline-none focus:ring-2 focus:ring-brand-500"
+                    >
+                        <option value="">All Types</option>
+                        <option value="partnerRegistration">Partner Registration</option>
+                        <option value="coursePlan">Course Plan</option>
+                        <option value="course">Course</option>
+                        <option value="courseBundle">Bundle</option>
+                    </select>
+
+                    <select
                         value={statusFilter}
                         onChange={(e) => setStatusFilter(e.target.value)}
                         className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm outline-none focus:ring-2 focus:ring-brand-500"
@@ -130,7 +177,6 @@ const OrderList: React.FC = () => {
                         <option value="paid">Paid</option>
                         <option value="failed">Failed</option>
                     </select>
-
                     <select
                         value={providerFilter}
                         onChange={(e) => setProviderFilter(e.target.value)}
@@ -138,10 +184,13 @@ const OrderList: React.FC = () => {
                     >
                         <option value="">All Providers</option>
                         <option value="manual">Manual (QR Code)</option>
+                        <option value="cashfree">Cashfree</option>
                         <option value="razorpay">Razorpay</option>
+                        <option value="phonepe">PhonePe</option>
                     </select>
                 </div>
             </div>
+        </div>
 
             {loading ? (
                 <div className="flex justify-center py-20">
@@ -223,15 +272,16 @@ const OrderList: React.FC = () => {
                                         </div>
                                     </td>
                                     <td className="px-6 py-4 text-right">
-                                        {order.payment.provider === 'manual' && order.payment.status === 'pending' && (
-                                            <button
-                                                onClick={() => handleApprove(order._id)}
-                                                disabled={approvingId === order._id}
-                                                className="px-4 py-1.5 bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold rounded-lg transition-colors disabled:opacity-50"
-                                            >
-                                                {approvingId === order._id ? "Approving..." : "Approve"}
-                                            </button>
-                                        )}
+                                        {((order.payment.provider === 'manual' && order.payment.status === 'pending') ||
+                                            (order.items?.some((item: any) => item.type === 'partnerRegistration') && order.userId?.status === 'pending_approval')) && (
+                                                <button
+                                                    onClick={() => handleApprove(order._id)}
+                                                    disabled={approvingId === order._id}
+                                                    className="px-4 py-1.5 bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold rounded-lg transition-colors disabled:opacity-50"
+                                                >
+                                                    {approvingId === order._id ? "Approving..." : "Approve"}
+                                                </button>
+                                            )}
                                     </td>
                                 </tr>
                             ))}
