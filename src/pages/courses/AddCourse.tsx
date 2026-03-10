@@ -361,6 +361,8 @@ const YouTubeUrlInput = ({ label, value, onChange, error }: { label: string; val
 const AddCourse = () => {
   const dispatch = useDispatch();
   const { loading, error, data } = useSelector((state: any) => state.course);
+  const user = useSelector((state: any) => state.auth?.user);
+  const isUnpaidPartner = user?.role === 'partner' && user?.registrationPayment?.status !== 'completed';
   const navigate = useNavigate();
 
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -566,6 +568,9 @@ const AddCourse = () => {
   const handleSubmit = async (e: React.FormEvent, isDraft = false) => {
     e.preventDefault();
 
+    // Force draft for unpaid partners
+    const finalIsDraft = isDraft || isUnpaidPartner;
+
     const files = { thumbnailFile, coverImageFile };
     const errors = validateForm(
       formData,
@@ -647,7 +652,7 @@ const AddCourse = () => {
     submitFormData.append("description", description);
     submitFormData.append("seoContent", seoContent);
     submitFormData.append("tags", JSON.stringify(selectedTags));
-    submitFormData.append("isPublished", (!isDraft).toString());
+    submitFormData.append("isPublished", (!finalIsDraft).toString());
     submitFormData.append("demoVideo", demoVideoUrl);
 
     if (thumbnailFile) submitFormData.append("thumbnail", thumbnailFile);
@@ -671,12 +676,12 @@ const AddCourse = () => {
     try {
       await dispatch(createCourse(submitFormData) as any).unwrap();
 
-      if (!isDraft) {
+      if (!finalIsDraft) {
         setSuccessPopup(true);
       } else {
         setPopup({
           isVisible: true,
-          message: "Course saved as draft!",
+          message: isUnpaidPartner ? "Course saved as draft! Payment required to publish." : "Course saved as draft!",
           type: "success",
         });
       }
@@ -2274,6 +2279,17 @@ const AddCourse = () => {
                 <li>Tags (At least one tag)</li>
               </ul>
             </div>
+            {isUnpaidPartner && (
+              <div className="mb-4 p-4 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800 text-yellow-800 dark:text-yellow-200 rounded-lg">
+                <p className="font-semibold flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 text-yellow-500" />
+                  Publishing Restricted
+                </p>
+                <p className="text-sm mt-1">
+                  You must complete your registration payment to publish courses. Your course will be saved as a draft.
+                </p>
+              </div>
+            )}
             <div className="flex justify-end">
               <button
                 type="submit"

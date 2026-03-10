@@ -223,7 +223,10 @@ const EditCourse = () => {
     loading,
     error,
     data: courseData,
-  } = useSelector((state) => state.course);
+  } = useSelector((state: any) => state.course);
+
+  const user = useSelector((state: any) => state.auth?.user);
+  const isUnpaidPartner = user?.role === 'partner' && user?.registrationPayment?.status !== 'completed';
 
   // Tab state
   const [activeTab, setActiveTab] = useState("basic");
@@ -736,7 +739,8 @@ const EditCourse = () => {
     Object.keys(formData).forEach((key) => {
       const value = formData[key];
       if (key === "isPublished") {
-        submitFormData.set("isPublished", (!isDraft && !!formData.isPublished).toString());
+        const finalPublished = isUnpaidPartner ? false : (!isDraft && !!formData.isPublished);
+        submitFormData.set("isPublished", finalPublished.toString());
       } else if (key === "learningOutcomes" || key === "targetAudience" || key === "mentorAchievements") {
         // Handle arrays properly
         if (Array.isArray(value) && value.length > 0) {
@@ -834,7 +838,7 @@ const EditCourse = () => {
       ).unwrap();
       setPopup({
         isVisible: true,
-        message: isDraft
+        message: (isDraft || isUnpaidPartner)
           ? "Course saved as draft successfully!"
           : "Course updated successfully!",
         type: "success",
@@ -2646,6 +2650,17 @@ const EditCourse = () => {
               {activeTab === "publication" && (
                 <div className="space-y-6">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Publication Status</h3>
+                  {isUnpaidPartner && (
+                    <div className="mb-4 p-4 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800 text-yellow-800 dark:text-yellow-200 rounded-lg">
+                      <p className="font-semibold flex items-center gap-2">
+                        <AlertCircle className="w-5 h-5 text-yellow-500" />
+                        Publishing Restricted
+                      </p>
+                      <p className="text-sm mt-1">
+                        You must complete your registration payment to publish courses. Your course will be saved as a draft.
+                      </p>
+                    </div>
+                  )}
                   <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
                     <h4 className="font-medium text-blue-900 dark:text-blue-300 mb-2">
                       Publication Status
@@ -2658,6 +2673,7 @@ const EditCourse = () => {
                         type="checkbox"
                         name="isPublished"
                         checked={formData.isPublished}
+                        disabled={isUnpaidPartner}
                         // Only update local state, do NOT call handleSubmit here
                         onChange={(e) => {
                           const checked = e.target.checked;
