@@ -77,6 +77,11 @@ const navItems: NavItem[] = [
     path: "/banner",
   },
   {
+    icon: <GridIcon />,
+    name: "Page Banner Manager",
+    path: "/banner-manager",
+  },
+  {
     icon: <CalenderIcon />,
     name: "Events",
     path: "/events",
