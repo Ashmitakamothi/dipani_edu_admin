@@ -77,6 +77,8 @@ import EbookList from "./pages/ebooks/EbookList";
 import AddEbook from "./pages/ebooks/AddEbook";
 import EditEbook from "./pages/ebooks/EditEbook";
 import OrderList from "./pages/orders/OrderList";
+import ServiceList from "./pages/Services/ServiceList";
+import AddEditService from "./pages/Services/AddEditService";
 
 // Lazy load pages
 const SignIn = lazy(() => import("./pages/AuthPages/SignIn"));
@@ -346,6 +348,10 @@ export default function App() {
               <Route path="/line-chart" element={<LineChart />} />
               <Route path="/bar-chart" element={<BarChart />} />
               <Route path="/orders" element={<OrderList />} />
+              {/* Services */}
+              <Route path="/services/all" element={<ServiceList />} />
+              <Route path="/services/add" element={<AddEditService />} />
+              <Route path="/services/edit/:id" element={<AddEditService />} />
               <Route path="/leaderboard-setting" element={<LeaderboardSetting />} />
               <Route path="/general-setting" element={<GeneralSetting />} />
               <Route path="/personality-test" element={<ManageQuestions />} />

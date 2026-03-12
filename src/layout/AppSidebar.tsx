@@ -26,7 +26,8 @@ import {
   BookOpen,
   Bell,
   MessageCircle,
-  Bot
+  Bot,
+  LayoutGrid
 } from "lucide-react";
 
 type NavSubItem = {
@@ -130,6 +131,14 @@ const navItems: NavItem[] = [
     icon: <UserCircle2Icon />,
     name: "Queries",
     path: "/queries/all"
+  },
+  {
+    icon: <LayoutGrid className="w-5 h-5" />,
+    name: "Services",
+    subItems: [
+      { name: "All Services", path: "/services/all" },
+      { name: "Add Service", path: "/services/add" },
+    ],
   },
   {
     icon: <TableIcon />,

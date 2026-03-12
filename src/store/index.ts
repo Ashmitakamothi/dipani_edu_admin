@@ -34,6 +34,7 @@ import banner from "./slices/banner";
 import news from "./slices/news";
 import ebookReducer from "./slices/ebook";
 import partnerReducer from "./slices/partners";
+import serviceCategoryReducer from "./slices/serviceCategory";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -70,6 +71,7 @@ export const store = configureStore({
     news: news,
     ebook: ebookReducer,
     partners: partnerReducer,
+    serviceCategory: serviceCategoryReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
