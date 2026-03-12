@@ -62,6 +62,7 @@ import Banner from "./pages/Banner/banner";
 import AllBanners from "./pages/Banner/AllBanners";
 import AddBanner from "./pages/Banner/AddBanner";
 import EditBanner from "./pages/Banner/EditBanner";
+import BannerManagementContent from "./pages/Banner/BannerManagementContent";
 import LeaderboardSetting from "./pages/LeaderboardSetting";
 import GeneralSetting from "./pages/GeneralSetting";
 import NotificationDashboard from "./pages/Notifications/NotificationDashboard";
@@ -305,6 +306,7 @@ export default function App() {
               <Route path="/banner" element={<AllBanners />} />
               <Route path="/banner/add" element={<AddBanner />} />
               <Route path="/banner/edit/:id" element={<EditBanner />} />
+              <Route path="/banner-manager" element={<BannerManagementContent />} />
 
               {/* News */}
               <Route path="/news" element={<NewsList />} />
