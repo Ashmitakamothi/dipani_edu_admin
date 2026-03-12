@@ -355,7 +355,7 @@ const QueryList: React.FC = () => {
                       {query.phone}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs">
-                      <div className="truncate" title={query.message}>
+                      <div className="line-clamp-2" title={query.message}>
                         {query.message}
                       </div>
                     </td>
@@ -449,9 +449,34 @@ const QueryList: React.FC = () => {
         ✕
       </button>
 
-      <h2 className="text-lg font-semibold mb-4 text-gray-800">
-        Update Status
+      <h2 className="text-lg font-semibold mb-2 text-gray-800">
+        Inquiry Details
       </h2>
+      
+      <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 mb-6 border border-gray-100 dark:border-gray-700">
+        <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-sm mb-4">
+          <div>
+            <p className="text-gray-500 mb-1">From</p>
+            <p className="font-medium text-gray-900 dark:text-gray-100">{selectedQuery.name}</p>
+          </div>
+          <div>
+            <p className="text-gray-500 mb-1">Category</p>
+            <span className="inline-block px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold">
+              {selectedQuery.category}
+            </span>
+          </div>
+        </div>
+        <div>
+          <p className="text-gray-500 text-sm mb-1 font-medium">Message</p>
+          <div className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-3 rounded max-h-48 overflow-y-auto whitespace-pre-wrap">
+            {selectedQuery.message}
+          </div>
+        </div>
+      </div>
+
+      <h3 className="text-sm font-semibold mb-3 text-gray-700 uppercase tracking-wider">
+        Update Status
+      </h3>
 
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-700 mb-2">
