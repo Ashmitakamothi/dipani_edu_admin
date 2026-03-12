@@ -123,7 +123,7 @@ const navItems: NavItem[] = [
   },
   {
     icon: <UserCircle2Icon />,
-    name: "Student Queries",
+    name: "Queries",
     path: "/queries/all"
   },
   {

@@ -130,7 +130,9 @@ const querySlice = createSlice({
       })
       .addCase(createQuery.fulfilled, (state, action) => {
         state.loading = false;
-        state.queries.push(action.payload);
+        if (action.payload.data) {
+          state.queries.push(action.payload.data);
+        }
       })
       .addCase(createQuery.rejected, (state, action) => {
         state.loading = false;
@@ -156,7 +158,7 @@ const querySlice = createSlice({
       })
       .addCase(getQueryById.fulfilled, (state, action) => {
         state.loading = false;
-        state.query = action.payload;
+        state.query = action.payload.data || null;
       })
       .addCase(getQueryById.rejected, (state, action) => {
         state.loading = false;
@@ -169,11 +171,14 @@ const querySlice = createSlice({
       })
       .addCase(updateQuery.fulfilled, (state, action) => {
         state.loading = false;
-        state.query = action.payload;
-        // Update in list as well
-        state.queries = state.queries.map((q) =>
-          q._id === action.payload._id ? action.payload : q
-        );
+        const updatedQuery = action.payload.data;
+        if (updatedQuery) {
+          state.query = updatedQuery;
+          // Update in list as well
+          state.queries = state.queries.map((q) =>
+            q._id === updatedQuery._id ? updatedQuery : q
+          );
+        }
       })
       .addCase(updateQuery.rejected, (state, action) => {
         state.loading = false;

@@ -184,7 +184,7 @@ const QueryList: React.FC = () => {
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white/90">
-            Customer Queries
+            Queries
           </h1>
           <div className="flex items-center gap-4">
             <span className="text-gray-500 text-sm dark:text-gray-400">
@@ -221,9 +221,9 @@ const QueryList: React.FC = () => {
                 ))}
               </select>
             </div>
-{/* 
-            Category Filter
+            {/* Category Filter */}
             <div className="flex items-center gap-2">
+              <Filter className="h-5 w-5 text-gray-400" />
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
@@ -231,10 +231,12 @@ const QueryList: React.FC = () => {
               >
                 <option value="">All Categories</option>
                 {categories.map(category => (
-                  <option key={category} value={category}>{category}</option>
+                  <option key={category} value={category}>
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </option>
                 ))}
               </select>
-            </div> */}
+            </div>
 
             {/* Items per page */}
             <div className="flex items-center gap-2">
@@ -307,9 +309,9 @@ const QueryList: React.FC = () => {
                     Message
                   </div>
                 </th>
-                {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
                   Category
-                </th> */}
+                </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-400">
                   Status
                 </th>
@@ -357,11 +359,11 @@ const QueryList: React.FC = () => {
                         {query.message}
                       </div>
                     </td>
-                    {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-200">
-                        {query.category}
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900/20 dark:text-indigo-200">
+                        {query.category.charAt(0).toUpperCase() + query.category.slice(1)}
                       </span>
-                    </td> */}
+                    </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       {getStatusBadge(query.status)}
                     </td>
