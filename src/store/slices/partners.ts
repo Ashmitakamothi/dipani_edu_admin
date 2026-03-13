@@ -28,6 +28,7 @@ export interface FetchPartnersParams {
 
 interface PartnerState {
     partners: Partner[];
+    payoutRequests: any[];
     partnerDetails: Partner | null;
     loading: boolean;
     error: string | null;
@@ -148,9 +149,46 @@ export const approvePartner = createAsyncThunk<Partner, string>(
     }
 );
 
+export const fetchPayoutRequests = createAsyncThunk<any, string | undefined>(
+    "partners/fetchPayoutRequests",
+    async (status, { rejectWithValue }) => {
+        try {
+            const url = status ? `/partners/payouts/admin/list?status=${status}` : `/partners/payouts/admin/list`;
+            const response = await axiosInstance.get(url);
+            return response.data?.data;
+        } catch (error: any) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
+    }
+);
+
+interface UpdatePayoutParams {
+    id: string;
+    status: 'completed' | 'rejected';
+    transactionId?: string;
+    adminNotes?: string;
+}
+
+export const updatePayoutStatus = createAsyncThunk<any, UpdatePayoutParams>(
+    "partners/updatePayoutStatus",
+    async ({ id, status, transactionId, adminNotes }, { rejectWithValue }) => {
+        try {
+            const response = await axiosInstance.put(`/partners/payouts/admin/${id}/status`, {
+                status,
+                transactionId,
+                adminNotes
+            });
+            return response.data?.data;
+        } catch (error: any) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
+    }
+);
+
 
 const initialState: PartnerState = {
     partners: [],
+    payoutRequests: [],
     partnerDetails: null,
     loading: false,
     error: null,
@@ -244,6 +282,34 @@ const partnerSlice = createSlice({
                 }
             })
             .addCase(approvePartner.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload as string;
+            })
+            // Fetch Payout Requests
+            .addCase(fetchPayoutRequests.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchPayoutRequests.fulfilled, (state, action) => {
+                state.loading = false;
+                state.payoutRequests = action.payload;
+            })
+            .addCase(fetchPayoutRequests.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload as string;
+            })
+            // Update Payout Status
+            .addCase(updatePayoutStatus.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(updatePayoutStatus.fulfilled, (state, action) => {
+                state.loading = false;
+                const index = state.payoutRequests.findIndex(p => p._id === action.payload._id);
+                if (index !== -1) {
+                    state.payoutRequests[index] = action.payload;
+                }
+            })
+            .addCase(updatePayoutStatus.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload as string;
             });

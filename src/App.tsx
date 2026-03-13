@@ -79,6 +79,7 @@ import EditEbook from "./pages/ebooks/EditEbook";
 import OrderList from "./pages/orders/OrderList";
 import ServiceList from "./pages/Services/ServiceList";
 import AddEditService from "./pages/Services/AddEditService";
+import PayoutRequests from "./pages/Partners/PayoutRequests";
 
 // Lazy load pages
 const SignIn = lazy(() => import("./pages/AuthPages/SignIn"));
@@ -218,6 +219,7 @@ export default function App() {
               <Route path="/partners/add" element={<AddPartner />} />
               <Route path="/partners/list" element={<PartnerList />} />
               <Route path="/partners/edit/:id" element={<EditPartner />} />
+              <Route path="/partners/payout-requests" element={<PayoutRequests />} />
 
               {/* Bundles */}
               <Route path="/bundles/create" element={<AddBundle />} />
