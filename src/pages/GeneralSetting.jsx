@@ -7,6 +7,7 @@ import { Link2, Save, Globe, Info } from "lucide-react";
 export default function GeneralSetting() {
     const [googleFormLink, setGoogleFormLink] = useState("");
     const [paymentUpiId, setPaymentUpiId] = useState("");
+    const [activePaymentGateway, setActivePaymentGateway] = useState([]); // Array: ['cashfree', 'upi', 'manual']
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
@@ -18,6 +19,8 @@ export default function GeneralSetting() {
                 if (response.data && response.data.settings) {
                     setGoogleFormLink(response.data.settings.googleFormLink || "");
                     setPaymentUpiId(response.data.settings.payment_upi_id || "");
+                    const gatewaySetting = response.data.settings.active_payment_gateway;
+                    setActivePaymentGateway(Array.isArray(gatewaySetting) ? gatewaySetting : gatewaySetting ? [gatewaySetting] : []);
                 }
             } catch (err) {
                 console.error("Error fetching settings:", err);
@@ -42,6 +45,11 @@ export default function GeneralSetting() {
                     key: "payment_upi_id",
                     value: paymentUpiId,
                     description: "UPI ID for manual QR code payment"
+                }),
+                axiosInstance.post("/settings/update", {
+                    key: "active_payment_gateway",
+                    value: activePaymentGateway,
+                    description: "Currently active payment gateway (cashfree, upi, or manual)"
                 })
             ]);
             setSuccess("Settings updated successfully!");
@@ -126,6 +134,45 @@ export default function GeneralSetting() {
                         </div>
 
                         <div className="p-6 space-y-6">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+                                    <Globe className="w-4 h-4" />
+                                    Active Payment Gateways
+                                </label>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    {['cashfree', 'upi', 'manual'].map((gateway) => (
+                                        <label
+                                            key={gateway}
+                                            className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
+                                                activePaymentGateway.includes(gateway)
+                                                    ? "border-brand-500 bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-400"
+                                                    : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                                            }`}
+                                        >
+                                            <span className="capitalize font-medium">{gateway}</span>
+                                            <input
+                                                type="checkbox"
+                                                name="activePaymentGateway"
+                                                value={gateway}
+                                                checked={activePaymentGateway.includes(gateway)}
+                                                onChange={(e) => {
+                                                    const value = e.target.value;
+                                                    setActivePaymentGateway(prev => 
+                                                        e.target.checked 
+                                                            ? [...prev, value] 
+                                                            : prev.filter(g => g !== value)
+                                                    );
+                                                }}
+                                                className="w-4 h-4 text-brand-600 focus:ring-brand-500 border-gray-300 rounded"
+                                            />
+                                        </label>
+                                    ))}
+                                </div>
+                                <div className="mt-2 flex items-start gap-2 text-xs text-gray-500 dark:text-gray-400 italic">
+                                    <Info className="w-3.5 h-3.5 mt-0.5" />
+                                    Select which payment methods should be available on the student checkout page.
+                                </div>
+                            </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                                     <Globe className="w-4 h-4" />
