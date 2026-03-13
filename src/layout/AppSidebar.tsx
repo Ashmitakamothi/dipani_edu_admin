@@ -118,6 +118,7 @@ const navItems: NavItem[] = [
     icon: <UserCircleIcon />,
     name: "Partners",
     subItems: [
+      { name: "Earnings Dashboard", path: "/partners/dashboard" },
       { name: "All Partners", path: "/partners/list" },
       { name: "Add Partner", path: "/partners/add" },
       { name: "Payout Requests", path: "/partners/payout-requests" },

@@ -29,6 +29,11 @@ export interface FetchPartnersParams {
 interface PartnerState {
     partners: Partner[];
     payoutRequests: any[];
+    analytics: {
+        overall: any;
+        byPartner: any[];
+        timeSeries: any[];
+    } | null;
     partnerDetails: Partner | null;
     loading: boolean;
     error: string | null;
@@ -185,10 +190,28 @@ export const updatePayoutStatus = createAsyncThunk<any, UpdatePayoutParams>(
     }
 );
 
+export const fetchPartnerAnalytics = createAsyncThunk(
+    "partners/fetchAnalytics",
+    async ({ startDate, endDate }: { startDate?: string; endDate?: string } = {}, { rejectWithValue }) => {
+        try {
+            let url = "/partners/referrals/stats";
+            const params = new URLSearchParams();
+            if (startDate) params.append('startDate', startDate);
+            if (endDate) params.append('endDate', endDate);
+            if (params.toString()) url += `?${params.toString()}`;
+            
+            const response = await axiosInstance.get(url);
+            return response.data?.data;
+        } catch (error: any) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
+    }
+);
 
 const initialState: PartnerState = {
     partners: [],
     payoutRequests: [],
+    analytics: null,
     partnerDetails: null,
     loading: false,
     error: null,
@@ -310,6 +333,19 @@ const partnerSlice = createSlice({
                 }
             })
             .addCase(updatePayoutStatus.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload as string;
+            })
+            // Fetch Analytics
+            .addCase(fetchPartnerAnalytics.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchPartnerAnalytics.fulfilled, (state, action) => {
+                state.loading = false;
+                state.analytics = action.payload;
+            })
+            .addCase(fetchPartnerAnalytics.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload as string;
             });

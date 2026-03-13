@@ -106,6 +106,7 @@ const AddReporter = lazy(() => import("./pages/Reporters/AddReporter"));
 const AddPartner = lazy(() => import("./pages/Reporters/AddPartner"));
 const PartnerList = lazy(() => import("./pages/Reporters/PartnerList"));
 const EditPartner = lazy(() => import("./pages/Reporters/EditPartner"));
+const PartnerEarningsDashboard = lazy(() => import("./pages/Partners/PartnerEarningsDashboard"));
 const CreateCertificateTemplate = lazy(
   () => import("./pages/Certification/CreateCertificateTemplate")
 );
@@ -220,6 +221,7 @@ export default function App() {
               <Route path="/partners/list" element={<PartnerList />} />
               <Route path="/partners/edit/:id" element={<EditPartner />} />
               <Route path="/partners/payout-requests" element={<PayoutRequests />} />
+              <Route path="/partners/dashboard" element={<Suspense fallback={<div>Loading...</div>}><PartnerEarningsDashboard /></Suspense>} />
 
               {/* Bundles */}
               <Route path="/bundles/create" element={<AddBundle />} />
