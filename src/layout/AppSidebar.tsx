@@ -186,6 +186,13 @@ const navItems: NavItem[] = [
     name: "Leaderboard Settings",
     path: "/leaderboard-setting"
   },
+  // {
+  //   icon: <PieChart className="w-5 h-5 text-indigo-500" />,
+  //   name: "Analytics",
+  //   subItems: [
+  //     { name: "Learning Analytics", path: "/analytics/learning" },
+  //   ],
+  // },
   {
     icon: <Settings className="w-5 h-5" />,
     name: "General Settings",
