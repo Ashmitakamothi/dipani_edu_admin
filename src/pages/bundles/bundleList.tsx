@@ -141,8 +141,8 @@ const BundleList: React.FC = () => {
   return (
     <div>
       <PageMeta
-        title="Bundle List | TailAdmin"
-        description="List of all course bundles in TailAdmin"
+        title="Bundle List | Dipani Global Edu"
+        description="List of all course bundles in Dipani Global Edu"
       />
       <PageBreadcrumb pageTitle="Bundle List" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">

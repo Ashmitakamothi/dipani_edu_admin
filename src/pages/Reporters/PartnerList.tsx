@@ -434,6 +434,7 @@ const PartnerList: React.FC = () => {
     };
 
 
+    return (
         <div>
             <PageMeta
                 title="Partner List | Dipani Global Edu"

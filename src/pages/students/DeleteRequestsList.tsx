@@ -263,8 +263,8 @@ const DeleteRequestsList: React.FC = () => {
   return (
     <div>
       <PageMeta
-        title="Delete Account Requests | TailAdmin"
-        description="View delete account requests in TailAdmin"
+        title="Delete Account Requests | Dipani Global Edu"
+        description="View delete account requests in Dipani Global Edu"
       />
       <PageBreadcrumb pageTitle="Delete Account Requests" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">

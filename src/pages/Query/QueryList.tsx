@@ -176,8 +176,8 @@ const QueryList: React.FC = () => {
   return (
     <div>
       <PageMeta
-        title="Query List | TailAdmin"
-        description="List of all customer queries in TailAdmin"
+        title="Query List | Dipani Global Edu"
+        description="List of all customer queries in Dipani Global Edu"
       />
       <PageBreadcrumb pageTitle="Query List" />
       

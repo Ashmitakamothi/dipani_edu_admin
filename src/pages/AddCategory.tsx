@@ -130,8 +130,8 @@ export default function AddCategory() {
     <div>
       <Toaster position="top-right" />
       <PageMeta
-        title="Add Category | TailAdmin"
-        description="Add a new category page for TailAdmin"
+        title="Add Category | Dipani Global Edu"
+        description="Add a new category page for Dipani Global Edu"
       />
       <PageBreadcrumb pageTitle="Add Category" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">

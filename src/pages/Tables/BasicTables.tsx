@@ -7,8 +7,8 @@ export default function BasicTables() {
   return (
     <>
       <PageMeta
-        title="React.js Basic Tables Dashboard | TailAdmin - Next.js Admin Dashboard Template"
-        description="This is React.js Basic Tables Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
+        title="Basic Tables Dashboard | Dipani Global Edu"
+        description="This is the Basic Tables Dashboard page for Dipani Global Edu"
       />
       <PageBreadcrumb pageTitle="Basic Tables" />
       <div className="space-y-6">

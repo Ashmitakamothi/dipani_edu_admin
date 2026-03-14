@@ -470,7 +470,7 @@ const Coupons: React.FC = () => {
 
   return (
     <div>
-      <PageMeta title="Coupons List | TailAdmin" description="List of all coupons" />
+      <PageMeta title="Coupons List | Dipani Global Edu" description="List of all coupons" />
       <PageBreadcrumb pageTitle="Coupons List" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
         <div className="flex justify-between items-center mb-6">
