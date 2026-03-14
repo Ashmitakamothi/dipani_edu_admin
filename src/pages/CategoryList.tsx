@@ -344,8 +344,8 @@ const CategoryList: React.FC = () => {
   return (
     <div>
       <PageMeta
-        title="Category List | TailAdmin"
-        description="List of all course categories in TailAdmin"
+        title="Category List | Dipani Global EDu"
+        description="List of all course categories in Dipani Global EDu"
       />
       <PageBreadcrumb pageTitle="Category List" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">

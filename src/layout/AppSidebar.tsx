@@ -593,7 +593,7 @@ const AppSidebar: React.FC = () => {
       >
         <Link to="/" className="flex items-center justify-center w-full">
           {isExpanded || isHovered || isMobileOpen ? (
-            <div className="flex items-center justify-center w-full px-4">
+            <div className="flex items-center justify-center w-full px-4 gap-3">
               <img
                 className="dark:hidden h-14 w-auto object-contain"
                 src="/images/logo/dipani_logo.jpeg"
@@ -604,6 +604,9 @@ const AppSidebar: React.FC = () => {
                 src="/images/logo/dipani_logo.jpeg"
                 alt="Logo"
               />
+              <span className="text-xl font-bold text-gray-800 dark:text-white whitespace-nowrap">
+                Dipani Global EDu
+              </span>
             </div>
           ) : (
             <div className="flex items-center justify-center w-full">

@@ -434,10 +434,9 @@ const PartnerList: React.FC = () => {
     };
 
 
-    return (
         <div>
             <PageMeta
-                title="Partner List | TailAdmin"
+                title="Partner List | Dipani Global EDu"
                 description="List of all partners"
             />
             <PageBreadcrumb pageTitle="Partner List" />

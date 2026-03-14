@@ -79,16 +79,16 @@ const Header: React.FC<HeaderProps> = ({ onClick, onToggle }) => {
           </button>
 
           <Link to="/" className="lg:hidden">
-            <img
-              className="dark:hidden"
-              src="./images/logo/logo.svg"
-              alt="Logo"
-            />
-            <img
-              className="hidden dark:block"
-              src="./images/logo/logo-dark.svg"
-              alt="Logo"
-            />
+            <div className="flex items-center gap-2">
+              <img
+                className="h-8 w-auto object-contain"
+                src="/images/logo/dipani_logo.jpeg"
+                alt="Logo"
+              />
+              <span className="text-lg font-bold text-gray-800 dark:text-white">
+                Dipani Global EDu
+              </span>
+            </div>
           </Link>
 
           <button
