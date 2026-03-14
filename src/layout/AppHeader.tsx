@@ -91,7 +91,7 @@ const AppHeader: React.FC = () => {
                 alt="Logo"
               />
               <span className="text-lg font-bold text-gray-800 dark:text-white">
-                Dipani Global EDu
+                Dipani Global Edu
               </span>
             </div>
           </Link>

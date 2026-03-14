@@ -442,8 +442,8 @@ const StudentList: React.FC = () => {
   return (
     <div>
       <PageMeta
-        title="Student List | Dipani Global EDu"
-        description="List of all students in Dipani Global EDu"
+        title="Student List | Dipani Global Edu"
+        description="List of all students in Dipani Global Edu"
       />
       <PageBreadcrumb pageTitle="Student List" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">

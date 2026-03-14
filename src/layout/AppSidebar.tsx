@@ -604,9 +604,9 @@ const AppSidebar: React.FC = () => {
                 src="/images/logo/dipani_logo.jpeg"
                 alt="Logo"
               />
-              <span className="text-xl font-bold text-gray-800 dark:text-white whitespace-nowrap">
-                Dipani Global EDu
-              </span>
+              {/* <span className="text-xl font-bold text-gray-800 dark:text-white whitespace-nowrap">
+                Dipani Global Edu
+              </span> */}
             </div>
           ) : (
             <div className="flex items-center justify-center w-full">
