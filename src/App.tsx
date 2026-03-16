@@ -80,6 +80,8 @@ import OrderList from "./pages/orders/OrderList";
 import ServiceList from "./pages/Services/ServiceList";
 import AddEditService from "./pages/Services/AddEditService";
 import PayoutRequests from "./pages/Partners/PayoutRequests";
+import PageList from "./pages/Pages/PageList";
+import AddEditPage from "./pages/Pages/AddEditPage";
 
 // Lazy load pages
 const SignIn = lazy(() => import("./pages/AuthPages/SignIn"));
@@ -358,9 +360,13 @@ export default function App() {
               <Route path="/services/all" element={<ServiceList />} />
               <Route path="/services/add" element={<AddEditService />} />
               <Route path="/services/edit/:id" element={<AddEditService />} />
-              <Route path="/leaderboard-setting" element={<LeaderboardSetting />} />
               <Route path="/general-setting" element={<GeneralSetting />} />
               <Route path="/personality-test" element={<ManageQuestions />} />
+
+              {/* Dynamic Pages */}
+              <Route path="/pages/all" element={<PageList />} />
+              <Route path="/pages/add" element={<AddEditPage />} />
+              <Route path="/pages/edit/:id" element={<AddEditPage />} />
             </Route>
           </Route>
 

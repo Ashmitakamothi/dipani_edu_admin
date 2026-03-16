@@ -104,6 +104,11 @@ const navItems: NavItem[] = [
     path: "/forum",
   },
   {
+    icon: <PageIcon />,
+    name: "Pages",
+    path: "/pages/all",
+  },
+  {
     icon: <UserCircleIcon />,
     name: "Students",
     path: "/students/all",
