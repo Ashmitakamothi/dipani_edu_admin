@@ -186,6 +186,8 @@ const SubscriptionPlans: React.FC = () => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<SubscriptionPlan | null>(null);
   const [showManualForm, setShowManualForm] = useState(false);
+  const [cashfreeLoading, setCashfreeLoading] = useState(false);
+  const [cashfreeError, setCashfreeError] = useState<string | null>(null);
   const [manualLoading, setManualLoading] = useState(false);
   const [manualError, setManualError] = useState<string | null>(null);
   const [myPlan, setMyPlan] = useState<PartnerMyPlan | null>(null);
@@ -217,8 +219,63 @@ const SubscriptionPlans: React.FC = () => {
     if (method === 'manual') {
       setShowManualForm(true);
     } else if (method === 'cashfree') {
-      // TODO: Implement cashfree payment logic (redirect or API call)
-      alert(`Cashfree payment for plan: ${selectedPlan?.name}`);
+      if (!selectedPlan?._id) {
+        alert('No plan selected for payment');
+        return;
+      }
+      void handleCashfree(selectedPlan._id);
+    }
+  };
+
+  const handleCashfree = async (planId: string) => {
+    setCashfreeLoading(true);
+    setCashfreeError(null);
+    try {
+      const url = '/subscription-purchase/cashfree';
+      const payload = { planId };
+      const res = await axiosInstance.post(url, payload);
+      const data = res.data || {};
+
+      // Try common response shapes for a redirect/payment url
+      const possibleUrls = [
+        data.paymentLink,
+        data.payment_url,
+        data.paymentUrl,
+        data.redirectUrl,
+        data.redirect_url,
+        data.data?.paymentLink,
+        data.data?.payment_url,
+        data.data?.paymentUrl,
+        data.data?.redirectUrl,
+        data.data?.redirect_url,
+      ];
+      const found = possibleUrls.find((v) => typeof v === 'string' && v);
+      if (found) {
+        window.open(found as string, '_blank');
+        // Instantly refresh my plan after initiating payment
+        if (userRole === 'partner') fetchMyPlan();
+        return;
+      }
+
+      // If backend returns an order or checkout object, open generic checkout path if present
+      if (data.data && typeof data.data === 'object') {
+        const obj = data.data;
+        if (obj.url) window.open(obj.url, '_blank');
+        else if (obj.checkoutUrl) window.open(obj.checkoutUrl, '_blank');
+        else alert('Cashfree initiated. Please follow instructions.');
+        if (userRole === 'partner') fetchMyPlan();
+        return;
+      }
+
+      // Fallback: notify success
+      alert('Cashfree initiated. Check your account or notifications for next steps.');
+      if (userRole === 'partner') fetchMyPlan();
+    } catch (err: any) {
+      const msg = err?.response?.data?.message || err?.message || 'Cashfree initiation failed';
+      setCashfreeError(msg);
+      alert(msg);
+    } finally {
+      setCashfreeLoading(false);
     }
   };
 
