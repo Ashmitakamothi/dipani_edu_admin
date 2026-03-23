@@ -582,10 +582,36 @@ const AppSidebar: React.FC = () => {
   const normalizedRole = String(userRole || "").toLowerCase();
   const isSuperAdminRole = normalizedRole === "superadmin";
 
-  const filteredNavItems =
-    userRole === "news_editor"
-      ? navItems.filter((nav) => nav.name === "News")
-      : navItems;
+  const partnerHiddenNavNames = new Set([
+    "Banner",
+    "Page Banner Manager",
+    "Events",
+    "Jobs",
+    "Categories",
+    "News",
+    "Forums",
+    "Pages",
+    "Add Reporter",
+    "Partners",
+    "Services",
+    "Coupons",
+    "Orders",
+    "Device Approvals",
+    "Testimonials",
+    "AI Tool",
+    "Ebooks",
+    "Leaderboard Settings",
+    "Personality Test",
+    "Sales Analytics",
+    "Notifications",
+    "Certifications",
+  ]);
+
+  const filteredNavItems = navItems
+    .filter((nav) => (userRole === "news_editor" ? nav.name === "News" : true))
+    .filter((nav) =>
+      normalizedRole === "partner" ? !partnerHiddenNavNames.has(nav.name) : true
+    );
 
   const roleAwareNavItems = filteredNavItems.map((nav) => {
     if (nav.name !== "Courses" || !nav.subItems) return nav;

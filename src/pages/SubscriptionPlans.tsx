@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ManualPaymentForm from "../components/ManualPaymentForm";
-import axios from "axios";
 // Simple modal component for payment options
 const PaymentOptionModal: React.FC<{ open: boolean; onClose: () => void; onSelect: (method: string) => void; }> = ({ open, onClose, onSelect }) => {
   if (!open) return null;
@@ -26,6 +25,28 @@ interface SubscriptionPlan {
   durationType: string;
   price: number;
   status: string;
+}
+
+interface PartnerMyPlan {
+  subscription?: {
+    planId?: string;
+    transactionId?: string;
+    amount?: number;
+    method?: string;
+    status?: string;
+    paidAt?: string | null;
+  };
+  plan?: {
+    _id?: string;
+    title?: string;
+    amount?: number;
+    month?: number;
+    day?: number;
+    year?: number;
+    createdAt?: string;
+  };
+  isValid?: boolean;
+  remainingDays?: number;
 }
 
 const API_URL = "/subscription-plans";
@@ -167,6 +188,24 @@ const SubscriptionPlans: React.FC = () => {
   const [showManualForm, setShowManualForm] = useState(false);
   const [manualLoading, setManualLoading] = useState(false);
   const [manualError, setManualError] = useState<string | null>(null);
+  const [myPlan, setMyPlan] = useState<PartnerMyPlan | null>(null);
+  const [myPlanLoading, setMyPlanLoading] = useState(false);
+  const [myPlanError, setMyPlanError] = useState<string | null>(null);
+
+  const fetchMyPlan = async () => {
+    setMyPlanLoading(true);
+    setMyPlanError(null);
+    try {
+      const res = await axiosInstance.get("/subscription-purchase/my-plan");
+      const payload = res.data?.data || null;
+      setMyPlan(payload);
+    } catch (err: any) {
+      setMyPlanError(err.response?.data?.message || err.message || "Failed to load plan details");
+      setMyPlan(null);
+    } finally {
+      setMyPlanLoading(false);
+    }
+  };
 
   const handleCheckout = (plan: SubscriptionPlan) => {
     setSelectedPlan(plan);
@@ -202,6 +241,9 @@ const SubscriptionPlans: React.FC = () => {
       });
       setShowManualForm(false);
       alert("Manual payment request submitted!");
+      if (userRole === "partner") {
+        fetchMyPlan();
+      }
     } catch (err: any) {
       setManualError(err.response?.data?.message || err.message);
     } finally {
@@ -209,9 +251,67 @@ const SubscriptionPlans: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (userRole === "partner") {
+      fetchMyPlan();
+    }
+  }, [userRole]);
+
   return (
     <div className="max-w-3xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-4">Subscription Plans</h2>
+
+      {userRole === "partner" && (
+        <div className="mb-6 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">My Subscription</p>
+              <h3 className="mt-1 text-lg font-semibold text-gray-900 dark:text-white">
+                {myPlanLoading ? "Loading your plan..." : myPlan?.plan?.title || "No active plan"}
+              </h3>
+            </div>
+            <span
+              className={`rounded-full px-3 py-1 text-xs font-semibold uppercase ${
+                myPlan?.isValid
+                  ? "bg-green-100 text-green-700"
+                  : "bg-gray-100 text-gray-700"
+              }`}
+            >
+              {myPlan?.subscription?.status || "inactive"}
+            </span>
+          </div>
+
+          {myPlanError && <p className="mt-3 text-sm text-red-600">{myPlanError}</p>}
+
+          {!myPlanLoading && !myPlanError && myPlan && (
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <div className="rounded-xl bg-gray-50 p-3 dark:bg-gray-900/40">
+                <p className="text-xs text-gray-500">Amount Paid</p>
+                <p className="text-lg font-bold text-gray-900 dark:text-white">₹{myPlan.subscription?.amount ?? myPlan.plan?.amount ?? 0}</p>
+              </div>
+              <div className="rounded-xl bg-gray-50 p-3 dark:bg-gray-900/40">
+                <p className="text-xs text-gray-500">Validity</p>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                  {myPlan.isValid ? "Active" : "Inactive"}
+                </p>
+              </div>
+              <div className="rounded-xl bg-gray-50 p-3 dark:bg-gray-900/40">
+                <p className="text-xs text-gray-500">Remaining Days</p>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                  {myPlan.remainingDays ?? 0}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {!myPlanLoading && !myPlanError && myPlan?.subscription?.transactionId && (
+            <div className="mt-3 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs text-gray-600 dark:border-gray-700 dark:bg-gray-900/40 dark:text-gray-300">
+              Transaction ID: <span className="font-semibold">{myPlan.subscription.transactionId}</span>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Only show Add button and form for non-partner roles */}
       {userRole !== 'partner' && (
         <button

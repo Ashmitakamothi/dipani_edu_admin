@@ -20,6 +20,7 @@ import PageMeta from "../../components/common/PageMeta";
 import PageBreadcrumb from "../../components/common/PageBreadCrumb";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { useNavigate } from "react-router-dom";
+import CreateStudentPopup from "../../components/students/CreateStudentPopup";
 
 // Expandable course row sub-component
 const CourseRow: React.FC<{ enrollment: CourseEnrollmentInfo; idx: number }> = ({ enrollment, idx }) => (
@@ -65,6 +66,7 @@ const StudentList: React.FC = () => {
 
     const [searchInput, setSearchInput] = useState(searchQuery);
     const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+    const [isCreateOpen, setIsCreateOpen] = useState(false);
 
     // Debounce search
     useEffect(() => {
@@ -128,6 +130,27 @@ const StudentList: React.FC = () => {
         dispatch(resetFilters());
     };
 
+    // determine user role (lowercased) from localStorage
+    const userRole: string = (() => {
+        try {
+            let role = localStorage.getItem("role");
+            if (!role) {
+                const userStr = localStorage.getItem("user");
+                if (userStr) {
+                    try {
+                        const parsed = JSON.parse(userStr);
+                        role = parsed?.role;
+                    } catch {
+                        // ignore
+                    }
+                }
+            }
+            return role ? String(role).toLowerCase() : "";
+        } catch {
+            return "";
+        }
+    })();
+
     const generatePageNumbers = () => {
         const pages: (number | string)[] = [];
         const total = pagination.totalPages;
@@ -150,9 +173,18 @@ const StudentList: React.FC = () => {
                 {/* Header */}
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold text-gray-800 dark:text-white/90">Students</h1>
-                    <span className="text-gray-500 text-sm dark:text-gray-400">
-                        Total: {pagination.total}
-                    </span>
+                    <div className="flex items-center gap-3">
+                        <span className="text-gray-500 text-sm dark:text-gray-400">Total: {pagination.total}</span>
+                        <>
+                            <button
+                                onClick={() => setIsCreateOpen(true)}
+                                className="inline-flex items-center gap-2 px-3 py-2 bg-brand-500 text-white rounded-md text-sm hover:brightness-95 transition"
+                            >
+                                Add Student
+                            </button>
+                            <CreateStudentPopup open={isCreateOpen} onClose={() => setIsCreateOpen(false)} />
+                        </>
+                    </div>
                 </div>
 
                 {/* Search & Filter */}
