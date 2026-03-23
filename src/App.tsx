@@ -1,3 +1,4 @@
+import SubscriptionPlans from "./pages/SubscriptionPlans";
 import {
   BrowserRouter as Router,
   Routes,
@@ -155,6 +156,21 @@ export default function App() {
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const [showSignIn, setShowSignIn] = useState(false);
 
+  const currentRole = (() => {
+    try {
+      const userStr = localStorage.getItem("user");
+      if (!userStr) return "";
+      const parsed = JSON.parse(userStr);
+      return String(parsed?.role || "").toLowerCase();
+    } catch {
+      return "";
+    }
+  })();
+
+  const isSuperAdmin = currentRole === "superadmin";
+  const canViewCourses =
+    isSuperAdmin || currentRole === "reseller" || currentRole === "partner";
+
   // Show popup if not authenticated and not on /signin or /signup
   // (You may want to refine this logic based on your routing needs)
   React.useEffect(() => {
@@ -206,16 +222,25 @@ export default function App() {
               <Route path="/jobs" element={<JobList />} />
               <Route path="/jobs/edit/:id" element={<EditJob />} />
               {/* Courses */}
-              <Route path="/courses/add" element={<AddCourse />} />
-              <Route path="/courses/all/courses" element={<CourseList />} />
-              <Route path="/courses/edit/:courseId" element={<EditCourse />} />
+              <Route
+                path="/courses/add"
+                element={isSuperAdmin ? <AddCourse /> : <Navigate to="/courses/all/courses" replace />}
+              />
+              <Route
+                path="/courses/all/courses"
+                element={canViewCourses ? <CourseList /> : <Navigate to="/" replace />}
+              />
+              <Route
+                path="/courses/edit/:courseId"
+                element={isSuperAdmin ? <EditCourse /> : <Navigate to="/courses/all/courses" replace />}
+              />
               <Route
                 path="/courses/all/text-courses"
-                element={<TextLessonPage />}
+                element={canViewCourses ? <TextLessonPage /> : <Navigate to="/" replace />}
               />
               <Route
                 path="/courses/text-courses/:lessonId"
-                element={<EditTextLessonEditor />}
+                element={isSuperAdmin ? <EditTextLessonEditor /> : <Navigate to="/courses/all/courses" replace />}
               />
 
 
@@ -367,6 +392,9 @@ export default function App() {
               <Route path="/pages/all" element={<PageList />} />
               <Route path="/pages/add" element={<AddEditPage />} />
               <Route path="/pages/edit/:id" element={<AddEditPage />} />
+
+              {/* Subscription Plans */}
+              <Route path="/subscription-plans" element={<SubscriptionPlans />} />
             </Route>
           </Route>
 

@@ -70,6 +70,7 @@ const CourseList: React.FC = () => {
   const dispatch = useAppDispatch();
   const { loading, error, data } = useAppSelector((state) => state.course);
   const [removingEnrollmentId, setRemovingEnrollmentId] = useState<string | null>(null);
+  const [showPermissionPopup, setShowPermissionPopup] = useState(false);
 
   // State for search, filter, pagination
   const [searchInput, setSearchInput] = useState("");
@@ -86,6 +87,19 @@ const CourseList: React.FC = () => {
   });
   const [enrollmentsLoading, setEnrollmentsLoading] = useState(false);
   const [confirmRemove, setConfirmRemove] = useState<{ id: string; name: string } | null>(null);
+
+  const currentRole = (() => {
+    try {
+      const userStr = localStorage.getItem("user");
+      if (!userStr) return "";
+      const parsed = JSON.parse(userStr);
+      return String(parsed?.role || "").toLowerCase();
+    } catch {
+      return "";
+    }
+  })();
+
+  const isSuperAdmin = currentRole === "superadmin";
 
   // Debounce search
   useEffect(() => {
@@ -126,6 +140,22 @@ const CourseList: React.FC = () => {
     setStatusFilter("");
     setPage(1);
     setLimit(10);
+  };
+
+  const handleAddCourseClick = () => {
+    if (!isSuperAdmin) {
+      setShowPermissionPopup(true);
+      return;
+    }
+    window.location.href = "/courses/add";
+  };
+
+  const handleEditCourseClick = (courseId: string) => {
+    if (!isSuperAdmin) {
+      setShowPermissionPopup(true);
+      return;
+    }
+    window.location.href = `/courses/edit/${courseId}`;
   };
 
   const filteredCourses = courses?.filter((course) => {
@@ -281,7 +311,7 @@ const CourseList: React.FC = () => {
               <Users className="w-4 h-4" />
             </button>
             <button
-              onClick={() => window.location.href = `/courses/edit/${course._id}`}
+              onClick={() => handleEditCourseClick(course._id)}
               className="p-2 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors"
               title="Edit Course"
             >
@@ -323,13 +353,32 @@ const CourseList: React.FC = () => {
             
             <button
               className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-lg hover:from-brand-500 hover:to-brand-600 transition-all duration-200 shadow-lg hover:shadow-xl font-medium"
-              onClick={() => window.location.href = "/courses/add"}
+              onClick={handleAddCourseClick}
             >
               <Plus className="w-5 h-5" />
               Add Course
             </button>
           </div>
         </div>
+
+        {showPermissionPopup && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+            <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl dark:bg-gray-800">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Permission Restricted</h3>
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                Only superadmin can add or edit courses. You can only view courses.
+              </p>
+              <div className="mt-5 flex justify-end">
+                <button
+                  onClick={() => setShowPermissionPopup(false)}
+                  className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Filters */}
         <div className="bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 rounded-xl p-6 mb-6">
@@ -496,7 +545,7 @@ const CourseList: React.FC = () => {
                         <tr
                           key={course._id}
                           className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
-                          onClick={() => window.location.href = `/courses/edit/${course._id}`}
+                                  onClick={() => handleEditCourseClick(course._id)}
                         >
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
                             {(pagination.page - 1) * pagination.limit + idx + 1}
@@ -556,7 +605,7 @@ const CourseList: React.FC = () => {
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  window.location.href = `/courses/edit/${course._id}`;
+                                  handleEditCourseClick(course._id);
                                 }}
                                 className="p-2 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors"
                                 title="Edit Course"

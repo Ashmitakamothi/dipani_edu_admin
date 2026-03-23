@@ -53,12 +53,18 @@ const navItems: NavItem[] = [
   },
 
   {
+    icon: <TableIcon />,
+    name: "Subscription Plans",
+    path: "/subscription-plans",
+  },
+
+  {
     icon: <ListIcon />,
     name: "Courses",
-    path: "/courses/all/courses"    // subItems: [
-    //   { name: "Add Course", path: "/courses/add" },
-    //   { name: "Courses List", path: "/courses/all/courses" },
-    // ],
+    subItems: [
+      { name: "Add Course", path: "/courses/add" },
+      { name: "Courses List", path: "/courses/all/courses" },
+    ],
   },
 
   // {
@@ -573,10 +579,24 @@ const AppSidebar: React.FC = () => {
     </ul>
   );
 
+  const normalizedRole = String(userRole || "").toLowerCase();
+  const isSuperAdminRole = normalizedRole === "superadmin";
+
   const filteredNavItems =
     userRole === "news_editor"
       ? navItems.filter((nav) => nav.name === "News")
       : navItems;
+
+  const roleAwareNavItems = filteredNavItems.map((nav) => {
+    if (nav.name !== "Courses" || !nav.subItems) return nav;
+
+    return {
+      ...nav,
+      subItems: isSuperAdminRole
+        ? nav.subItems
+        : nav.subItems.filter((sub) => sub.path !== "/courses/add"),
+    };
+  });
 
   return (
     <aside
@@ -640,7 +660,7 @@ const AppSidebar: React.FC = () => {
                   <HorizontaLDots className="size-6" />
                 )}
               </h2>
-              {renderMenuItems(filteredNavItems, "main")}
+              {renderMenuItems(roleAwareNavItems, "main")}
             </div>
             {userRole !== "news_editor" && (
               <div className="">

@@ -32,6 +32,9 @@ interface Order {
         courseId?: any;
     }>;
     grandTotal: any;
+    meta?: {
+        subscriptionPlanAmount?: unknown;
+    };
     payment: {
         provider: string;
         status: string;
@@ -108,6 +111,26 @@ const OrderList: React.FC = () => {
     const copyToClipboard = (text: string) => {
         if (!text) return;
         navigator.clipboard.writeText(text);
+    };
+
+    const parseAmount = (value: unknown): number => {
+        if (value == null) return 0;
+        if (typeof value === "number") return value;
+        if (typeof value === "string") return Number(value) || 0;
+        if (typeof value === "object" && "$numberDecimal" in value) {
+            return Number(value.$numberDecimal) || 0;
+        }
+        return Number(value) || 0;
+    };
+
+    const getDisplayAmount = (order: Order): number => {
+        const isSubscriptionOrder = order.items?.some((item) => item.type === "subscription");
+        if (isSubscriptionOrder) {
+            const subscriptionAmount = parseAmount(order.meta?.subscriptionPlanAmount);
+            if (subscriptionAmount > 0) return subscriptionAmount;
+            return parseAmount(order.items?.[0]?.pricePaid);
+        }
+        return parseAmount(order.grandTotal);
     };
 
     const filteredOrders = orders.filter(order => {
@@ -237,7 +260,12 @@ const OrderList: React.FC = () => {
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="text-sm font-bold text-gray-900 dark:text-white">₹{order.grandTotal?.$numberDecimal || order.grandTotal || 0}</div>
+                                        <div className="text-sm font-bold text-gray-900 dark:text-white">₹{getDisplayAmount(order)}</div>
+                                        {order.items?.some((item) => item.type === "subscription") && (
+                                            <div className="text-[10px] mt-1 inline-block px-2 py-0.5 rounded-full uppercase font-bold bg-emerald-100 text-emerald-700">
+                                                Subscription Paid
+                                            </div>
+                                        )}
                                         <div className={`text-[10px] mt-1 inline-block px-2 py-0.5 rounded-full uppercase font-bold ${order.payment.provider === 'manual' ? 'bg-orange-100 text-orange-700' : 'bg-blue-100 text-blue-700'
                                             }`}>
                                             {order.payment.provider}
