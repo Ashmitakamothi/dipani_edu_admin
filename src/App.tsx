@@ -167,9 +167,9 @@ export default function App() {
     }
   })();
 
-  const isSuperAdmin = currentRole === "superadmin";
+  const isSuperAdmin = currentRole === "superadmin" || currentRole === "admin";
   const canViewCourses =
-    isSuperAdmin || currentRole === "reseller" || currentRole === "partner";
+    isSuperAdmin || currentRole === "admin" || currentRole === "reseller" || currentRole === "partner";
 
   // Show popup if not authenticated and not on /signin or /signup
   // (You may want to refine this logic based on your routing needs)

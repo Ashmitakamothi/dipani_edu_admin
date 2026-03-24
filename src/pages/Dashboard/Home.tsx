@@ -58,6 +58,29 @@ const Home: React.FC = () => {
 
   const { counts, latest } = overview;
 
+  // normalize current role (check 'role' key first, then user object)
+  const currentRole = (() => {
+    try {
+      let role = localStorage.getItem("role");
+      if (!role) {
+        const userStr = localStorage.getItem("user");
+        if (userStr) {
+          try {
+            const parsed = JSON.parse(userStr);
+            role = parsed?.role;
+          } catch (e) {
+            // ignore
+          }
+        }
+      }
+      return role ? String(role).trim().toLowerCase() : "";
+    } catch {
+      return "";
+    }
+  })();
+
+  const isRestrictedRole = currentRole === "reseller" || currentRole === "partner";
+
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -162,26 +185,25 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-medium text-gray-600">
-                  Forum Threads
-                </p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">
-                  {counts?.totalForumThreads}
-                </p>
-              </div>
-              <div className="bg-purple-100 p-3 rounded-lg">
-                <MessageSquare className="w-6 h-6 text-purple-600" />
+          {!isRestrictedRole && (
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-gray-600">Forum Threads</p>
+                  <p className="text-3xl font-bold text-gray-900 mt-2">{counts?.totalForumThreads}</p>
+                </div>
+                <div className="bg-purple-100 p-3 rounded-lg">
+                  <MessageSquare className="w-6 h-6 text-purple-600" />
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
 
-        {/* Sales Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        {/* Sales Overview (hidden for reseller / partner) */}
+        {!isRestrictedRole && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mb-4">
               <h3 className="text-lg font-semibold text-gray-900">
                 Sales Overview
@@ -229,8 +251,9 @@ const Home: React.FC = () => {
                 Total Revenue Generated
               </p>
             </div>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Recent Activities */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -318,7 +341,8 @@ const Home: React.FC = () => {
           </div>
 
           {/* Forum Activity */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          {!isRestrictedRole && (
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mb-4">
               <h3 className="text-lg font-semibold text-gray-900">
                 Forum Activity
@@ -354,7 +378,8 @@ const Home: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

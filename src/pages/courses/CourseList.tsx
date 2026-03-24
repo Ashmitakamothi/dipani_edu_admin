@@ -99,7 +99,7 @@ const CourseList: React.FC = () => {
     }
   })();
 
-  const isSuperAdmin = currentRole === "superadmin";
+  const isSuperAdmin = currentRole === "superadmin" || currentRole === "admin";
 
   // Debounce search
   useEffect(() => {

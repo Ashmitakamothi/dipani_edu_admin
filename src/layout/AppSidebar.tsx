@@ -580,13 +580,14 @@ const AppSidebar: React.FC = () => {
   );
 
   const normalizedRole = String(userRole || "").toLowerCase();
-  const isSuperAdminRole = normalizedRole === "superadmin";
+  const isSuperAdminRole = normalizedRole === "superadmin" || normalizedRole === "admin";
 
   const partnerHiddenNavNames = new Set([
     "Banner",
     "Page Banner Manager",
     "Events",
     "Jobs",
+    'Queries',
     "Categories",
     "News",
     "Forums",
@@ -595,6 +596,7 @@ const AppSidebar: React.FC = () => {
     "Partners",
     "Services",
     "Coupons",
+    'General Settings',
     "Orders",
     "Device Approvals",
     "Testimonials",
