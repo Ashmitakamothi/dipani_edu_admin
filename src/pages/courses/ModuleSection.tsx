@@ -776,15 +776,18 @@ const LessonEditor = ({
       }
       case "video":
       default: {
-        let videoData = lesson.files;
-        console.log("lesson.video", lesson.video);
-        console.log("courseData.modules", courseData?.modules);
-        let fileId = lesson.files?.[0]?._id || lesson.fileId;
-        if (!videoData && courseData?.modules) {
-          for (const mod of courseData.modules) {
+        // Defensive defaults
+        const safeLesson = { ...lesson, files: Array.isArray(lesson.files) ? lesson.files : [] };
+        const safeCourseData = { ...courseData, modules: Array.isArray(courseData?.modules) ? courseData.modules : [] };
+        let videoData = safeLesson.files;
+        console.log("lesson.video", safeLesson.video);
+        console.log("courseData.modules", safeCourseData.modules);
+        let fileId = safeLesson.files?.[0]?._id || safeLesson.fileId;
+        if ((!videoData || videoData.length === 0) && safeCourseData.modules) {
+          for (const mod of safeCourseData.modules) {
             if (mod.lessons) {
               for (const l of mod.lessons) {
-                if (l._id === lesson._id && l.files) {
+                if (l._id === safeLesson._id && l.files) {
                   videoData = l.files;
                   fileId = l.files._id;
                 }
@@ -798,7 +801,7 @@ const LessonEditor = ({
           "fileId:",
           fileId,
           "lesson:",
-          lesson
+          safeLesson
         );
         return (
           <Files

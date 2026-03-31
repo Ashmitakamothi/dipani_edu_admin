@@ -22,13 +22,31 @@ import {
   updateVideo,
 } from "../../../store/slices/vedio";
 import axiosInstance from "../../../services/axiosConfig";
+import { AxiosProgressEvent } from "axios";
 
 // Fixed interface to match your store structure
+interface VideoData {
+  title: string;
+  description: string;
+  sourcePlatform: string;
+  file?: File | null;
+  videoId: string;
+  secureUrl: string;
+  embedUrl: string;
+  originalUrl: string;
+  youtubeUrl: string;
+  vdocipherVideoId: string;
+  uploadMethod: string;
+  thumbnail: string;
+  quality: string;
+  status: string;
+}
+
 interface RootState {
   vedio: {
     loading: boolean;
     error: string | null;
-    data: any;
+    data: VideoData | null;
   };
 }
 
@@ -36,9 +54,9 @@ interface RootState {
 type VideoLessonProps = {
   lessonId: string;
   videoId?: string;
-  fileId?: string; // Added this missing prop
+  fileId?: string;
   onClose: () => void;
-  onSaveSuccess?: (data: any) => void;
+  onSaveSuccess?: (data: VideoData) => void;
 };
 
 const sourcePlatforms = [
@@ -187,22 +205,20 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
 }) => {
   const dispatch = useDispatch();
 
-  const { data, loading, error } = useSelector(
-    (state: RootState) => state.vedio
-  );
+  const { data, loading, error } = useSelector((state: RootState) => state.vedio);
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<VideoData>({
     title: "",
     description: "",
     sourcePlatform: "",
-    file: null as File | null,
+    file: null,
     videoId: "",
     secureUrl: "",
     embedUrl: "",
     originalUrl: "",
     youtubeUrl: "",
-    vdocipherVideoId: "", // Added for existing VdoCipher videos
-    uploadMethod: "file", // Added to track upload method: "file" or "videoId"
+    vdocipherVideoId: "",
+    uploadMethod: "file",
     thumbnail: "",
     quality: "auto",
     status: "",
@@ -223,7 +239,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
   });
 
   // Mock upload progress simulation
-  const uploadInChunks = async (file: File) => {
+  const uploadInChunks = async (file: File): Promise<string> => {
     const CHUNK_SIZE = 100 * 1024 * 1024; // 100MB
     const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
     const fileId = `${file.name}-${Date.now()}`;
@@ -243,14 +259,16 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
           "chunkindex": i.toString(),
           "totalchunks": totalChunks.toString(),
         },
-        onUploadProgress: (e) => {
-          const progress = Math.round(((i + e.loaded / e.total!) / totalChunks) * 100);
-          setUploadProgress({
-            isVisible: true,
-            progress,
-            fileName: file.name,
-            stage: `Uploading chunk ${i + 1}/${totalChunks} (est. ${Math.ceil((totalChunks - i) * 2)} min left)...`,
-          });
+        onUploadProgress: (e: AxiosProgressEvent) => {
+          if (e.total && e.loaded !== undefined) {
+            const progress = Math.round(((i + e.loaded / e.total) / totalChunks) * 100);
+            setUploadProgress({
+              isVisible: true,
+              progress,
+              fileName: file.name,
+              stage: `Uploading chunk ${i + 1}/${totalChunks} (est. ${Math.ceil((totalChunks - i) * 2)} min left)...`,
+            });
+          }
         },
         timeout: 3600000, // Increased timeout to 60 seconds for large chunks
       });
@@ -287,7 +305,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
   };
 
   // Enhanced getData function to handle VdoCipher data structure
-  const getData = async () => {
+  const getData = async (): Promise<void> => {
     try {
       setIsEditMode(true);
       const response = await axiosInstance.get(`/video/${fileId}`);
@@ -325,6 +343,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
     if (fileId) {
       getData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fileId]);
 
   useEffect(() => {
@@ -365,9 +384,10 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, files } = e.target as any;
-    if (name === "file") {
-      setForm((prev) => ({ ...prev, file: files?.[0] || null }));
+    const target = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    const { name, value } = target;
+    if (name === "file" && (target as HTMLInputElement).files) {
+      setForm((prev) => ({ ...prev, file: (target as HTMLInputElement).files?.[0] || null }));
     } else {
       setForm((prev) => ({ ...prev, [name]: value }));
     }
@@ -424,8 +444,8 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
         const response = await axiosInstance.post("/video", formData, {
           headers: { "Content-Type": "multipart/form-data" },
           timeout: 7200000, // 2 hours in milliseconds
-          onUploadProgress: (e) => {
-            if (e.total) {
+          onUploadProgress: (e: AxiosProgressEvent) => {
+            if (e.total && e.loaded !== undefined) {
               setUploadProgress(prev => ({
                 ...prev,
                 progress: Math.round((e.loaded / e.total) * 100),
@@ -508,12 +528,170 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
     }
 
     try {
-      let response;
-      // ...existing code...
+
+            
+
+      let response: unknown;
+
+            
+      // Handle VdoCipher video ID linking (no file upload needed)
+      if (form.sourcePlatform == "videocypher" && form.uploadMethod == "videoId") {
+        const videoData = {
+          lessonId,
+          sourcePlatform: form.sourcePlatform,
+          title: form.title,
+          description: form.description,
+          videoId: form.vdocipherVideoId.trim(),
+          uploadMethod: "existing_video_id",
+          quality: form.quality || "auto",
+        };
+
+        if (isEditMode && (fileId || videoId)) {
+          response = await dispatch(
+            updateVideo({
+              videoId: (fileId || videoId)!,
+              lessonId: videoData.lessonId,
+              sourcePlatform: videoData.sourcePlatform,
+              title: videoData.title,
+              description: videoData.description,
+              uploadMethod: videoData.uploadMethod,
+              quality: videoData.quality,
+              vdocipherVideoId: videoData.videoId,
+              filePath: "", // No file path needed for video ID linking
+              accessToken: "",
+              refreshToken: "",
+            })
+          );
+        } else {
+          response = await dispatch(
+            uploadVideo({
+              lessonId: videoData.lessonId,
+              sourcePlatform: videoData.sourcePlatform,
+              title: videoData.title,
+              description: videoData.description,
+              uploadMethod: videoData.uploadMethod,
+              quality: videoData.quality,
+              videoId: videoData.videoId,
+              filePath: "", // No file path needed for video ID linking
+              accessToken: "",
+              refreshToken: "",
+            })
+          );
+        }
+
+        if (response.payload?.success) {
+          setPopup({
+            isVisible: true,
+            message: "VdoCipher video linked successfully! 🎬 Your existing video is now available for streaming.",
+            type: "success",
+          });
+          setTimeout(() => {
+            handleClose();
+          }, 1500);
+        } else {
+          setPopup({
+            isVisible: true,
+            message: `Failed to link VdoCipher video: ${
+              response.payload?.message || "Please verify the Video ID is correct and the video is in ready state."
+            }`,
+            type: "error",
+          });
+        }
+        return;
+      }
       
+      if (isEditMode && (fileId || videoId)) {
+        // For VdoCipher updates, we need to use the correct ID
+        const updateId = fileId || videoId;
+        
+        // Show confirmation if replacing video file
+        if (form.file && form.sourcePlatform === "videocypher") {
+          const confirmReplace = window.confirm(
+            `Are you sure you want to replace the current video with "${form.file.name}"? This action cannot be undone.`
+          );
+          if (!confirmReplace) {
+            return;
+          }
+        }
+
+        let finalPath = "";
+        
+        // Only upload chunks for VdoCipher file uploads in edit mode
+        if (form.sourcePlatform === "videocypher" && form.uploadMethod === "file" && form.file) {
+          console.log("Starting chunked upload for file:", form.file.name);
+          finalPath = await uploadInChunks(form.file);
+          console?.log("finalPath", finalPath);
+        }
+
+        response = await dispatch(
+          updateVideo({
+            videoId: updateId!, // Use fileId for VdoCipher updates
+            ...(form.file && { file: form.file }),
+            lessonId,
+            sourcePlatform: form.sourcePlatform,
+            title: form.title,
+            description: form.description,
+            uploadMethod: form.uploadMethod === "videoId" ? "existing_video_id" : "file",
+            filePath: finalPath,
+            youtubeUrl: form.sourcePlatform === "youtube" ? form.youtubeUrl : undefined,
+            // Include VdoCipher specific fields if updating VdoCipher video
+            ...(form.sourcePlatform === "videocypher" && {
+              quality: form.quality,
+              thumbnail: form.thumbnail,
+              replaceVideo: !!form.file, // Flag to indicate video replacement
+              ...(form.uploadMethod === "videoId" && {
+                vdocipherVideoId: form.vdocipherVideoId.trim(),
+              }),
+            }),
+            accessToken: "",
+            refreshToken: "",
+          })
+        );
+      } else {
+        let finalPath = "";
+        
+        // Only upload chunks for VdoCipher file uploads
+        if (form.sourcePlatform === "videocypher" && form.uploadMethod === "file" && form.file) {
+          finalPath = await uploadInChunks(form.file);
+        }
+        
+        response = await dispatch(
+          uploadVideo({
+            ...(form.file && { file: form.file }),
+            lessonId,
+            sourcePlatform: form.sourcePlatform,
+            title: form.title,
+            description: form.description,
+            filePath: finalPath,
+            uploadMethod: form.uploadMethod === "videoId" ? "existing_video_id" : "file",
+            youtubeUrl: form.sourcePlatform === "youtube" ? form.youtubeUrl : undefined,
+            // Include VdoCipher specific fields if uploading to VdoCipher
+            ...(form.sourcePlatform === "videocypher" && {
+              quality: form.quality || "auto",
+              ...(form.uploadMethod === "videoId" && {
+                videoId: form.vdocipherVideoId.trim(),
+              }),
+            }),
+            accessToken: "",
+            refreshToken: "",
+          })
+        );
+      }
+      
+      console.log("Video operation response:", response);
+
+
+      // Helper to get payload or fallback to response
+      const getPayload = (resp: unknown) => (resp && typeof resp === 'object' && 'payload' in resp) ? (resp as { payload: unknown }).payload : resp;
+      const payload = getPayload(response);
+
+      // Debug: log backend response for troubleshooting
+      console.log('Video save backend response:', response);
+      console.log('Video save payload:', payload);
+
       // For YouTube, show immediate success without progress
       if (form.sourcePlatform === "youtube") {
-        if (response.payload?.success) {
+        if (payload?.success) {
           setPopup({
             isVisible: true,
             message: "YouTube video linked successfully! 🎬 Your video is now available for streaming.",
@@ -524,10 +702,11 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
             handleClose();
           }, 1500);
         } else {
+
           setPopup({
             isVisible: true,
             message: `Failed to ${isEditMode ? "update" : "link"} YouTube video: ${
-              response.payload?.message || "Unknown error"
+              payload?.message || "Unknown error"
             }`,
             type: "error",
           });
@@ -535,7 +714,7 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
       } else {
         if (form.sourcePlatform === "videocypher") {
           // For VdoCipher, the success message is shown by showSuccessMessage after upload simulation
-          if (response.payload?.success) {
+          if (payload?.success) {
             showSuccessMessage();
             // Close after a short delay to show success message
             setTimeout(() => {
@@ -544,12 +723,12 @@ const VideoLesson: React.FC<VideoLessonProps> = ({
           }
         }
         // For VdoCipher, the success message is shown by showSuccessMessage after upload simulation
-        else if (!response.payload?.success) {
+        else if (!payload?.success) {
           setUploadProgress(prev => ({ ...prev, isVisible: false }));
           setPopup({
             isVisible: true,
             message: `Failed to ${isEditMode ? "update" : "upload"} video: ${
-              response.payload?.message || "Unknown error"
+              payload?.message || "Unknown error"
             }`,
             type: "error",
           });
