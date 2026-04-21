@@ -4,7 +4,7 @@ import ManualPaymentForm from "../components/ManualPaymentForm";
 const PaymentOptionModal: React.FC<{ open: boolean; onClose: () => void; onSelect: (method: string) => void; }> = ({ open, onClose, onSelect }) => {
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
       <div className="bg-white rounded-lg shadow-lg p-6 min-w-[300px]">
         <h3 className="text-lg font-semibold mb-4">Choose Payment Method</h3>
         <div className="flex flex-col gap-3">
@@ -315,7 +315,7 @@ const SubscriptionPlans: React.FC = () => {
   }, [userRole]);
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="w-full p-4 lg:p-8">
       <h2 className="text-2xl font-bold mb-4">Subscription Plans</h2>
 
       {userRole === "partner" && (

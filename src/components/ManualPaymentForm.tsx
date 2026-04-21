@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface ManualPaymentFormProps {
@@ -45,7 +46,7 @@ const ManualPaymentForm: React.FC<ManualPaymentFormProps> = ({ open, onClose, pl
 
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
       <div className="w-full max-w-md rounded-2xl border border-gray-200 bg-white shadow-xl dark:border-gray-700 dark:bg-gray-800">
         <div className="flex items-start justify-between border-b border-gray-100 p-5 dark:border-gray-700">
           <div>
@@ -65,7 +66,7 @@ const ManualPaymentForm: React.FC<ManualPaymentFormProps> = ({ open, onClose, pl
           <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-900/40">
             <div className="flex flex-col items-center gap-3">
               <img
-                src="/images/download.png"
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(`upi://pay?pa=${UPI_ID}&pn=Dipani%20Education&cu=INR`)}`}
                 alt="Scan QR"
                 className="h-40 w-40 rounded-lg border border-gray-200 bg-white p-2 object-contain dark:border-gray-700"
               />
