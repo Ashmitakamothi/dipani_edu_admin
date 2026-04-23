@@ -435,6 +435,7 @@ const DripPopup = ({
   // Add missing state for multiSelectOpen and selectAll
   const [multiSelectOpen, setMultiSelectOpen] = useState(false);
   const [selectAll, setSelectAll] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <div className="w-full max-w-4xl mx-auto">
