@@ -169,7 +169,7 @@ const StudentList: React.FC = () => {
         <div>
             <PageMeta title="Student List | Admin" description="List of all students with referral and course info" />
             <PageBreadcrumb pageTitle="Student List" />
-            <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
+            <div className="max-w-full overflow-hidden min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
                 {/* Header */}
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold text-gray-800 dark:text-white/90">Students</h1>
@@ -260,7 +260,7 @@ const StudentList: React.FC = () => {
                 </p>
 
                 {/* Table */}
-                <div className="bg-white shadow rounded-lg overflow-x-auto dark:bg-gray-900">
+                <div className="w-full bg-white shadow rounded-lg overflow-x-auto dark:bg-gray-900">
                     <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                         <thead className="bg-gray-50 dark:bg-gray-800">
                             <tr>
@@ -313,17 +313,17 @@ const StudentList: React.FC = () => {
                                                         className="w-10 h-10 rounded-full object-cover"
                                                     />
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                                                <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
                                                     {student?.fullName || student?.name || "-"}
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                                <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 break-all">
                                                     {student?.email || "-"}
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
                                                     {student?.phone || "-"}
                                                 </td>
                                                 {/* Referred By Partner */}
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                                <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
                                                     {student?.referredByPartner ? (
                                                         <div>
                                                             <p className="font-medium text-indigo-600 dark:text-indigo-400">

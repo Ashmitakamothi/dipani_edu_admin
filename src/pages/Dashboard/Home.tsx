@@ -124,7 +124,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">
@@ -136,7 +136,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className={`grid grid-cols-1 md:grid-cols-2 ${isRestrictedRole ? "lg:grid-cols-3" : "lg:grid-cols-4"} gap-6 mb-8`}>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4">
               <div>
@@ -256,7 +256,7 @@ const Home: React.FC = () => {
         )}
 
         {/* Recent Activities */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className={`grid grid-cols-1 ${isRestrictedRole ? "lg:grid-cols-2" : "lg:grid-cols-3"} gap-6`}>
           {/* Latest Courses */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="flex sm:flex-row items-center sm:items-center justify-between gap-4 mb-4">
@@ -266,7 +266,7 @@ const Home: React.FC = () => {
               <Eye className="w-5 h-5 text-gray-400" />
             </div>
             <div className="space-y-4">
-              {latest?.courses?.slice(0, 3).map((course) => (
+              {latest?.courses?.slice(0, 5).map((course) => (
                 <div key={course._id} className="flex items-start space-x-3">
                   <img
                     src={course.thumbnail}
@@ -305,7 +305,7 @@ const Home: React.FC = () => {
               <HelpCircle className="w-5 h-5 text-gray-400" />
             </div>
             <div className="space-y-4">
-              {latest?.supportTickets?.slice(0, 3).map((ticket) => (
+              {latest?.supportTickets?.slice(0, 5).map((ticket) => (
                 <div
                   key={ticket?._id}
                   className="border-l-4 border-brand-500 pl-4"
